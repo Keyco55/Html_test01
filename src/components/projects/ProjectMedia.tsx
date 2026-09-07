@@ -6,7 +6,7 @@ interface ProjectMediaProps {
   readonly title: string;
   readonly monogram: string;
   /** Expected asset path (public/images/projects/…). Renders when the file exists. */
-  readonly slotPath: string;
+  readonly slotPath?: string;
   readonly alt?: string;
   readonly caption?: string;
   readonly badgeText?: string;
@@ -117,7 +117,7 @@ export const ProjectMedia: React.FC<ProjectMediaProps> = ({
         </div>
 
         {/* Real asset layer */}
-        {imgOk && (
+        {slotPath && imgOk && (
           /* eslint-disable-next-line @next/next/no-img-element -- static export + images.unoptimized; raw <img> with onError fallback is intentional */
           <img
             ref={imgRef}

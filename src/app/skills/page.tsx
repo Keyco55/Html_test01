@@ -95,9 +95,9 @@ const NOTION_USES = [
 ] as const;
 
 const NOTION_SLOTS = [
-  { src: "/images/process/notion-project-overview.webp", caption: "프로젝트 개요 문서" },
-  { src: "/images/process/notion-day-log.webp", caption: "Day Log 기록" },
-  { src: "/images/process/notion-qa-checkpoint.webp", caption: "QA 체크포인트" },
+  { src: undefined, caption: "프로젝트 개요 문서" },
+  { src: undefined, caption: "Day Log 기록" },
+  { src: undefined, caption: "QA 체크포인트" },
 ] as const;
 
 export default function SkillsPage() {
@@ -287,7 +287,7 @@ export default function SkillsPage() {
                 <div className="dot-grid-light flex flex-col gap-4 border-t border-ink/10 bg-paper-deep/50 p-6 md:border-t-0 md:border-l md:p-8">
                   {NOTION_SLOTS.map((slot) => (
                     <OptionalImage
-                      key={slot.src}
+                      key={slot.caption}
                       src={slot.src}
                       alt={`Notion ${slot.caption} 스크린샷`}
                       caption={slot.caption}

@@ -11,8 +11,8 @@ export const metadata: Metadata = createSiteMetadata("/experience") as Metadata;
 /** Short factual scope notes — condensed from contextNote in src/data/experience.ts. */
 /** Optional future work-photo slots — invisible until real assets exist. */
 const MEDIA_SLOTS: Record<string, { dir: string; alt: string } | undefined> = {
-  "gom-and-company": { dir: "/images/experience/gom", alt: "곰앤컴퍼니 근무 사진" },
-  "lotte-world": { dir: "/images/experience/lotteworld", alt: "롯데월드 근무 사진" },
+  "gom-and-company": undefined,
+  "lotte-world": undefined,
 };
 
 const SCOPE_NOTES: Record<string, string | undefined> = {

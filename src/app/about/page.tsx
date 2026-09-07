@@ -187,7 +187,7 @@ export default function AboutPage() {
                 </div>
                 {/* future artifact slot — hidden until media exists */}
                 <OptionalImage
-                  src={`/images/education/${degree.id}.webp`}
+                  src={undefined}
                   alt={`${degree.institution} 증빙 이미지`}
                   className="rounded-xl border border-ink/10"
                   aspect="3 / 4"
@@ -228,7 +228,7 @@ export default function AboutPage() {
                     )}
                   </div>
                   <OptionalImage
-                    src={`/images/education/${item.id}.webp`}
+                    src={undefined}
                     alt={`${item.institution} 수료 증빙 이미지`}
                     className="rounded-xl border border-ink/10"
                     aspect="4 / 3"
@@ -272,7 +272,7 @@ export default function AboutPage() {
                   </div>
                   {/* future certificate slot — hidden until media exists */}
                   <OptionalImage
-                    src={`/images/awards/${award.id}.webp`}
+                    src={undefined}
                     alt={`${award.title} 증빙 이미지`}
                     className="rounded-lg border border-ink/10"
                     aspect="4 / 3"
@@ -297,10 +297,7 @@ export default function AboutPage() {
           <div className="mt-9 grid grid-cols-1 gap-6 md:grid-cols-2">
             {contentData.map((item, i) => {
               const accent = CHANNEL_ACCENT[item.platform] ?? "var(--clay)";
-              const coverSlot =
-                item.platform === "youtube"
-                  ? "/images/content/youtube/cover-1200x675.webp"
-                  : "/images/content/blog/cover-1200x675.webp";
+              const coverSlot = undefined;
               return (
                 <Reveal key={item.id} delay={i * 80}>
                   <a

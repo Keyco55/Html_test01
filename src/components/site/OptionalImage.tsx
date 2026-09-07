@@ -3,7 +3,7 @@
 import React from "react";
 
 interface OptionalImageProps {
-  readonly src: string;
+  readonly src?: string;
   readonly alt: string;
   readonly className?: string;
   readonly wrapperClassName?: string;
@@ -35,7 +35,7 @@ export const OptionalImage: React.FC<OptionalImageProps> = ({
     }
   }, []);
 
-  if (!ok) return null;
+  if (!src || !ok) return null;
 
   return (
     <figure className={wrapperClassName} style={{ margin: 0 }}>

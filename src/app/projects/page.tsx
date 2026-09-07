@@ -42,7 +42,7 @@ const OTHER_PROJECTS = [
     category: "Developer Infrastructure",
     period: "2026.08 ~ 현재",
     badge: "Public · Open Source",
-    slotPath: "/images/projects/status-hub/cover-1600x1000.webp",
+    slotPath: undefined,
     aspect: "16 / 10",
     mediaSpan: "md:col-span-7",
     contentSpan: "md:col-span-5",
@@ -61,7 +61,7 @@ const OTHER_PROJECTS = [
     category: "Work Project",
     period: "2024 ~ 2025",
     badge: "사내 적용 · 자산 비공개",
-    slotPath: "/images/projects/gom/cover-1600x1000.webp",
+    slotPath: undefined,
     aspect: "1 / 1",
     mediaSpan: "md:col-span-4",
     contentSpan: "md:col-span-8",
@@ -80,7 +80,7 @@ const OTHER_PROJECTS = [
     category: "macOS Native Tool",
     period: "2026.08",
     badge: "Open Source",
-    slotPath: "/images/projects/ai-hub-pet/cover-1600x1000.webp",
+    slotPath: undefined,
     aspect: "16 / 10",
     mediaSpan: "md:col-span-6",
     contentSpan: "md:col-span-6",
@@ -149,7 +149,7 @@ export default function ProjectsPage() {
               <ProjectMedia
                 title="KBO-Hub 메인 대시보드 · 실시간 경기/포토카드 아카이브"
                 monogram="KBO"
-                slotPath="/images/projects/kbo-hub/desktop-1600x1000.webp"
+                slotPath={undefined}
                 alt="KBO-Hub 데스크톱 메인 대시보드 스크린샷"
                 badgeText="Closed Beta Verified"
                 tone="dark"
@@ -159,7 +159,7 @@ export default function ProjectsPage() {
                 <ProjectMedia
                   title="모바일 뷰"
                   monogram="M"
-                  slotPath="/images/projects/kbo-hub/mobile-600x1200.webp"
+                  slotPath={undefined}
                   alt="KBO-Hub 모바일 스크린샷"
                   tone="dark"
                   aspect="9 / 16"

@@ -41,7 +41,7 @@ const SUPPORTING = [
     what: "여러 AI 서비스의 사용량과 리셋 시각을 메뉴바와 터미널에 모아 보여주는 프라이버시 보존형 로컬 도구입니다.",
     stack: "Python · Swift · cmux",
     badge: "Public · Open Source",
-    slotPath: "/images/projects/status-hub/cover-1600x1000.webp",
+    slotPath: undefined,
     span: "md:col-span-2",
   },
   {
@@ -52,7 +52,7 @@ const SUPPORTING = [
     what: "마케팅 데이터 취합·리포트 작성과 랜딩 페이지 수정 업무를 Python 파이프라인으로 자동화한 실무 프로젝트입니다.",
     stack: "Python · pandas · openpyxl",
     badge: "Work Project",
-    slotPath: "/images/projects/gom/cover-1600x1000.webp",
+    slotPath: undefined,
     span: "md:col-span-2",
   },
   {
@@ -63,7 +63,7 @@ const SUPPORTING = [
     what: "AI 에이전트의 작업 상태를 말풍선으로 알리고, 클릭 한 번으로 해당 세션으로 이동시키는 macOS 플로팅 앱입니다.",
     stack: "Swift · AppKit · SwiftUI",
     badge: "Open Source",
-    slotPath: "/images/projects/ai-hub-pet/cover-1600x1000.webp",
+    slotPath: undefined,
     span: "md:col-span-2",
   },
 ] as const;
@@ -380,7 +380,7 @@ export default function HomePage() {
                   <ProjectMedia
                     title="KBO-Hub 메인 대시보드"
                     monogram="KBO"
-                    slotPath="/images/projects/kbo-hub/desktop-1600x1000.webp"
+                    slotPath={undefined}
                     alt="KBO-Hub 메인 대시보드 스크린샷"
                     tone="dark"
                     className="w-full max-w-[520px]"
@@ -389,7 +389,7 @@ export default function HomePage() {
                     <ProjectMedia
                       title="모바일 뷰"
                       monogram="M"
-                      slotPath="/images/projects/kbo-hub/mobile-600x1200.webp"
+                      slotPath={undefined}
                       alt="KBO-Hub 모바일 스크린샷"
                       tone="dark"
                       aspect="9 / 16"
