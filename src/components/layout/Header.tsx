@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
 
         <nav aria-label="Main Navigation" className="flex items-center gap-1 sm:gap-2">
           <a
-            href="#projects"
+            href="#featured-projects"
             className="px-2.5 py-1.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-md transition-colors"
           >
             Projects
