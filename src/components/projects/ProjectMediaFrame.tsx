@@ -5,7 +5,7 @@ interface ProjectMediaFrameProps {
   readonly type?: 'browser' | 'terminal' | 'macos-app' | 'workflow';
   readonly badgeText?: string;
   readonly caption?: string;
-  /** Expected future asset path, shown only while no image exists. */
+  /** Expected future asset path, reserved for when a real image is added. */
   readonly slotPath?: string;
   readonly imageSrc?: string;
   readonly imageAlt?: string;
@@ -22,7 +22,6 @@ export const ProjectMediaFrame: React.FC<ProjectMediaFrameProps> = ({
   title,
   badgeText,
   caption,
-  slotPath,
   imageSrc,
   imageAlt,
   children,
@@ -77,29 +76,30 @@ export const ProjectMediaFrame: React.FC<ProjectMediaFrameProps> = ({
               textAlign: 'center',
             }}
           >
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 32 32"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ width: 30, height: 30, color: 'var(--faint)' }}
+            >
+              <rect x="4" y="6" width="24" height="20" rx="3" />
+              <circle cx="11.5" cy="12.5" r="2.4" />
+              <path d="M27 22l-4.5-4.5-4 4L11 14l-7 8" />
+            </svg>
             <span
               style={{
-                fontSize: '0.85rem',
+                fontSize: '0.9rem',
                 fontWeight: 600,
                 color: 'var(--ink-soft)',
+                letterSpacing: '0.01em',
               }}
             >
               {title}
             </span>
-            <span style={{ fontSize: '0.78rem', color: 'var(--muted)' }}>
-              실제 스크린샷 준비 중
-            </span>
-            {slotPath && (
-              <code
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.68rem',
-                  color: 'var(--faint)',
-                }}
-              >
-                {slotPath}
-              </code>
-            )}
             {badgeText && (
               <span
                 style={{
