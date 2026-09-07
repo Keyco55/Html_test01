@@ -14,6 +14,9 @@ interface ProjectMediaProps {
   readonly tone?: "dark" | "light";
   readonly aspect?: string;
   readonly className?: string;
+  readonly loading?: "lazy" | "eager";
+  readonly decoding?: "async" | "auto" | "sync";
+  readonly fetchPriority?: "high" | "low" | "auto";
 }
 
 /**
@@ -34,6 +37,9 @@ export const ProjectMedia: React.FC<ProjectMediaProps> = ({
   tone = "light",
   aspect = "16 / 10",
   className = "",
+  loading = "lazy",
+  decoding = "async",
+  fetchPriority = "auto",
 }) => {
   const [imgOk, setImgOk] = React.useState(true);
   const imgRef = React.useRef<HTMLImageElement | null>(null);
@@ -123,9 +129,11 @@ export const ProjectMedia: React.FC<ProjectMediaProps> = ({
             ref={imgRef}
             src={slotPath}
             alt={alt ?? `${title} 프로젝트 이미지`}
-            loading="lazy"
+            loading={loading}
+            decoding={decoding}
+            {...(fetchPriority !== "auto" ? { fetchPriority } : {})}
             onError={() => setImgOk(false)}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover/media:scale-[1.03]"
+            className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover/media:scale-[1.03]"
           />
         )}
       </div>

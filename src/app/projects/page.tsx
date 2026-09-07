@@ -143,24 +143,24 @@ export default function ProjectsPage() {
             </article>
           </Reveal>
 
-          {/* Layered media composition — desktop + mobile + detail slots */}
+          {/* Layered media composition — desktop + mobile (representative) */}
           <Reveal delay={100}>
             <div className="relative mt-10">
               <ProjectMedia
                 title="KBO-Hub 메인 대시보드 · 실시간 경기/포토카드 아카이브"
                 monogram="KBO"
-                slotPath={undefined}
-                alt="KBO-Hub 데스크톱 메인 대시보드 스크린샷"
+                slotPath="/images/projects/kbo-hub/cover.webp"
+                alt="HOMEPLATE 야구팬 플랫폼 메인 화면"
                 badgeText="Closed Beta Verified"
                 tone="dark"
-                caption="실제 배포된 제품 스크린샷이 이 영역에 표시됩니다 — desktop / mobile / detail 슬롯 준비 완료"
+                caption="HOMEPLATE — 통합 야구팬 라이프스타일 C2C 플랫폼"
               />
               <div className="absolute -right-2 -bottom-8 w-[112px] md:-right-6 md:-bottom-10 md:w-[168px]">
                 <ProjectMedia
                   title="모바일 뷰"
                   monogram="M"
-                  slotPath={undefined}
-                  alt="KBO-Hub 모바일 스크린샷"
+                  slotPath="/images/projects/kbo-hub/mobile.webp"
+                  alt="HOMEPLATE 모바일 메인 화면"
                   tone="dark"
                   aspect="9 / 16"
                 />
@@ -226,6 +226,56 @@ export default function ProjectsPage() {
               </div>
             </Reveal>
           </div>
+
+          {/* Feature gallery — supporting HOMEPLATE screens (lower, editorial) */}
+          <Reveal delay={160}>
+            <div className="mt-14 border-t border-ink/10 pt-10">
+              <p className="font-mono text-[11px] tracking-[0.18em] text-muted uppercase">
+                HOMEPLATE — Feature Screens
+              </p>
+              <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
+                <figure className="flex flex-col">
+                  <ProjectMedia
+                    title="팬킹덤 및 어워즈"
+                    monogram="FAN"
+                    slotPath="/images/projects/kbo-hub/feature-fan-kingdom.webp"
+                    alt="HOMEPLATE 팬킹덤 및 어워즈 화면"
+                    caption="팬킹덤 · 어워즈 — 팬 커뮤니티와 투표"
+                    aspect="16 / 10"
+                  />
+                  <figcaption className="mt-2.5 font-mono text-[11px] leading-relaxed text-muted">
+                    팬킹덤 · 어워즈
+                  </figcaption>
+                </figure>
+                <figure className="flex flex-col">
+                  <ProjectMedia
+                    title="포토카드 아카이브"
+                    monogram="CARD"
+                    slotPath="/images/projects/kbo-hub/feature-photocard.webp"
+                    alt="HOMEPLATE 포토카드 아카이브 및 도감"
+                    caption="포토카드 아카이브 및 도감"
+                    aspect="16 / 10"
+                  />
+                  <figcaption className="mt-2.5 font-mono text-[11px] leading-relaxed text-muted">
+                    포토카드 아카이브 및 도감
+                  </figcaption>
+                </figure>
+                <figure className="flex flex-col">
+                  <ProjectMedia
+                    title="야구 굿즈 장터"
+                    monogram="MKT"
+                    slotPath="/images/projects/kbo-hub/feature-marketplace.webp"
+                    alt="HOMEPLATE 야구장 직거래 및 굿즈 중고장터"
+                    caption="야구장 직거래 · 굿즈 중고장터"
+                    aspect="16 / 10"
+                  />
+                  <figcaption className="mt-2.5 font-mono text-[11px] leading-relaxed text-muted">
+                    야구장 직거래 · 굿즈 중고장터
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </Reveal>
         </Container>
       </section>
 

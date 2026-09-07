@@ -375,13 +375,13 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Layered media: desktop + phone overlap */}
+                {/* Layered media: desktop + phone overlap — real HOMEPLATE assets */}
                 <div className="relative flex items-center justify-center lg:justify-end">
                   <ProjectMedia
                     title="KBO-Hub 메인 대시보드"
                     monogram="KBO"
-                    slotPath={undefined}
-                    alt="KBO-Hub 메인 대시보드 스크린샷"
+                    slotPath="/images/projects/kbo-hub/cover.webp"
+                    alt="HOMEPLATE 야구팬 플랫폼 메인 화면"
                     tone="dark"
                     className="w-full max-w-[520px]"
                   />
@@ -389,8 +389,8 @@ export default function HomePage() {
                     <ProjectMedia
                       title="모바일 뷰"
                       monogram="M"
-                      slotPath={undefined}
-                      alt="KBO-Hub 모바일 스크린샷"
+                      slotPath="/images/projects/kbo-hub/mobile.webp"
+                      alt="HOMEPLATE 모바일 메인 화면"
                       tone="dark"
                       aspect="9 / 16"
                     />
