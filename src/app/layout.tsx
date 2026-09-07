@@ -2,12 +2,9 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { createPersonJsonLd, createSiteMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'KEYCO | Full-stack & AI Engineering Portfolio',
-  description:
-    '풀스택 제품 개발과 AI 협업 워크플로우를 설계하고 구현하는 KEYCO의 포트폴리오입니다.',
-};
+export const metadata: Metadata = createSiteMetadata('/') as Metadata;
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -19,9 +16,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const personJsonLd = createPersonJsonLd();
   return (
     <html lang="ko">
       <body className="flex min-h-screen flex-col bg-slate-950 text-slate-100 antialiased">
+        {personJsonLd ? (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          />
+        ) : null}
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
