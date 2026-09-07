@@ -1,125 +1,316 @@
 @import "tailwindcss";
 
 /*
- * KEYCO Portfolio Visual v2 — Light Editorial × Product Portfolio
+ * KEYCO Portfolio Visual v3 — Editorial Light × Ink Night Design System
  *
- * KBO-HUB FONT TODO: KBO-Hub project font evidence is not available in this
- * worktree. Typography architecture below is intentionally swappable: replace
- * --font-sans with the confirmed family without touching components.
- * Temporary stack is Pretendard-compatible system Korean-capable only.
- * No external font is loaded.
+ * TYPOGRAPHY EVIDENCE
+ * Korean/UI:  Wanted Sans Std Variable (local woff2)
+ *             License: SIL Open Font License 1.1
+ *             Source:  https://github.com/wanteddev/wanted-sans (v1.0.3)
+ *             Asset:   /public/fonts/wanted-sans/WantedSansStdVariable.woff2
+ *             LICENSE: /public/fonts/wanted-sans/OFL.txt
+ * Latin/numerals: Plus Jakarta Sans via next/font/google (SIL OFL 1.1)
+ * Same direction as KBO-Hub (app/layout.tsx font evidence).
+ *
+ * Latin glyphs resolve to Jakarta first; Hangul falls through to Wanted Sans.
  */
-:root {
-  --bg-paper: #faf8f4;
-  --bg-surface: #ffffff;
-  --bg-wash: #f1ede6;
-  --ink: #1b1f26;
-  --ink-soft: #3d4450;
-  --muted: #68727f;
-  --faint: #98a1ad;
-  --line: rgba(27, 31, 38, 0.1);
-  --line-soft: rgba(27, 31, 38, 0.06);
-  --accent-navy: #163a5f;
-  --accent-navy-soft: rgba(22, 58, 95, 0.07);
 
-  --font-sans: "Pretendard Variable", Pretendard, -apple-system,
-    BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI",
-    Roboto, sans-serif;
+:root {
+  /* Paper (light editorial) */
+  --paper: #f7f4ed;
+  --paper-deep: #ede8dd;
+  --surface: #fffdfa;
+  --line: rgba(20, 22, 26, 0.12);
+  --line-soft: rgba(20, 22, 26, 0.06);
+
+  /* Ink */
+  --ink: #14161a;
+  --ink-soft: #363b44;
+  --muted: #565d68;
+
+  /* Night (dark editorial sections) */
+  --night: #13161d;
+  --night-raise: #1b1f29;
+  --night-line: rgba(236, 234, 227, 0.14);
+  --night-ink: #ecebe4;
+  --night-soft: #c6c5bd;
+  --night-muted: #9ba0a9;
+
+  /* Accents — baseball clay + stitching red + warm sand */
+  --clay: #b53826;
+  --clay-bright: #e2704a;
+  --clay-wash: rgba(181, 56, 38, 0.07);
+  --sand: #d9a441;
+  --grass: #2e5d43;
+
+  --radius-media: 18px;
+  --radius-card: 14px;
+
+  --font-sans: var(--font-jakarta), var(--font-wanted), -apple-system,
+    BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+    sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", monospace;
-
-  --radius-media: 14px;
-  --radius-card: 12px;
 }
 
-@theme {
-  --color-paper: var(--bg-paper);
-  --color-surface: var(--bg-surface);
-  --color-wash: var(--bg-wash);
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-surface: var(--surface);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-muted: var(--muted);
-  --color-faint: var(--faint);
-  --color-navy: var(--accent-navy);
-  --font-sans: "Pretendard Variable", Pretendard, -apple-system,
-    BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI",
-    Roboto, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", monospace;
+  --color-night: var(--night);
+  --color-night-raise: var(--night-raise);
+  --color-night-ink: var(--night-ink);
+  --color-night-soft: var(--night-soft);
+  --color-night-muted: var(--night-muted);
+  --color-clay: var(--clay);
+  --color-clay-bright: var(--clay-bright);
+  --color-sand: var(--sand);
+  --color-grass: var(--grass);
+  --font-sans: var(--font-jakarta), var(--font-wanted), -apple-system,
+    BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+    sans-serif;
+  --font-mono: var(--font-mono);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: var(--bg-paper);
+    background-color: var(--paper);
     color: var(--ink);
     font-family: var(--font-sans);
   }
 
   body {
     min-height: 100vh;
-    background-color: var(--bg-paper);
+    background-color: var(--paper);
     color: var(--ink);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     word-break: keep-all;
     line-height: 1.65;
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01";
+  }
+
+  /* Korean body copy: Wanted Sans reads best slightly loose */
+  p,
+  li,
+  dd,
+  figcaption {
+    line-height: 1.75;
+    letter-spacing: -0.01em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.025em;
+    line-height: 1.18;
+    font-weight: 700;
+    text-wrap: balance;
   }
 
   ::selection {
-    background-color: rgba(22, 58, 95, 0.14);
+    background-color: rgba(181, 56, 38, 0.18);
     color: var(--ink);
   }
 
   a:focus-visible,
-  button:focus-visible {
-    outline: 2px solid var(--accent-navy);
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--clay);
     outline-offset: 3px;
     border-radius: 4px;
   }
 }
 
-/* Native CSS scroll-snap carousel (no dependency) */
 @layer components {
-  .snap-row {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-padding-left: 20px;
-    padding: 4px 20px 16px;
-    margin-left: -20px;
-    margin-right: -20px;
-    scrollbar-width: none;
+  /* ——— Eyebrow: small mono label used across sections ——— */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--clay);
   }
 
-  .snap-row::-webkit-scrollbar {
+  /* ——— Baseball stitching accent: dashed clay rule ——— */
+  .stitch-rule {
+    border: 0;
+    height: 0;
+    border-top: 2px dashed rgba(181, 56, 38, 0.45);
+  }
+
+  /* ——— Reveal-on-scroll (JS adds data-visible) ——— */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  [data-reveal][data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ——— Link underline sweep ——— */
+  .link-sweep {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .link-sweep:hover,
+  .link-sweep:focus-visible {
+    background-size: 100% 1.5px;
+  }
+
+  /* ——— Hero dot-grid atmosphere ——— */
+  .dot-grid {
+    background-image: radial-gradient(rgba(236, 235, 228, 0.14) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+
+  .dot-grid-light {
+    background-image: radial-gradient(rgba(20, 22, 26, 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* ——— Marquee ticker ——— */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 32s linear infinite;
+  }
+
+  .marquee-host:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* ——— Hero entrance: line-mask rise ——— */
+  .rise-mask {
+    display: block;
+    overflow: hidden;
+  }
+
+  .rise-mask > span {
+    display: block;
+    transform: translateY(105%);
+    animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--rise-delay, 0ms);
+  }
+
+  @keyframes rise-in {
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* ——— Soft float for hero accent objects ——— */
+  .float-slow {
+    animation: float-y 7s ease-in-out infinite;
+  }
+
+  @keyframes float-y {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  /* ——— Live pulse dot ——— */
+  .pulse-dot {
+    position: relative;
+  }
+
+  .pulse-dot::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 9999px;
+    border: 1px solid currentColor;
+    opacity: 0.5;
+    animation: pulse-ring 2.2s ease-out infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(1.6);
+      opacity: 0;
+    }
+  }
+
+  /* ——— Mobile project snap rail: full-width, image-led ——— */
+  .snap-rail {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 4px 16px 20px;
+    margin-inline: -16px;
+  }
+
+  .snap-rail::-webkit-scrollbar {
     display: none;
   }
 
-  .snap-card {
-    scroll-snap-align: start;
-    flex: 0 0 82%;
-    max-width: 380px;
+  .snap-rail > * {
+    scroll-snap-align: center;
+    flex: 0 0 calc(100vw - 64px);
+    max-width: 420px;
   }
 
   @media (min-width: 768px) {
-    .snap-row {
-      scroll-padding-left: 0;
-      padding-left: 2px;
-      padding-right: 2px;
-      margin-left: 0;
-      margin-right: 0;
+    .snap-rail {
+      padding-inline: 0;
+      margin-inline: 0;
+      overflow: visible;
+      display: grid;
     }
+  }
 
-    .snap-card {
-      flex-basis: calc((100% - 32px) / 3);
-      max-width: none;
-    }
+  /* ——— Workflow pipeline connector draw-in ——— */
+  .flow-line {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--flow-delay, 0ms);
+  }
+
+  [data-visible="true"] .flow-line,
+  .flow-line[data-visible="true"] {
+    transform: scaleX(1);
   }
 }
 
+/* Reduced motion: no animation, no hidden reveals */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -128,5 +319,18 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .rise-mask > span {
+    transform: none;
+  }
+
+  .flow-line {
+    transform: scaleX(1);
   }
 }

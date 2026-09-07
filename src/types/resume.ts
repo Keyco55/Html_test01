@@ -18,6 +18,11 @@ export interface ProfileData {
   fullBio: string[];
   journeySteps: CareerJourneyStep[];
   links: ProfileLink[];
+  /**
+   * Public contact email. MUST be an explicitly confirmed public address.
+   * null = slot reserved; UI degrades gracefully until HQ provides a value.
+   */
+  publicEmail: string | null;
 }
 
 export interface ExperienceItem {
@@ -37,6 +42,9 @@ export interface ExperienceItem {
 
 export interface EducationItem {
   id: string;
+  /** Future sanitized education/training artifact image slot. */
+  imagePath?: string;
+  imageAlt?: string;
   institution: string;
   program: string;
   period: string;
@@ -57,10 +65,16 @@ export interface AwardItem {
   organizationConfirmed: boolean;
   organization?: string;
   description: string;
+  /** Future sanitized certificate image slot (public/images/awards/…). */
+  imagePath?: string;
+  imageAlt?: string;
 }
 
 export interface ContentItem {
   id: string;
+  /** Future channel artwork / thumbnail slot (public/images/content/…). */
+  coverPath?: string;
+  coverAlt?: string;
   platform: 'youtube' | 'naver_blog';
   title: string;
   channelOrBlogName: string;

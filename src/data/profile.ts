@@ -1,6 +1,13 @@
 import { ProfileData } from '../types/resume';
 
 export const profileData: ProfileData = {
+  /**
+   * PUBLIC EMAIL VALUE REQUIRED FROM HQ.
+   * No explicitly confirmed public email exists in authoritative project
+   * data, so the slot stays null. Contact UI degrades gracefully and never
+   * invents an address. Set a confirmed public email here when available.
+   */
+  publicEmail: null,
   name: 'KEYCO',
   title: '고객과 서비스를 이해하고, 콘텐츠와 기술로 직접 만드는 사람.',
   shortBio:

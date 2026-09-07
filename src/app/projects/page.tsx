@@ -1,140 +1,354 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
-import { ProjectMediaFrame } from "@/components/projects/ProjectMediaFrame";
-import { FEATURED_PROJECTS } from "@/data/projects";
+import { Reveal } from "@/components/motion/Reveal";
+import { ProjectMedia } from "@/components/projects/ProjectMedia";
 import { createSiteMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createSiteMetadata("/projects") as Metadata;
 
 /**
- * Short editorial copy per project, condensed from src/data/projects.ts.
+ * Editorial copy per project, condensed from src/data/projects.ts.
  * No URLs, dates, or facts beyond the source data.
+ * KBO-Hub fact safety: Deployed · Closed Beta — NOT public launch.
  */
-const EDITORIAL: Record<string, { why: string; what: string; how: string }> = {
-  "kbo-hub": {
-    why: "경기 일정과 기록, 굿즈와 티켓 정보가 여러 곳에 흩어져 있었다.",
-    what: "경기 관람과 기록, 포토카드 아카이브, 직관 기록, 커뮤니티를 묶은 웹 플랫폼.",
-    how: "Next.js App Router와 Supabase 인증·RLS로 기획부터 배포·QA까지 직접 만들었다.",
-  },
-  "multi-agent-orchestration": {
-    why: "한 컨텍스트에서 큰 작업을 하면 오염과 회귀 위험이 컸다.",
-    what: "작업을 독립 트랙으로 나누고 병렬로 진행하는 개발 방식.",
-    how: "구현과 독립 리뷰를 분리하고 보안 게이트와 Human QA를 통과해야 병합한다.",
-  },
-  "ai-hub-pet": {
-    why: "여러 터미널의 에이전트 상태를 확인하느라 창을 계속 옮겨 다녔다.",
-    what: "작업 상태와 사용량을 말풍선으로 보여주고 세션으로 데려가는 macOS 플로팅 앱.",
-    how: "Swift·AppKit으로 가볍게 만들고 프롬프트와 토큰에는 접근하지 않는다.",
-  },
-  "gom-marketing-automation": {
-    why: "매주 반복되는 엑셀 취합에 시간과 실수가 쌓였다.",
-    what: "마케팅 데이터 정리·리포트와 랜딩 수정을 묶은 실무 자동화.",
-    how: "Python(pandas·openpyxl) 스크립트와 직접 HTML·CSS 수정으로 실험 주기를 줄였다.",
-  },
-  "ai-status-hub": {
-    why: "서비스마다 쿼터와 리셋 시간을 따로 확인해야 했다.",
-    what: "여러 AI 서비스 사용량을 메뉴바와 터미널에 모아 보여주는 로컬 도구.",
-    how: "CodexBar 로컬 데이터를 최소 수치만 추출해 프라이버시 보존 캐시로 공급한다.",
-  },
-};
+const KBO_FEATURE = {
+  monogram: "KBO",
+  nameEn: "HOMEPLATE",
+  category: "Full-Stack Product",
+  period: "2026.08 ~ 현재",
+  status: "Deployed · Closed Beta",
+  intro:
+    "통합 KBO 팬 라이프스타일 플랫폼. 경기 관람과 기록, 포토카드 아카이브, 직관 기록, 커뮤니티를 하나의 제품으로 묶었습니다.",
+  why: "경기 일정과 기록, 굿즈·티켓 정보가 여러 플랫폼에 흩어져 있어 팬의 일상 경험이 파편화되어 있었습니다.",
+  what: "경기 관람과 기록, 포토카드 아카이브, 직관 기록, 커뮤니티를 연결하는 웹 플랫폼입니다. 1인 빌더로 기획부터 배포·QA까지 전 과정을 담당했습니다.",
+  how: "Next.js App Router와 Supabase 인증·RLS 기반으로 설계했고, 외부 라이브러리 없이 순수 DOM으로 3D 포토카드 인터랙션을 구현했습니다. 보안 리뷰와 Human Runtime QA를 거쳐 Closed Beta로 운영 중입니다.",
+  stack: ["Next.js App Router", "React", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Cloudflare Pages", "Tailwind CSS"],
+} as const;
 
-const SLOT_PATHS: Record<string, string> = {
-  "kbo-hub": "/images/projects/kbo-hub/cover-1600x1000.webp",
-  "multi-agent-orchestration": "/images/projects/multi-agent/cover-1600x1000.webp",
-  "ai-hub-pet": "/images/projects/ai-hub-pet/cover-1600x1000.webp",
-  "gom-marketing-automation": "/images/projects/gom/cover-1600x1000.webp",
-  "ai-status-hub": "/images/projects/status-hub/cover-1600x1000.webp",
-};
+const OTHER_PROJECTS = [
+  {
+    slug: "multi-agent-orchestration",
+    monogram: "AGT",
+    name: "Multi-Agent Development Orchestration",
+    nameEn: "Parallel Worktree Pipeline",
+    category: "Development Process",
+    period: "2026.08 ~ 현재",
+    badge: "KBO-Hub·Portfolio에 적용",
+    slotPath: "/images/projects/multi-agent/cover-1600x1000.webp",
+    aspect: "4 / 3",
+    mediaSpan: "md:col-span-5",
+    contentSpan: "md:col-span-7",
+    mediaFirst: true,
+    why: "한 컨텍스트에서 대규모 작업을 진행하면 컨텍스트 오염과 회귀 위험이 커집니다.",
+    what: "작업을 독립 트랙으로 나누어 병렬로 구현하고, 독립 리뷰와 보안 게이트를 통과한 결과만 병합하는 개발 프로세스입니다.",
+    how: "cmux와 Git worktree로 작업 트리를 물리적으로 격리하고, 구현 에이전트와 리뷰 에이전트를 분리했습니다. Remediation 후 재검토, 최종 Human QA까지 거쳐야 dev에 병합됩니다.",
+    stack: ["cmux", "Git Worktree", "Multi-Agent Routing", "Independent Review", "Security Gate"],
+    externalLinks: [],
+  },
+  {
+    slug: "ai-hub-pet",
+    monogram: "PET",
+    name: "AI-Hub-pet",
+    nameEn: "Doro Hub Pet",
+    category: "macOS Native Tool",
+    period: "2026.08",
+    badge: "Open Source",
+    slotPath: "/images/projects/ai-hub-pet/cover-1600x1000.webp",
+    aspect: "16 / 10",
+    mediaSpan: "md:col-span-6",
+    contentSpan: "md:col-span-6",
+    mediaFirst: false,
+    why: "여러 터미널에서 돌아가는 에이전트의 상태를 확인하기 위해 창을 계속 전환해야 했습니다.",
+    what: "로컬 AI 에이전트의 작업 상태와 사용량을 말풍선으로 보여주고, 클릭 한 번으로 해당 세션으로 이동시키는 macOS 플로팅 앱입니다.",
+    how: "Swift와 AppKit/SwiftUI로 가볍게 구현했고, 상태별 스프라이트 애니메이션을 지원합니다. 프롬프트·토큰·비밀번호에는 접근하지 않고 프로세스 상태와 로컬 캐시만 확인합니다.",
+    stack: ["Swift", "macOS AppKit", "SwiftUI", "Universal Binary", "Sprite Animation"],
+    externalLinks: [{ label: "GitHub 저장소", url: "https://github.com/Keyco55/AI-Hub-pet" }],
+  },
+  {
+    slug: "ai-status-hub",
+    monogram: "STS",
+    name: "AI Usage Status Hub",
+    nameEn: "Local Quota Layer",
+    category: "Developer Infrastructure",
+    period: "2026.08 ~ 현재",
+    badge: "공개 릴리스 준비 중",
+    slotPath: "/images/projects/status-hub/cover-1600x1000.webp",
+    aspect: "16 / 10",
+    mediaSpan: "md:col-span-7",
+    contentSpan: "md:col-span-5",
+    mediaFirst: true,
+    why: "AI 서비스마다 쿼터와 리셋 시각을 브라우저와 대시보드를 오가며 따로 확인해야 했습니다.",
+    what: "여러 AI 서비스의 사용량과 초기화 시각을 메뉴바와 터미널 상태줄에 모아 보여주는 프라이버시 보존형 로컬 도구입니다.",
+    how: "오픈소스 CodexBar의 로컬 루프백 데이터를 최소 수치만 추출해 소비하는 독립 통합 레이어를 Python 수집기와 Swift 메뉴바 헬퍼로 직접 개발했습니다. 자격증명·프롬프트·쿠키는 보관하지 않습니다.",
+    stack: ["Python 3", "Swift", "macOS AppKit", "CodexBar 로컬 데이터 연동", "cmux / tmux"],
+    externalLinks: [],
+  },
+  {
+    slug: "gom-marketing-automation",
+    monogram: "GOM",
+    name: "GOM Marketing × Web × Automation",
+    nameEn: "Marketing Tech & Data Pipeline",
+    category: "Work Project",
+    period: "2024 ~ 2025",
+    badge: "사내 적용 · 자산 비공개",
+    slotPath: "/images/projects/gom/cover-1600x1000.webp",
+    aspect: "1 / 1",
+    mediaSpan: "md:col-span-4",
+    contentSpan: "md:col-span-8",
+    mediaFirst: false,
+    why: "매주 반복되는 엑셀 데이터 취합에 시간이 쌓이고 수작업 실수가 반복되었습니다.",
+    what: "국내·글로벌 마케팅 콘텐츠 운영과 랜딩 페이지 HTML/CSS 수정, 데이터 취합 자동화를 담당한 실무 프로젝트입니다.",
+    how: "Python(pandas·openpyxl) 스크립트로 리포트 집계와 검증을 자동화하고, 프로모션 페이지의 마크업과 CTA를 직접 수정해 실험 주기를 줄였습니다. 회사 내부 자산은 공개하지 않습니다.",
+    stack: ["Python", "pandas", "openpyxl", "HTML5 / CSS3", "Excel Automation"],
+    externalLinks: [],
+  },
+] as const;
 
 export default function ProjectsPage() {
   return (
     <div className="w-full">
       <PageHeader
+        tone="dark"
+        index="02"
         eyebrow="Projects"
-        title="프로젝트"
-        lede="직접 기획하고 끝까지 만든 것들. KBO-Hub가 가장 먼저다."
+        title={
+          <>
+            기획부터 배포까지,
+            <br />
+            직접 만든 프로젝트
+          </>
+        }
+        lede="제품 기획과 개발, 배포와 QA까지 직접 진행한 작업들입니다. 가장 큰 작업은 KBO-Hub이며, 현재 Closed Beta로 운영 중입니다."
       />
 
-      <Container className="flex flex-col gap-14 py-12 md:gap-20 md:py-16">
-        {FEATURED_PROJECTS.map((project, index) => {
-          const editorial = EDITORIAL[project.id];
-          return (
-            <article
-              key={project.id}
-              id={project.slug}
-              aria-labelledby={`${project.id}-heading`}
-              className="grid scroll-mt-24 grid-cols-1 gap-6 md:grid-cols-2 md:gap-10"
-            >
-              <div className={index % 2 === 1 ? "md:order-2" : undefined}>
-                <ProjectMediaFrame
-                  title={project.title}
-                  badgeText={project.status}
-                  slotPath={SLOT_PATHS[project.id]}
-                  caption={project.subtitle}
+      {/* ============ KBO-HUB — dominant feature ============ */}
+      <section aria-labelledby="kbo-hub-heading" className="bg-paper">
+        <Container className="py-14 md:py-20" >
+          <Reveal>
+            <article id="kbo-hub" className="scroll-mt-24">
+              <div className="flex flex-wrap items-center gap-3">
+                <p className="eyebrow">01 — {KBO_FEATURE.category}</p>
+                <span className="font-mono text-[11px] text-muted">{KBO_FEATURE.period}</span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-dashed border-grass/60 bg-grass/5 px-3 py-1 font-mono text-[10.5px] font-semibold text-grass">
+                  <span
+                    className="pulse-dot h-1.5 w-1.5 rounded-full bg-grass"
+                    style={{ color: "var(--grass)" }}
+                    aria-hidden="true"
+                  />
+                  {KBO_FEATURE.status}
+                </span>
+              </div>
+
+              <h2
+                id="kbo-hub-heading"
+                className="mt-4 text-[clamp(2.4rem,7vw,4.4rem)] font-extrabold leading-[1.02] text-ink"
+              >
+                KBO-Hub{" "}
+                <span className="align-middle font-mono text-[clamp(0.9rem,2vw,1.3rem)] font-medium tracking-[0.2em] text-clay uppercase">
+                  {KBO_FEATURE.nameEn}
+                </span>
+              </h2>
+              <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-ink-soft md:text-[17.5px]">
+                {KBO_FEATURE.intro}
+              </p>
+            </article>
+          </Reveal>
+
+          {/* Layered media composition — desktop + mobile + detail slots */}
+          <Reveal delay={100}>
+            <div className="relative mt-10">
+              <ProjectMedia
+                title="KBO-Hub 메인 대시보드 · 실시간 경기/포토카드 아카이브"
+                monogram="KBO"
+                slotPath="/images/projects/kbo-hub/desktop-1600x1000.webp"
+                alt="KBO-Hub 데스크톱 메인 대시보드 스크린샷"
+                badgeText="Closed Beta Verified"
+                tone="dark"
+                caption="실제 배포된 제품 스크린샷이 이 영역에 표시됩니다 — desktop / mobile / detail 슬롯 준비 완료"
+              />
+              <div className="absolute -right-2 -bottom-8 w-[112px] md:-right-6 md:-bottom-10 md:w-[168px]">
+                <ProjectMedia
+                  title="모바일 뷰"
+                  monogram="M"
+                  slotPath="/images/projects/kbo-hub/mobile-600x1200.webp"
+                  alt="KBO-Hub 모바일 스크린샷"
+                  tone="dark"
+                  aspect="9 / 16"
                 />
               </div>
+            </div>
+          </Reveal>
 
-              <div className={index % 2 === 1 ? "md:order-1" : undefined}>
-                <p className="font-mono text-xs text-faint">
-                  {String(index + 1).padStart(2, "0")} · {project.category}
+          {/* Story + stack */}
+          <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
+            <Reveal className="md:col-span-7">
+              <dl className="flex flex-col">
+                {[
+                  { t: "배경", d: KBO_FEATURE.why },
+                  { t: "만든 것", d: KBO_FEATURE.what },
+                  { t: "방식", d: KBO_FEATURE.how },
+                ].map((row) => (
+                  <div key={row.t} className="grid grid-cols-[88px_1fr] gap-4 border-t border-ink/10 py-5 last:border-b">
+                    <dt className="pt-0.5 font-mono text-[11.5px] font-semibold tracking-[0.12em] text-clay uppercase">
+                      {row.t}
+                    </dt>
+                    <dd className="text-[15px] leading-relaxed text-ink">{row.d}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+            <Reveal delay={120} className="md:col-span-5">
+              <div className="dot-grid-light rounded-2xl border border-ink/10 bg-surface p-6">
+                <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">
+                  Main Technologies
                 </p>
-                <h2
-                  id={`${project.id}-heading`}
-                  className="mt-2 text-2xl font-bold tracking-tight text-ink md:text-[1.75rem]"
-                >
-                  {project.title}
-                  {project.nameEn && (
-                    <span className="ml-2 font-mono text-sm font-normal text-muted">
-                      {project.nameEn}
-                    </span>
-                  )}
-                </h2>
-                <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
-                  {project.summary.split(".")[0]}.
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {KBO_FEATURE.stack.map((tech) => (
+                    <li
+                      key={tech}
+                      className="rounded-full border border-ink/12 bg-paper px-3 py-1.5 text-[12.5px] font-semibold text-ink-soft"
+                    >
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+                <hr className="stitch-rule my-5 opacity-50" aria-hidden="true" />
+                <p className="text-[13px] leading-relaxed text-ink-soft">
+                  서비스 URL은 Closed Beta 초대 기반으로 운영 중이며, 공개 링크는
+                  정식 릴리스 시 추가됩니다.
                 </p>
-
-                <dl className="mt-5 flex flex-col gap-3 text-sm leading-relaxed">
-                  <div>
-                    <dt className="text-[13px] font-semibold text-navy">왜 만들었는가</dt>
-                    <dd className="mt-0.5 text-ink-soft">{editorial.why}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-[13px] font-semibold text-navy">무엇을 만들었는가</dt>
-                    <dd className="mt-0.5 text-ink-soft">{editorial.what}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-[13px] font-semibold text-navy">어떻게 만들었는가</dt>
-                    <dd className="mt-0.5 text-ink-soft">{editorial.how}</dd>
-                  </div>
-                </dl>
-
-                <p className="mt-4 font-mono text-xs leading-relaxed text-muted">
-                  {project.featuredStack.join(" · ")}
-                </p>
-
-                {project.links.length > 0 && (
-                  <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1">
-                    {project.links
-                      .filter((link) => link.isExternal && link.url.startsWith("https://"))
-                      .map((link) => (
-                        <a
-                          key={link.label}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex min-h-[44px] items-center text-sm font-semibold text-navy"
-                        >
-                          {link.label} <span aria-hidden="true" className="ml-1">↗</span>
-                        </a>
-                      ))}
-                  </div>
-                )}
               </div>
-            </article>
-          );
-        })}
-      </Container>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      <hr className="stitch-rule mx-auto max-w-6xl opacity-60" aria-hidden="true" />
+
+      {/* ============ OTHER PROJECTS — alternating editorial ============ */}
+      <section aria-labelledby="projects-more-heading" className="bg-paper">
+        <Container className="py-14 md:py-20">
+          <Reveal>
+            <h2
+              id="projects-more-heading"
+              className="text-[clamp(1.5rem,3.6vw,2.2rem)] font-extrabold text-ink"
+            >
+              그 외 직접 만든 작업
+            </h2>
+          </Reveal>
+
+          <div className="mt-12 flex flex-col gap-20 md:gap-28">
+            {OTHER_PROJECTS.map((project, index) => (
+              <Reveal key={project.slug}>
+                <article
+                  id={project.slug}
+                  aria-labelledby={`${project.slug}-heading`}
+                  className="grid scroll-mt-24 grid-cols-1 items-center gap-8 md:grid-cols-12 md:gap-10"
+                >
+                  <div className={`${project.mediaSpan} ${project.mediaFirst ? "" : "md:order-2"}`}>
+                    <ProjectMedia
+                      title={project.name}
+                      monogram={project.monogram}
+                      slotPath={project.slotPath}
+                      alt={`${project.name} 대표 이미지`}
+                      badgeText={project.badge}
+                      aspect={project.aspect}
+                    />
+                  </div>
+
+                  <div className={project.contentSpan}>
+                    <p className="font-mono text-[11.5px] tracking-[0.16em] text-clay uppercase">
+                      {String(index + 2).padStart(2, "0")} — {project.category}
+                      <span className="ml-2 normal-case text-muted">{project.period}</span>
+                    </p>
+                    <h3
+                      id={`${project.slug}-heading`}
+                      className="mt-2.5 text-[clamp(1.4rem,3vw,1.9rem)] font-extrabold tracking-tight text-ink"
+                    >
+                      {project.name}
+                    </h3>
+                    <p className="mt-0.5 font-mono text-[11px] tracking-[0.14em] text-muted uppercase">
+                      {project.nameEn}
+                    </p>
+
+                    <dl className="mt-5 flex flex-col text-[14.5px] leading-relaxed">
+                      {[
+                        { t: "배경", d: project.why },
+                        { t: "만든 것", d: project.what },
+                        { t: "방식", d: project.how },
+                      ].map((row) => (
+                        <div key={row.t} className="border-t border-ink/10 py-3.5 last:border-b">
+                          <dt className="font-mono text-[10.5px] font-semibold tracking-[0.14em] text-muted uppercase">
+                            {row.t}
+                          </dt>
+                          <dd className="mt-1 text-ink-soft">{row.d}</dd>
+                        </div>
+                      ))}
+                    </dl>
+
+                    <ul className="mt-4 flex flex-wrap gap-1.5">
+                      {project.stack.map((tech) => (
+                        <li
+                          key={tech}
+                          className="rounded-full bg-ink/[0.05] px-2.5 py-1 font-mono text-[11px] text-ink-soft"
+                        >
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {project.externalLinks.length > 0 && (
+                      <div className="mt-4 flex flex-wrap gap-x-6">
+                        {project.externalLinks.map((link) => (
+                          <a
+                            key={link.url}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="link-sweep inline-flex min-h-[44px] items-center gap-1 text-[14px] font-bold text-clay"
+                          >
+                            {link.label} <span aria-hidden="true">↗</span>
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ============ CLOSING CTA ============ */}
+      <section aria-labelledby="projects-contact" className="dot-grid bg-night text-night-ink">
+        <Container className="flex flex-col items-start gap-6 py-14 md:flex-row md:items-center md:justify-between md:py-16">
+          <Reveal>
+            <h2 id="projects-contact" className="text-[clamp(1.4rem,3.4vw,2rem)] font-extrabold">
+              프로젝트에 대한 질문이 있으신가요?
+            </h2>
+            <p className="mt-2 text-[14.5px] text-night-soft">
+              각 프로젝트의 세부 과정과 기술적 판단은 공개 채널에서 더 자세히 확인하실 수 있습니다.
+            </p>
+          </Reveal>
+          <Reveal delay={100} className="flex flex-wrap gap-3">
+            <Link
+              href="/about#contact"
+              className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-clay px-6 text-[14px] font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-clay-bright"
+            >
+              연락 채널 <span aria-hidden="true">→</span>
+            </Link>
+            <Link
+              href="/skills#workflow"
+              className="inline-flex min-h-[48px] items-center rounded-full border border-night-line px-6 text-[14px] font-bold text-night-ink transition-all duration-200 hover:-translate-y-0.5 hover:border-clay-bright hover:text-clay-bright"
+            >
+              개발 워크플로 보기
+            </Link>
+          </Reveal>
+        </Container>
+      </section>
     </div>
   );
 }
