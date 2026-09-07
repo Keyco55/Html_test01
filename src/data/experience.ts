@@ -5,7 +5,8 @@ export const experienceData: ExperienceItem[] = [
     id: 'gom-and-company',
     company: '곰앤컴퍼니 (GOM & Company)',
     role: '마케팅 & 웹 콘텐츠 운영 (Marketing & Web Content Operations)',
-    period: '2023 – 2024',
+    period: '2024.06 – 2025.01',
+    dateTime: '2024-06/2025-01',
     department: '마케팅 / 콘텐츠 운영',
     description:
       '국내 및 글로벌 소프트웨어 마케팅 지원, 공식 웹사이트 및 프로모션 랜딩페이지의 HTML/CSS 기반 페이지 수정 작업, 그리고 Python을 활용한 엑셀 데이터 취합 및 반복 업무 자동화를 담당했습니다.',
@@ -24,7 +25,8 @@ export const experienceData: ExperienceItem[] = [
     id: 'songpa-post-office',
     company: '송파우체국 (Songpa Post Office)',
     role: '고객 안내 & 현장 서비스 지원 (Customer Service & Operations)',
-    period: '2022 – 2023',
+    period: '2022.06 – 2023.09',
+    dateTime: '2022-06/2023-09',
     department: '우편영업과 / 민원 현장 지원',
     description:
       '우체국 방문 고객 대상 현장 안내 및 접수 지원을 담당하며, 간편사전접수 시스템 도입 안내와 고객 친화형 홍보 콘텐츠를 기획·제작했습니다.',
@@ -43,7 +45,8 @@ export const experienceData: ExperienceItem[] = [
     id: 'our-town-commerce',
     company: '우리동네커머스',
     role: '온라인 CS & 스토어 운영 지원 (E-Commerce Customer Support & Operations)',
-    period: '2021 – 2022',
+    period: '2020.11 – 2020.12',
+    dateTime: '2020-11/2020-12',
     department: '이커머스 운영팀',
     description:
       '네이버 스마트스토어 등 온라인 커머스 플랫폼의 고객 문의 응대 및 주문·배송·교환/반품 처리 전반을 지원했습니다.',

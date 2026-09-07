@@ -5,7 +5,7 @@ export const educationData: EducationItem[] = [
     id: 'tongmyong-university',
     institution: '동명대학교 (Tongmyong University)',
     program: '학사 학위 과정 (Bachelor of Arts & Engineering Minor)',
-    period: '졸업',
+    period: '2014.03 – 2024.02 · 졸업',
     degreeOrType: 'bachelor',
     major: '글로벌문화콘텐츠학과 (주전공)',
     minor: '정보통신소프트웨어학과 (부전공)',

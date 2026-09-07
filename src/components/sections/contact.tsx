@@ -1,26 +1,7 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import { profileData } from '../../data/profile';
 
 export const ContactSection: React.FC = () => {
-  const [copied, setCopied] = useState(false);
-  const contactEmail = '9ren5dezvous@gmail.com'; // Safe official public contact email from git commit metadata
-
-  const handleCopyEmail = async () => {
-    try {
-      if (typeof navigator !== 'undefined' && navigator.clipboard) {
-        await navigator.clipboard.writeText(contactEmail);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 3000);
-      }
-    } catch {
-      // Fallback
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    }
-  };
-
   return (
     <section
       id="contact"
@@ -73,50 +54,6 @@ export const ContactSection: React.FC = () => {
               </svg>
             </a>
           ))}
-        </div>
-
-        {/* Email Copy Card */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-slate-950/80 border border-slate-800/90 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
-            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">
-              Direct Contact
-            </span>
-            <span className="font-mono text-base sm:text-lg font-bold text-white select-all">
-              {contactEmail}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={handleCopyEmail}
-              aria-label="이메일 주소 복사하기"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-sky-600 hover:bg-sky-500 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400"
-            >
-              {copied ? (
-                <>
-                  <svg className="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>복사 완료!</span>
-                </>
-              ) : (
-                <>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                  <span>이메일 주소 복사</span>
-                </>
-              )}
-            </button>
-
-            <a
-              href={`mailto:${contactEmail}`}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400"
-            >
-              메일 쓰기
-            </a>
-          </div>
         </div>
 
         {/* Privacy Note */}

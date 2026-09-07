@@ -70,7 +70,10 @@ export const ExperienceSection: React.FC = () => {
                       {item.period}
                     </span>
                   ) : (
-                    <time className="px-2.5 py-1 rounded-md text-xs font-mono font-medium bg-slate-800 text-slate-300 border border-slate-700/80">
+                    <time
+                      dateTime={item.dateTime}
+                      className="px-2.5 py-1 rounded-md text-xs font-mono font-medium bg-slate-800 text-slate-300 border border-slate-700/80"
+                    >
                       {item.period}
                     </time>
                   )}

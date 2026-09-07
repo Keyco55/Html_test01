@@ -25,6 +25,7 @@ export interface ExperienceItem {
   company: string;
   role: string;
   period: string;
+  dateTime?: string;
   periodNeedsConfirmation?: boolean;
   department?: string;
   description: string;
