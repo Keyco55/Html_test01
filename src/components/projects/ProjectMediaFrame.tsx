@@ -131,6 +131,7 @@ export const ProjectMediaFrame: React.FC<ProjectMediaFrameProps> = ({
         }}
       >
         {imageSrc ? (
+          /* eslint-disable-next-line @next/next/no-img-element -- static export + images.unoptimized; raw <img> is intentional for exported output */
           <img
             src={imageSrc}
             alt={imageAlt ?? title}

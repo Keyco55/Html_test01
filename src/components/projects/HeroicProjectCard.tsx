@@ -243,7 +243,7 @@ export const HeroicProjectCard: React.FC<HeroicProjectCardProps> = ({
               title="kbo-hub.app"
               type="browser"
               badgeText="Closed Beta"
-              caption="Next.js 16 App Router · Supabase RLS · 3D Photocard Engine"
+              caption="Next.js App Router · Supabase RLS · 3D Photocard Engine"
             >
               {/* High-fidelity browser mockup inner preview */}
               <div

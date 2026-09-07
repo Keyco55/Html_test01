@@ -27,16 +27,16 @@ export const FEATURED_PROJECTS: readonly Project[] = [
       problem:
         'KBO 리그 팬들은 경기 일정, 기록 조회, 굿즈/포토카드 거래, 티켓팅 정보 등이 여러 플랫폼에 파편화되어 있어 일상 속에서 통합된 야구 경험을 누리기 어려웠습니다.',
       solution:
-        'Next.js 16 App Router와 Supabase 기반으로 고성능 웹 플랫폼을 설계했습니다. 비주얼 v3 테마 시스템, 3D 포토카드 틸트 인터랙션, Row Level Security(RLS) 기반 보안 계정 체계, 모바일 최적화 내비게이션을 단일 제품으로 완성했습니다.',
+        'Next.js App Router와 Supabase 기반으로 고성능 웹 플랫폼을 설계했습니다. 비주얼 v3 테마 시스템, 3D 포토카드 틸트 인터랙션, Row Level Security(RLS) 기반 보안 계정 체계, 모바일 최적화 내비게이션을 단일 제품으로 완성했습니다.',
       keyContributions: [
         '제품 기획 & 요구사항 정의: KBO 팬의 페인 포인트를 분석하여 포토카드 아카이브, 티켓/일정 허브, 커뮤니티를 유기적으로 연결한 핵심 기능 스펙 수립',
-        'Next.js 16 & React 19 아키텍처: 최신 App Router 구조 위에 전역 헤더, 실시간 티커 셸, 모바일 드로어 및 FOUC 없는 테마 시스템 구축',
+        'Next.js App Router & React 19 아키텍처: 최신 App Router 구조 위에 전역 헤더, 실시간 티커 셸, 모바일 드로어 및 FOUC 없는 테마 시스템 구축',
         'Supabase Auth & Database / RLS 설계: Email/Password 인증, public.profiles 트리거 연계, 사용자 데이터 격리를 위한 엄격한 Row Level Security 정책 적용',
         '고성능 클라이언트 인터랙션: 무거운 외부 라이브러리 없이 순수 DOM 제어로 3D 홀로그램 글레어 및 포토카드 틸트 효과 구현, Hydration 안정화',
         '체계적인 검증 체계: Day 15 수직 슬라이스에 대해 Senior Security Review PASS 및 철저한 Human Runtime QA를 거쳐 안정적인 Closed Beta 릴리스 달성',
       ],
       technicalHighlights: [
-        'Next.js 16 App Router & React 19',
+        'Next.js App Router & React 19',
         'Supabase Auth & Session Persistence',
         'PostgreSQL Database & Schema Design',
         'Row Level Security (RLS) Policies',
@@ -48,7 +48,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
         '백엔드 전담 개발자가 아니더라도, 제품 중심 사고와 탄탄한 아키텍처 이해를 바탕으로 인증, 데이터 격리, 고성능 UI까지 완성도 높은 풀스택 서비스를 주도적으로 구축할 수 있음을 입증했습니다.',
     },
     techStack: [
-      'Next.js 16',
+      'Next.js App Router',
       'React 19',
       'TypeScript',
       'Supabase',
@@ -57,7 +57,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
       'Cloudflare Pages',
       'Tailwind CSS',
     ],
-    featuredStack: ['Next.js 16', 'React 19', 'Supabase', 'PostgreSQL', 'Cloudflare Pages'],
+    featuredStack: ['Next.js App Router', 'React 19', 'Supabase', 'PostgreSQL', 'Cloudflare Pages'],
     metrics: [
       { label: '배포 상태', value: 'Closed Beta', note: '실제 사용자 초대 기반 운영' },
       { label: '보안 검증', value: '100% PASS', note: 'RLS 격리 & Security Gate 통과' },
@@ -83,7 +83,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
       containerId: 'kbo-hub-arch-container',
       title: 'KBO-Hub Full-Stack Architecture',
       description:
-        'Next.js 16 App Router 프론트엔드와 Cloudflare CDN 서빙, Supabase Auth/RLS 데이터베이스 격리 계층이 유기적으로 연결된 실서비스 아키텍처입니다.',
+        'Next.js App Router 프론트엔드와 Cloudflare CDN 서빙, Supabase Auth/RLS 데이터베이스 격리 계층이 유기적으로 연결된 실서비스 아키텍처입니다.',
       diagramType: 'kbo-hub-architecture',
       svgArtifactPath: '/docs/diagrams/kbo-hub-architecture.svg',
     },
@@ -269,7 +269,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
         '국내 & 글로벌 마케팅 전략 수립: 브랜드 인지도 증대 및 제품 전환을 위한 다채널 SNS·블로그 콘텐츠 큐레이션',
         '웹 페이지 직접 수정 & 전환 최적화: 마케팅 랜딩 페이지의 HTML/CSS 구조를 직접 핸들링하여 CTA 배치, 링크 구조, 인터랙티브 임베드 개선',
         'Python 데이터 전처리 자동화: 여러 광고 매체 및 유입 경로의 원시 데이터를 정규화하고 중복을 제거하는 CLI 스크립트 제작',
-        '대용량 엑셀 워크플로우 단축: 수작업으로 3~4시간 소요되던 주간 정산 및 KPI 리포트 집계를 단 수초 만에 수행하도록 파이프라인화',
+        '대용량 엑셀 워크플로우 자동화: 주간 정산 및 KPI 리포트 집계 반복 업무를 스크립트 파이프라인으로 자동화',
         '보안 및 데이터 거버넌스 준수: 민감한 고객 정보나 회사 기밀 자산을 노출하지 않는 안전한 자동화 아키텍처 수립',
       ],
       technicalHighlights: [
@@ -294,7 +294,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     ],
     featuredStack: ['Python', 'pandas', 'openpyxl', 'HTML5/CSS3', 'Excel Automation'],
     metrics: [
-      { label: '리포트 집계 시간', value: '95% 단축', note: '3~4시간 → 10초 이내 자동화' },
+      { label: '집계 자동화', value: 'Pipeline', note: '반복 리포트 집계 스크립트 자동화' },
       { label: '데이터 무결성', value: '0% Error', note: '자동 검증 로직으로 수작업 오기 차단' },
       { label: '웹 실험 속도', value: '당일 반영', note: '마케터의 직접 코드 수정 및 배포' },
       { label: '정보 보호', value: 'Anonymized', note: '회사 내부 raw asset 비공개 원칙' },
@@ -335,7 +335,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
       problem:
         '멀티 에이전트 협업 환경에서 각 서비스의 쿼터 소진율과 리셋 시간을 확인하기 위해 여러 브라우저 탭과 대시보드를 번갈아 확인해야 했고, 작업 중간에 토큰이 고갈되어 개발 흐름이 끊기는 문제가 있었습니다.',
       solution:
-        'CodexBar의 로컬 loopback API를 기반으로, 필요한 최소한의 수치(Quota, Reset Countdown)만 안전하게 추출하는 Python collector를 제작했습니다. 인증 정보나 프롬프트를 배제한 0700/0600 권한의 로컬 캐시를 구성하고, Swift 메뉴바 및 cmux 상태창에 실시간 공급하는 통합 레이어를 구축했습니다.',
+        'CodexBar의 로컬 loopback API를 기반으로, 필요한 최소한의 수치(Quota, Reset Countdown)만 안전하게 추출하는 Python collector를 제작했습니다. 인증 정보나 프롬프트를 배제한 제한된 로컬 권한의 로컬 캐시를 구성하고, Swift 메뉴바 및 cmux 상태창에 실시간 공급하는 통합 레이어를 구축했습니다.',
       keyContributions: [
         'CodexBar 로컬 루프백 데이터 통합: 기존 검증된 오픈소스(CodexBar)의 출력을 비침습적으로 연계 (CodexBar 자체를 직접 개발했다고 과장하지 않음)',
         '프라이버시 보존형 상태 캐시 설계: 사용자 ID, 토큰, 프롬프트, 쿠키를 일절 배제하고 오직 쿼터 퍼센트와 리셋 타임만 정규화하여 원자적(atomic) 파일 쓰기 구현',
@@ -346,7 +346,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
       technicalHighlights: [
         'Python Standard Library Loopback Client',
         'Swift AppKit Lightweight Menubar Helper',
-        'Privacy-Preserving Local Status Cache (0700/0600 Permissions)',
+        'Privacy-Preserving Local Status Cache (Restricted Permissions)',
         'Atomic Cache File Write & Stale Data Distinction',
         'Zero-Credential / Zero-Telemetry Design',
         'cmux & tmux Integration Pipeline',
@@ -365,7 +365,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     featuredStack: ['Python 3', 'Swift', 'macOS AppKit', 'Privacy Cache Layer'],
     metrics: [
       { label: '공개 상태', value: '준비 중', note: 'Preparing Public Release' },
-      { label: '보안 격리', value: '0700/0600', note: '시스템 사용자 권한 엄격 제한' },
+      { label: '보안 격리', value: 'Restricted', note: '로컬 권한 기반 캐시 접근 제한' },
       { label: '프라이버시', value: 'Zero Token', note: '자격증명 및 프롬프트 일체 미보관' },
       { label: '통합 환경', value: 'Menubar & CLI', note: 'Swift 메뉴바 + cmux 터미널 지원' },
     ],
@@ -382,7 +382,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
       containerId: 'ai-status-hub-flow-container',
       title: 'AI Usage Status Hub Integration Pipeline',
       description:
-        'CodexBar 로컬 루프백 → Python 수집기 → 무결성 상태 캐시(0600) → Swift 메뉴바 및 cmux 터미널로 이어지는 안전한 로컬 파이프라인 구조입니다.',
+        'CodexBar 로컬 루프백 → Python 수집기 → 무결성 상태 캐시 → Swift 메뉴바 및 cmux 터미널로 이어지는 안전한 로컬 파이프라인 구조입니다.',
       diagramType: 'ai-status-hub-flow',
       svgArtifactPath: '/docs/diagrams/ai-status-hub-flow.svg',
     },
@@ -427,7 +427,7 @@ export const HERO_DATA = {
       badge: 'Active Work',
       description: 'Next.js Static Export & Parallel Track',
       indicatorColor: 'blue',
-      href: '#projects',
+      href: '#featured-projects',
     },
   ],
   ctaButtons: [

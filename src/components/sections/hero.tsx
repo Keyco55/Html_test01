@@ -97,90 +97,141 @@ export const Hero: React.FC<HeroProps> = ({ className = '' }) => {
           ))}
         </div>
 
-        {/* Identity & Role Title */}
-        <div style={{ marginBottom: '24px' }}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'baseline',
-              gap: '12px',
-              flexWrap: 'wrap',
-              marginBottom: '12px',
-            }}
-          >
-            <h1
-              id="hero-name"
+        {/* Identity + Portrait Editorial Layout (desktop: portrait right, mobile: identity → copy → portrait → CTA) */}
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_300px] lg:grid-cols-[minmax(0,1fr)_360px] gap-10 md:gap-14 items-center">
+          {/* Left: Identity, Slogan, Sub-description */}
+          <div>
+            {/* Identity & Role Title */}
+            <div style={{ marginBottom: '24px' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  gap: '12px',
+                  flexWrap: 'wrap',
+                  marginBottom: '12px',
+                }}
+              >
+                <h1
+                  id="hero-name"
+                  style={{
+                    fontSize: 'clamp(2.4rem, 6vw, 3.8rem)',
+                    fontWeight: 800,
+                    letterSpacing: '-0.03em',
+                    color: '#ffffff',
+                    margin: 0,
+                    lineHeight: 1.15,
+                  }}
+                >
+                  {HERO_DATA.nameKo}
+                </h1>
+                <span
+                  style={{
+                    fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)',
+                    fontWeight: 700,
+                    fontFamily: 'var(--font-mono, ui-monospace, monospace)',
+                    color: '#38bdf8',
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  / {HERO_DATA.nameEn}
+                </span>
+              </div>
+
+              <div
+                style={{
+                  fontSize: 'clamp(1.05rem, 2.2vw, 1.35rem)',
+                  fontWeight: 600,
+                  color: '#94a3b8',
+                  letterSpacing: '-0.01em',
+                }}
+              >
+                {HERO_DATA.roleTitle}
+              </div>
+            </div>
+
+            {/* Slogan */}
+            <div
               style={{
-                fontSize: 'clamp(2.4rem, 6vw, 3.8rem)',
-                fontWeight: 800,
-                letterSpacing: '-0.03em',
-                color: '#ffffff',
+                maxWidth: '780px',
+                marginBottom: '28px',
+              }}
+            >
+              <blockquote
+                style={{
+                  margin: 0,
+                  padding: '0 0 0 20px',
+                  borderLeft: '3px solid #38bdf8',
+                  fontSize: 'clamp(1.25rem, 2.8vw, 1.75rem)',
+                  fontWeight: 700,
+                  lineHeight: 1.45,
+                  color: '#f8fafc',
+                  whiteSpace: 'pre-line',
+                }}
+              >
+                “{HERO_DATA.slogan}”
+              </blockquote>
+            </div>
+
+            {/* Sub-description */}
+            <p
+              style={{
+                maxWidth: '720px',
+                fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
+                lineHeight: 1.7,
+                color: '#94a3b8',
                 margin: 0,
-                lineHeight: 1.15,
               }}
             >
-              {HERO_DATA.nameKo}
-            </h1>
-            <span
+              {HERO_DATA.subDescription}
+            </p>
+          </div>
+
+          {/* Portrait: restrained Dark Editorial framing (not a circular avatar / passport card) */}
+          <figure className="order-last md:order-none" style={{ margin: 0 }}>
+            <div
               style={{
-                fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)',
-                fontWeight: 700,
-                fontFamily: 'var(--font-mono, ui-monospace, monospace)',
-                color: '#38bdf8',
-                letterSpacing: '-0.01em',
+                position: 'relative',
+                border: '1px solid rgba(255, 255, 255, 0.14)',
+                borderRadius: '10px',
+                overflow: 'hidden',
+                backgroundColor: '#0d131f',
+                boxShadow: '0 24px 50px -20px rgba(0, 0, 0, 0.75)',
+                maxWidth: '360px',
+                margin: '0 auto',
+                width: '100%',
+                aspectRatio: '4 / 5',
               }}
             >
-              / {HERO_DATA.nameEn}
-            </span>
-          </div>
-
-          <div
-            style={{
-              fontSize: 'clamp(1.05rem, 2.2vw, 1.35rem)',
-              fontWeight: 600,
-              color: '#94a3b8',
-              letterSpacing: '-0.01em',
-            }}
-          >
-            {HERO_DATA.roleTitle}
-          </div>
+              {/* eslint-disable-next-line @next/next/no-img-element -- static export + images.unoptimized; raw <img> is intentional for exported output */}
+              <img
+                src="/images/profile/keyco-profile-main.webp"
+                alt="김범우(KEYCO) 프로필"
+                loading="lazy"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center top',
+                  display: 'block',
+                }}
+              />
+            </div>
+            <figcaption
+              style={{
+                marginTop: '12px',
+                fontFamily: 'var(--font-mono, ui-monospace, monospace)',
+                fontSize: '0.72rem',
+                color: '#64748b',
+                letterSpacing: '0.14em',
+                textAlign: 'center',
+                textTransform: 'uppercase',
+              }}
+            >
+              KIM BUM-WOO <span style={{ color: '#38bdf8' }}>/</span> KEYCO
+            </figcaption>
+          </figure>
         </div>
-
-        {/* Slogan */}
-        <div
-          style={{
-            maxWidth: '780px',
-            marginBottom: '28px',
-          }}
-        >
-          <blockquote
-            style={{
-              margin: 0,
-              padding: '0 0 0 20px',
-              borderLeft: '3px solid #38bdf8',
-              fontSize: 'clamp(1.25rem, 2.8vw, 1.75rem)',
-              fontWeight: 700,
-              lineHeight: 1.45,
-              color: '#f8fafc',
-              whiteSpace: 'pre-line',
-            }}
-          >
-            “{HERO_DATA.slogan}”
-          </blockquote>
-        </div>
-
-        {/* Sub-description */}
-        <p
-          style={{
-            maxWidth: '720px',
-            fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
-            lineHeight: 1.7,
-            color: '#94a3b8',
-            marginBottom: '36px',
-          }}
-        >
-          {HERO_DATA.subDescription}
-        </p>
 
         {/* CTA Buttons */}
         <div
@@ -189,6 +240,7 @@ export const Hero: React.FC<HeroProps> = ({ className = '' }) => {
             flexWrap: 'wrap',
             alignItems: 'center',
             gap: '14px',
+            marginTop: '36px',
           }}
         >
           {HERO_DATA.ctaButtons.map((btn) => {

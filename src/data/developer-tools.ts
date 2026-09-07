@@ -34,7 +34,7 @@ export const DEVELOPER_TOOLS: readonly DeveloperToolItem[] = [
       '화면 상단 메뉴바와 플로팅 펫 윈도우를 통해 현재 작업 중인 AI 모델, 남은 쿼터(Quota), 리셋 시간 카운트다운을 시스템 부하 없이 실시간 확인하고, 더블클릭 한 번으로 해당 작업 세션의 터미널/에디터 창을 즉각 활성화합니다.',
     keyFeatures: [
       'Apple Silicon 및 Intel Mac을 완벽 지원하는 네이티브 Universal 바이너리',
-      '시스템 자원 점유율 극소화 (CPU < 0.5%, 메모리 < 35MB)',
+      '경량 네이티브 구현으로 시스템 자원 점유율 극소화',
       '프라이버시 최우선: 토큰, 프롬프트, 쿠키 비접근 원칙',
       '동적 2줄 상태 말풍선 및 세션 자동 포커싱 AppleScript/AppKit 브리지',
     ],
@@ -49,14 +49,14 @@ export const DEVELOPER_TOOLS: readonly DeveloperToolItem[] = [
     badge: 'Zero Credentials',
     status: 'Active In Use',
     purpose:
-      'CodexBar 로컬 루프백 엔드포인트를 안전하게 조회하여 표시 가능한 핵심 수치만 추출하고, 사용자 식별자나 계정 토큰을 배제한 채 시스템 파일 권한(0700/0600)을 적용한 원자적 로컬 캐시를 구성하여 메뉴바 및 터미널에 공급합니다.',
+      'CodexBar 로컬 루프백 엔드포인트를 안전하게 조회하여 표시 가능한 핵심 수치만 추출하고, 사용자 식별자나 계정 토큰을 배제한 채 제한된 시스템 파일 권한을 적용한 원자적 로컬 캐시를 구성하여 메뉴바 및 터미널에 공급합니다.',
     keyFeatures: [
       '무거운 외부 의존성 없는 Python 표준 라이브러리 (urllib, json, os) 구현',
       '원자적(atomic) 파일 쓰기로 다중 프로세스 동시 접근 시 데이터 오염 방지',
       '오프라인/네트워크 장애 시 이전 정상 캐시(stale)와 현재 불능 상태 구분',
       'Multi-Agent 리소스 잔여량에 기반한 모델 라우팅 판단 데이터 제공',
     ],
-    techStack: ['Python 3', 'POSIX File Permissions (0600)', 'Atomic IO', 'JSON Schema'],
+    techStack: ['Python 3', 'POSIX File Permissions', 'Atomic IO', 'JSON Schema'],
     terminalCommand: 'python3 -m collectors.usage_sync --cache-dir ~/.cache/ai-status',
   },
   {
