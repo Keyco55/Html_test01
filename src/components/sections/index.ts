@@ -6,3 +6,6 @@ export { ContentSection } from './content';
 export { SkillsSection } from './skills';
 export { ResumeSection } from './resume';
 export { ContactSection } from './contact';
+export { HeroSection } from './HeroSection';
+export { FeaturedProjectsSection } from './FeaturedProjectsSection';
+export { DeveloperToolingSection } from './DeveloperToolingSection';
