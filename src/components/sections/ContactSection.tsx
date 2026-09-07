@@ -2,7 +2,6 @@ import React from 'react';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 
 export const ContactSection: React.FC = () => {
@@ -27,22 +26,8 @@ export const ContactSection: React.FC = () => {
         <Card className="max-w-xl">
           <div className="space-y-4">
             <div>
-              <span className="font-mono text-xs text-slate-400 block mb-1">EMAIL</span>
-              <a
-                href="mailto:contact@keyco.dev"
-                className="text-base sm:text-lg font-medium text-sky-400 hover:underline"
-              >
-                contact@keyco.dev
-              </a>
-            </div>
-            <div>
               <span className="font-mono text-xs text-slate-400 block mb-1">LOCATION</span>
               <p className="text-sm text-slate-200">Seoul, South Korea (UTC+9)</p>
-            </div>
-            <div className="pt-2">
-              <Button href="mailto:contact@keyco.dev" variant="primary" size="md">
-                메일 보내기
-              </Button>
             </div>
           </div>
         </Card>
