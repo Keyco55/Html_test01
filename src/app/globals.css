@@ -296,6 +296,51 @@
     }
   }
 
+  /* ——— How I Work: mobile horizontal swipe rail ——— */
+  .workflow-rail {
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+    padding: 6px 16px 14px;
+    margin-inline: -16px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .workflow-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .workflow-rail > li {
+    scroll-snap-align: start;
+  }
+
+  /* continuation peek: fade the right edge on small screens */
+  @media (max-width: 767px) {
+    .workflow-rail {
+      mask-image: linear-gradient(to right, black 88%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, black 88%, transparent 100%);
+    }
+  }
+
+  .workflow-rail:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+
+  @media (min-width: 768px) {
+    .workflow-rail {
+      overflow: visible;
+      flex-wrap: wrap;
+      gap: 8px 8px;
+      padding: 0;
+      margin-inline: 0;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+  }
+
   /* ——— Workflow pipeline connector draw-in ——— */
   .flow-line {
     transform: scaleX(0);

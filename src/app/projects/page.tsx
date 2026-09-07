@@ -20,60 +20,28 @@ const KBO_FEATURE = {
   period: "2026.08 ~ 현재",
   status: "Deployed · Closed Beta",
   intro:
-    "통합 KBO 팬 라이프스타일 플랫폼. 경기 관람과 기록, 포토카드 아카이브, 직관 기록, 커뮤니티를 하나의 제품으로 묶었습니다.",
-  why: "경기 일정과 기록, 굿즈·티켓 정보가 여러 플랫폼에 흩어져 있어 팬의 일상 경험이 파편화되어 있었습니다.",
-  what: "경기 관람과 기록, 포토카드 아카이브, 직관 기록, 커뮤니티를 연결하는 웹 플랫폼입니다. 1인 빌더로 기획부터 배포·QA까지 전 과정을 담당했습니다.",
-  how: "Next.js App Router와 Supabase 인증·RLS 기반으로 설계했고, 외부 라이브러리 없이 순수 DOM으로 3D 포토카드 인터랙션을 구현했습니다. 보안 리뷰와 Human Runtime QA를 거쳐 Closed Beta로 운영 중입니다.",
-  stack: ["Next.js App Router", "React", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Cloudflare Pages", "Tailwind CSS"],
+    "통합 야구팬 라이프스타일 C2C 플랫폼. 경기 일정·직관 기록, 포토카드 아카이브 및 도감, 팬 커뮤니티, 야구 굿즈 전문 중고 장터를 하나의 제품으로 묶었습니다.",
+  why: "경기 일정과 기록, 굿즈·티켓 정보가 여러 플랫폼에 흩어져 있어 야구팬의 일상 경험이 파편화되어 있었습니다.",
+  what: "경기 일정·직관 기록, 포토카드 아카이브 및 도감, 팬 커뮤니티, 야구 굿즈 전문 중고 장터를 연결하는 웹 플랫폼입니다. 1인 빌더로 기획부터 배포·QA까지 전 과정을 담당했습니다.",
+  how: "Next.js App Router와 Supabase 인증·RLS 기반으로 설계했고, 외부 라이브러리 없이 순수 DOM으로 3D 포토카드 인터랙션을 구현했습니다. 보안 리뷰와 Human Runtime QA를 거쳐 Closed Beta로 운영 중이며, 2027.02 Open Beta, 2027.03 정식 서비스 출시를 목표로 합니다.",
+  serviceUrl: "https://kbo-hub.9ren5dezvous.workers.dev/",
+  roadmap: "Closed Beta (현재) → 2027.02 Open Beta → 2027.03 정식 서비스 출시 목표",
+  stackGroups: [
+    { group: "Frontend", items: ["Next.js App Router", "React", "TypeScript", "Tailwind CSS"] },
+    { group: "Data & Security", items: ["Supabase", "PostgreSQL", "RLS"] },
+    { group: "Infrastructure", items: ["Cloudflare Workers"] },
+  ],
 } as const;
 
 const OTHER_PROJECTS = [
   {
-    slug: "multi-agent-orchestration",
-    monogram: "AGT",
-    name: "Multi-Agent Development Orchestration",
-    nameEn: "Parallel Worktree Pipeline",
-    category: "Development Process",
-    period: "2026.08 ~ 현재",
-    badge: "KBO-Hub·Portfolio에 적용",
-    slotPath: "/images/projects/multi-agent/cover-1600x1000.webp",
-    aspect: "4 / 3",
-    mediaSpan: "md:col-span-5",
-    contentSpan: "md:col-span-7",
-    mediaFirst: true,
-    why: "한 컨텍스트에서 대규모 작업을 진행하면 컨텍스트 오염과 회귀 위험이 커집니다.",
-    what: "작업을 독립 트랙으로 나누어 병렬로 구현하고, 독립 리뷰와 보안 게이트를 통과한 결과만 병합하는 개발 프로세스입니다.",
-    how: "cmux와 Git worktree로 작업 트리를 물리적으로 격리하고, 구현 에이전트와 리뷰 에이전트를 분리했습니다. Remediation 후 재검토, 최종 Human QA까지 거쳐야 dev에 병합됩니다.",
-    stack: ["cmux", "Git Worktree", "Multi-Agent Routing", "Independent Review", "Security Gate"],
-    externalLinks: [],
-  },
-  {
-    slug: "ai-hub-pet",
-    monogram: "PET",
-    name: "AI-Hub-pet",
-    nameEn: "Doro Hub Pet",
-    category: "macOS Native Tool",
-    period: "2026.08",
-    badge: "Open Source",
-    slotPath: "/images/projects/ai-hub-pet/cover-1600x1000.webp",
-    aspect: "16 / 10",
-    mediaSpan: "md:col-span-6",
-    contentSpan: "md:col-span-6",
-    mediaFirst: false,
-    why: "여러 터미널에서 돌아가는 에이전트의 상태를 확인하기 위해 창을 계속 전환해야 했습니다.",
-    what: "로컬 AI 에이전트의 작업 상태와 사용량을 말풍선으로 보여주고, 클릭 한 번으로 해당 세션으로 이동시키는 macOS 플로팅 앱입니다.",
-    how: "Swift와 AppKit/SwiftUI로 가볍게 구현했고, 상태별 스프라이트 애니메이션을 지원합니다. 프롬프트·토큰·비밀번호에는 접근하지 않고 프로세스 상태와 로컬 캐시만 확인합니다.",
-    stack: ["Swift", "macOS AppKit", "SwiftUI", "Universal Binary", "Sprite Animation"],
-    externalLinks: [{ label: "GitHub 저장소", url: "https://github.com/Keyco55/AI-Hub-pet" }],
-  },
-  {
     slug: "ai-status-hub",
     monogram: "STS",
-    name: "AI Usage Status Hub",
-    nameEn: "Local Quota Layer",
+    name: "keyco AI Status Hub",
+    nameEn: "AI Usage Status Hub",
     category: "Developer Infrastructure",
     period: "2026.08 ~ 현재",
-    badge: "공개 릴리스 준비 중",
+    badge: "Public · Open Source",
     slotPath: "/images/projects/status-hub/cover-1600x1000.webp",
     aspect: "16 / 10",
     mediaSpan: "md:col-span-7",
@@ -83,7 +51,7 @@ const OTHER_PROJECTS = [
     what: "여러 AI 서비스의 사용량과 초기화 시각을 메뉴바와 터미널 상태줄에 모아 보여주는 프라이버시 보존형 로컬 도구입니다.",
     how: "오픈소스 CodexBar의 로컬 루프백 데이터를 최소 수치만 추출해 소비하는 독립 통합 레이어를 Python 수집기와 Swift 메뉴바 헬퍼로 직접 개발했습니다. 자격증명·프롬프트·쿠키는 보관하지 않습니다.",
     stack: ["Python 3", "Swift", "macOS AppKit", "CodexBar 로컬 데이터 연동", "cmux / tmux"],
-    externalLinks: [],
+    externalLinks: [{ label: "GitHub 저장소", url: "https://github.com/Keyco55/keyco-ai-status-hub" }],
   },
   {
     slug: "gom-marketing-automation",
@@ -99,10 +67,29 @@ const OTHER_PROJECTS = [
     contentSpan: "md:col-span-8",
     mediaFirst: false,
     why: "매주 반복되는 엑셀 데이터 취합에 시간이 쌓이고 수작업 실수가 반복되었습니다.",
-    what: "국내·글로벌 마케팅 콘텐츠 운영과 랜딩 페이지 HTML/CSS 수정, 데이터 취합 자동화를 담당한 실무 프로젝트입니다.",
+    what: "국내·글로벌 마케팅 콘텐츠 운영과 공식 SNS 채널(Instagram·YouTube·네이버 블로그·TikTok·Threads) 관리, 랜딩 페이지 HTML/CSS 수정, 데이터 취합 자동화를 담당한 실무 프로젝트입니다.",
     how: "Python(pandas·openpyxl) 스크립트로 리포트 집계와 검증을 자동화하고, 프로모션 페이지의 마크업과 CTA를 직접 수정해 실험 주기를 줄였습니다. 회사 내부 자산은 공개하지 않습니다.",
     stack: ["Python", "pandas", "openpyxl", "HTML5 / CSS3", "Excel Automation"],
     externalLinks: [],
+  },
+  {
+    slug: "ai-hub-pet",
+    monogram: "PET",
+    name: "Doro Hub Pet",
+    nameEn: "AI-Hub-pet (repo)",
+    category: "macOS Native Tool",
+    period: "2026.08",
+    badge: "Open Source",
+    slotPath: "/images/projects/ai-hub-pet/cover-1600x1000.webp",
+    aspect: "16 / 10",
+    mediaSpan: "md:col-span-6",
+    contentSpan: "md:col-span-6",
+    mediaFirst: false,
+    why: "여러 터미널에서 돌아가는 에이전트의 상태를 확인하기 위해 창을 계속 전환해야 했습니다.",
+    what: "로컬 AI 에이전트의 작업 상태와 사용량을 말풍선으로 보여주고, 클릭 한 번으로 해당 세션으로 이동시키는 macOS 플로팅 앱입니다.",
+    how: "Swift와 AppKit/SwiftUI로 가볍게 구현했고, 상태별 스프라이트 애니메이션을 지원합니다. 프롬프트·토큰·비밀번호에는 접근하지 않고 프로세스 상태와 로컬 캐시만 확인합니다.",
+    stack: ["Swift", "macOS AppKit", "SwiftUI", "Universal Binary", "Sprite Animation"],
+    externalLinks: [{ label: "GitHub 저장소", url: "https://github.com/Keyco55/AI-Hub-pet" }],
   },
 ] as const;
 
@@ -204,21 +191,38 @@ export default function ProjectsPage() {
                 <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">
                   Main Technologies
                 </p>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {KBO_FEATURE.stack.map((tech) => (
-                    <li
-                      key={tech}
-                      className="rounded-full border border-ink/12 bg-paper px-3 py-1.5 text-[12.5px] font-semibold text-ink-soft"
-                    >
-                      {tech}
-                    </li>
+                <div className="mt-4 flex flex-col gap-4">
+                  {KBO_FEATURE.stackGroups.map((group) => (
+                    <div key={group.group}>
+                      <p className="flex items-center gap-2 text-[11.5px] font-bold tracking-wide text-clay">
+                        <span aria-hidden="true" className="h-1.5 w-1.5 rotate-45 bg-clay" />
+                        {group.group}
+                      </p>
+                      <ul className="mt-2 flex flex-wrap gap-1.5">
+                        {group.items.map((tech) => (
+                          <li
+                            key={tech}
+                            className="rounded-full border border-ink/12 bg-paper px-3 py-1.5 text-[12.5px] font-semibold text-ink-soft"
+                          >
+                            {tech}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+                </div>
                 <hr className="stitch-rule my-5 opacity-50" aria-hidden="true" />
                 <p className="text-[13px] leading-relaxed text-ink-soft">
-                  서비스 URL은 Closed Beta 초대 기반으로 운영 중이며, 공개 링크는
-                  정식 릴리스 시 추가됩니다.
+                  {KBO_FEATURE.roadmap}
                 </p>
+                <a
+                  href={KBO_FEATURE.serviceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex min-h-[44px] items-center gap-1.5 rounded-full bg-clay px-5 text-[13.5px] font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-clay-bright"
+                >
+                  서비스 바로가기 (HOMEPLATE) <span aria-hidden="true">↗</span>
+                </a>
               </div>
             </Reveal>
           </div>

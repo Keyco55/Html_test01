@@ -1,3 +1,4 @@
+import type React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
@@ -10,9 +11,9 @@ export const metadata: Metadata = createSiteMetadata("/") as Metadata;
 
 /** Live statuses — grounded in src/data/projects.ts. No invented facts. */
 const LIVE_STATUSES = [
-  { label: "KBO-Hub", badge: "Closed Beta", note: "통합 KBO 팬 라이프스타일 플랫폼", dot: "var(--grass)" },
-  { label: "AI-Hub-pet", badge: "Open Source", note: "macOS 네이티브 에이전트 모니터", dot: "var(--sand)" },
-  { label: "Status Hub", badge: "공개 준비 중", note: "AI 사용량 통합 로컬 레이어", dot: "var(--clay-bright)" },
+  { label: "KBO-Hub", badge: "Closed Beta", note: "통합 야구팬 라이프스타일 C2C 플랫폼 · HOMEPLATE", dot: "var(--grass)" },
+  { label: "keyco AI Status Hub", badge: "Public · Open Source", note: "AI 사용량 통합 로컬 레이어", dot: "var(--clay-bright)" },
+  { label: "Doro Hub Pet", badge: "Open Source", note: "macOS 네이티브 에이전트 모니터", dot: "var(--sand)" },
 ] as const;
 
 const MARQUEE_ITEMS = [
@@ -26,44 +27,22 @@ const MARQUEE_ITEMS = [
   "Python",
   "Git Worktree",
   "cmux",
-  "Cloudflare Pages",
+  "Cloudflare Workers",
   "Tailwind CSS",
 ] as const;
 
-/** Supporting work — condensed from src/data/projects.ts. */
+/** Supporting work — condensed from src/data/projects.ts. Order: 02 Status Hub, 03 GOM, 04 Doro Hub Pet. */
 const SUPPORTING = [
-  {
-    slug: "ai-hub-pet",
-    monogram: "PET",
-    name: "AI-Hub-pet",
-    nameEn: "Doro Hub Pet",
-    what: "AI 에이전트의 작업 상태를 말풍선으로 알리고, 클릭 한 번으로 해당 세션으로 이동시키는 macOS 플로팅 앱입니다.",
-    stack: "Swift · AppKit · SwiftUI",
-    badge: "Open Source",
-    slotPath: "/images/projects/ai-hub-pet/cover-1600x1000.webp",
-    span: "md:col-span-3",
-  },
-  {
-    slug: "multi-agent-orchestration",
-    monogram: "AGT",
-    name: "Multi-Agent Orchestration",
-    nameEn: "Parallel Worktree Pipeline",
-    what: "Git worktree 격리와 독립 리뷰, 보안 게이트를 거쳐 대규모 작업을 병렬로 진행하는 개발 프로세스입니다.",
-    stack: "cmux · Git Worktree · Security Gate",
-    badge: "Development Process",
-    slotPath: "/images/projects/multi-agent/cover-1600x1000.webp",
-    span: "md:col-span-3",
-  },
   {
     slug: "ai-status-hub",
     monogram: "STS",
-    name: "AI Usage Status Hub",
-    nameEn: "Local Quota Layer",
+    name: "keyco AI Status Hub",
+    nameEn: "AI Usage Status Hub",
     what: "여러 AI 서비스의 사용량과 리셋 시각을 메뉴바와 터미널에 모아 보여주는 프라이버시 보존형 로컬 도구입니다.",
     stack: "Python · Swift · cmux",
-    badge: "공개 준비 중",
+    badge: "Public · Open Source",
     slotPath: "/images/projects/status-hub/cover-1600x1000.webp",
-    span: "md:col-span-4",
+    span: "md:col-span-2",
   },
   {
     slug: "gom-marketing-automation",
@@ -76,7 +55,45 @@ const SUPPORTING = [
     slotPath: "/images/projects/gom/cover-1600x1000.webp",
     span: "md:col-span-2",
   },
+  {
+    slug: "ai-hub-pet",
+    monogram: "PET",
+    name: "Doro Hub Pet",
+    nameEn: "AI-Hub-pet",
+    what: "AI 에이전트의 작업 상태를 말풍선으로 알리고, 클릭 한 번으로 해당 세션으로 이동시키는 macOS 플로팅 앱입니다.",
+    stack: "Swift · AppKit · SwiftUI",
+    badge: "Open Source",
+    slotPath: "/images/projects/ai-hub-pet/cover-1600x1000.webp",
+    span: "md:col-span-2",
+  },
 ] as const;
+
+/** Restrained 20px line icons — decorative; text carries all meaning. */
+const GROUP_ICONS: Record<string, React.ReactNode> = {
+  Development: (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="m8 6-5 6 5 6M16 6l5 6-5 6" />
+    </svg>
+  ),
+  "Styling & Markup": (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M3 9h18M8 4v5" />
+    </svg>
+  ),
+  "Backend & Management": (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <ellipse cx="12" cy="5.5" rx="8" ry="2.8" />
+      <path d="M4 5.5v6c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8v-6M4 11.5v6c0 1.6 3.6 2.8 8 2.8s8-1.2 8-2.8v-6" />
+    </svg>
+  ),
+  "Tools & Workflow": (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M14.5 6.5a4 4 0 0 0 5 5L21 21l-8.5-1.5a4 4 0 0 1-5-5L3 3l8.5 1.5z" transform="rotate(0)" />
+      <path d="M6 18 3 21" />
+    </svg>
+  ),
+};
 
 const SKILL_SNAPSHOT = [
   { group: "Development", items: "JavaScript · TypeScript · React · Next.js · Python · Swift" },
@@ -120,7 +137,7 @@ export default function HomePage() {
         <Container className="relative flex flex-col gap-14 pb-14 pt-16 md:pb-20 md:pt-24 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <Reveal>
-              <p className="eyebrow text-clay-bright">Hello, Keyco — 김범우</p>
+              <p className="eyebrow text-clay-bright">안녕하세요, 김범우입니다.</p>
             </Reveal>
 
             <h1
@@ -153,18 +170,42 @@ export default function HomePage() {
               </span>
             </h1>
 
+            {/* Editorial career path — restrained line + clay point + arrow */}
             <Reveal delay={420}>
-              <p className="mt-5 font-mono text-[12.5px] tracking-[0.12em] text-night-muted uppercase md:text-[13.5px]">
-                Customer Experience · Content · Product Development
+              <p
+                aria-label="Customer Experience, Content, Product Development"
+                className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[12px] tracking-[0.14em] text-night-soft uppercase md:text-[13.5px]"
+              >
+                <span className="font-bold text-night-ink">Customer Experience</span>
+                <span aria-hidden="true" className="flex items-center gap-1.5 text-clay-bright">
+                  <span className="h-px w-6 bg-current opacity-60" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-current" />
+                  →
+                </span>
+                <span className="font-bold text-night-ink">Content</span>
+                <span aria-hidden="true" className="flex items-center gap-1.5 text-clay-bright">
+                  <span className="h-px w-6 bg-current opacity-60" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-current" />
+                  →
+                </span>
+                <span className="font-bold text-night-ink">Product Development</span>
               </p>
             </Reveal>
 
             <Reveal delay={500}>
               <p className="mt-6 max-w-xl text-[15.5px] leading-relaxed text-night-soft md:text-[17px]">
                 현장에서 고객을 응대하는 일로 시작해 콘텐츠와 마케팅, 웹 운영을
-                거쳤고, 지금은 서비스를 직접 기획하고 개발합니다. KBO 팬 플랫폼
-                KBO-Hub를 Closed Beta로 운영하며, 필요한 도구는 웹과 macOS
-                네이티브로 직접 만듭니다.
+                거쳤고, 지금은 서비스를 직접 기획하고 개발합니다. 야구팬 플랫폼{" "}
+                <a
+                  href="https://kbo-hub.9ren5dezvous.workers.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-sweep font-bold text-night-ink"
+                >
+                  KBO-Hub (HOMEPLATE)
+                </a>
+                를 Closed Beta로 운영하며, 필요한 도구는 웹과 macOS 네이티브로
+                직접 만듭니다.
               </p>
             </Reveal>
 
@@ -293,13 +334,13 @@ export default function HomePage() {
                     HOMEPLATE
                   </p>
                   <p className="mt-5 max-w-md text-[15px] leading-relaxed text-night-soft">
-                    경기 일정과 기록, 포토카드 아카이브, 직관 기록, 커뮤니티를
-                    하나로 묶은 통합 KBO 팬 라이프스타일 플랫폼입니다. 기획부터
-                    프론트엔드, Supabase 인증·RLS 설계, 배포와 QA까지 1인
-                    빌더로 완성했습니다.
+                    경기 일정·직관 기록, 포토카드 아카이브 및 도감, 팬 커뮤니티,
+                    야구 굿즈 전문 중고 장터를 하나로 묶은 통합 야구팬
+                    라이프스타일 C2C 플랫폼입니다. 기획부터 프론트엔드, Supabase
+                    인증·RLS 설계, 배포와 QA까지 1인 빌더로 완성했습니다.
                   </p>
                   <ul className="mt-5 flex flex-wrap gap-2">
-                    {["Next.js App Router", "Supabase", "PostgreSQL", "RLS", "Cloudflare Pages"].map((tech) => (
+                    {["Next.js App Router", "Supabase", "PostgreSQL", "RLS", "Cloudflare Workers"].map((tech) => (
                       <li
                         key={tech}
                         className="rounded-full border border-night-line px-3 py-1 font-mono text-[11px] text-night-soft"
@@ -308,13 +349,21 @@ export default function HomePage() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-auto flex flex-wrap items-center gap-5 pt-7">
+                  <div className="mt-auto flex flex-wrap items-center gap-4 pt-7">
                     <Link
                       href="/projects#kbo-hub"
                       className="inline-flex min-h-[46px] items-center gap-2 rounded-full bg-night-ink px-5 text-[14px] font-bold text-night transition-all duration-200 hover:-translate-y-0.5 hover:bg-clay-bright hover:text-white"
                     >
                       케이스 보기 <span aria-hidden="true">→</span>
                     </Link>
+                    <a
+                      href="https://kbo-hub.9ren5dezvous.workers.dev/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-[46px] items-center gap-1.5 rounded-full border border-night-line px-5 text-[14px] font-bold text-night-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-clay-bright hover:text-clay-bright"
+                    >
+                      서비스 바로가기 <span aria-hidden="true">↗</span>
+                    </a>
                     <span className="inline-flex items-center gap-2 rounded-full border border-dashed border-grass/60 px-3.5 py-1.5 font-mono text-[11px] text-night-soft">
                       <span
                         className="pulse-dot h-1.5 w-1.5 rounded-full bg-grass"
@@ -424,10 +473,16 @@ export default function HomePage() {
             </Link>
           </Reveal>
           <Reveal delay={120}>
-            <ol className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-3" aria-label="개발 워크플로 단계">
+            {/* Mobile: single horizontal swipe rail with next-item peek.
+                Desktop: inline wrapped flow (unchanged V3 treatment). */}
+            <ol
+              className="workflow-rail mt-8 flex items-center gap-x-2"
+              aria-label="개발 워크플로 단계"
+              tabIndex={0}
+            >
               {WORKFLOW_STEPS.map((step, i) => (
-                <li key={step} className="flex items-center gap-2">
-                  <span className="rounded-full border border-ink/15 bg-surface px-3.5 py-1.5 text-[12.5px] font-bold text-ink-soft">
+                <li key={step} className="flex shrink-0 items-center gap-2">
+                  <span className="rounded-full border border-ink/15 bg-surface px-3.5 py-1.5 whitespace-nowrap text-[12.5px] font-bold text-ink-soft">
                     <span aria-hidden="true" className="mr-1.5 font-mono text-[10px] text-clay">
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -466,7 +521,10 @@ export default function HomePage() {
             {SKILL_SNAPSHOT.map((row, i) => (
               <Reveal key={row.group} delay={i * 70}>
                 <div className="border-t-2 border-ink pt-4">
-                  <dt className="font-mono text-[11.5px] font-semibold tracking-[0.16em] text-clay uppercase">
+                  <dt className="flex items-center gap-2.5 font-mono text-[11.5px] font-semibold tracking-[0.16em] text-clay uppercase">
+                    <span className="text-clay" aria-hidden="true">
+                      {GROUP_ICONS[row.group]}
+                    </span>
                     {row.group}
                   </dt>
                   <dd className="mt-2 text-[15px] font-medium leading-relaxed text-ink">
@@ -486,18 +544,27 @@ export default function HomePage() {
             <Reveal>
               <p className="eyebrow">Contact</p>
               <h2 id="home-contact" className="mt-2 text-[clamp(1.7rem,4vw,2.6rem)] font-extrabold text-ink">
-                연락은 공개 채널로
+                연락을 기다립니다.
               </h2>
               <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink-soft">
-                GitHub, YouTube, 네이버 블로그, Instagram 등 공개 채널로 문의를
-                보내 주시면 확인 후 답변드립니다.
+                프로젝트, 협업, 채용 이야기 모두 환영합니다. 이메일로 편하게
+                연락 주세요. GitHub, YouTube, 네이버 블로그, Instagram에서도
+                만나실 수 있습니다.
               </p>
-              <Link
-                href="/about#contact"
-                className="link-sweep mt-6 inline-flex min-h-[44px] items-center gap-1.5 text-[14px] font-bold text-clay"
-              >
-                About에서 자세히 보기 <span aria-hidden="true">→</span>
-              </Link>
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
+                <a
+                  href="mailto:9ren5dezvous@gmail.com"
+                  className="link-sweep inline-flex min-h-[44px] items-center gap-1.5 text-[14px] font-bold text-clay"
+                >
+                  9ren5dezvous@gmail.com <span aria-hidden="true">↗</span>
+                </a>
+                <Link
+                  href="/about#contact"
+                  className="link-sweep inline-flex min-h-[44px] items-center gap-1.5 text-[14px] font-bold text-ink-soft"
+                >
+                  About에서 자세히 보기 <span aria-hidden="true">→</span>
+                </Link>
+              </div>
             </Reveal>
             <Reveal delay={120}>
               <div className="rounded-2xl border border-ink/10 bg-surface px-5 py-3 md:px-7">

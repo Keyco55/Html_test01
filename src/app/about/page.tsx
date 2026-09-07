@@ -27,9 +27,9 @@ export default function AboutPage() {
         eyebrow="About"
         title={
           <>
-            만드는 사람,
+            고객 경험에서
             <br />
-            김범우
+            제품까지, 김범우
           </>
         }
         lede="고객 응대에서 시작해 콘텐츠와 마케팅, 웹 운영을 거쳐 지금은 서비스를 직접 기획하고 개발합니다."
@@ -44,13 +44,13 @@ export default function AboutPage() {
                 <h2 id="about-profile" className="sr-only">
                   프로필
                 </h2>
-                <p className="text-[clamp(2.2rem,5.6vw,3.4rem)] font-extrabold leading-[1.05] text-ink">
+                <p className="text-center text-[clamp(2.2rem,5.6vw,3.4rem)] font-extrabold leading-[1.05] text-ink md:text-left">
                   Keyco
                   <span className="ml-3 align-middle font-mono text-[clamp(1rem,2.2vw,1.4rem)] font-medium tracking-[0.1em] text-clay">
                     김범우
                   </span>
                 </p>
-                <p className="mt-4 font-mono text-[12px] tracking-[0.14em] text-muted uppercase">
+                <p className="mt-4 text-center font-mono text-[12px] tracking-[0.14em] text-muted uppercase md:text-left">
                   Customer Experience · Content · Product Development
                 </p>
                 <div className="mt-7 max-w-xl">
@@ -78,21 +78,6 @@ export default function AboutPage() {
                   aria-hidden="true"
                   className="absolute -top-4 -right-4 bottom-6 -left-3 rounded-[26px] bg-night md:-right-6 md:-left-5"
                 />
-                {/* stitch arc */}
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 300 80"
-                  className="absolute -top-9 left-4 w-[70%] opacity-80"
-                  fill="none"
-                >
-                  <path
-                    d="M6 70 Q150 -8 294 70"
-                    stroke="var(--clay)"
-                    strokeWidth="2"
-                    strokeDasharray="6 8"
-                    strokeLinecap="round"
-                  />
-                </svg>
                 {/* arch-cropped photo */}
                 <div
                   className="relative overflow-hidden border border-ink/10"
@@ -109,9 +94,13 @@ export default function AboutPage() {
                   />
                 </div>
                 {/* overlapping mono tag */}
-                <figcaption className="absolute -bottom-5 left-1/2 w-max max-w-[92%] -translate-x-1/2 rounded-full border border-night-line bg-night-raise px-4 py-2 text-center font-mono text-[11px] tracking-[0.12em] text-night-soft shadow-lg">
-                  이해하고 · 기록하고 · 직접 만드는 사람 —{" "}
-                  <span className="text-clay-bright">Hello Keyco</span>
+                <figcaption className="absolute -bottom-7 left-1/2 w-max max-w-[92%] -translate-x-1/2 rounded-2xl border border-night-line bg-night-raise px-4 py-2 text-center shadow-lg">
+                  <span className="block font-mono text-[11px] tracking-[0.12em] text-night-soft">
+                    이해하고 · 기록하고 · 구조화하고 · 직접 만드는 사람
+                  </span>
+                  <span className="mt-0.5 block text-[12px] font-extrabold text-clay-bright">
+                    Keyco
+                  </span>
                 </figcaption>
               </figure>
             </Reveal>
@@ -397,21 +386,33 @@ export default function AboutPage() {
                 id="about-contact"
                 className="mt-3 text-[clamp(1.8rem,4.4vw,2.6rem)] font-extrabold"
               >
-                연락 주세요
+                연락을 기다립니다.
               </h2>
               <p className="mt-4 max-w-md text-[15px] leading-relaxed text-night-soft">
-                프로젝트, 협업, 채용 문의 모두 아래 공개 채널로 보내 주시면
-                확인 후 회신드립니다.
+                프로젝트, 협업, 채용 이야기 모두 환영합니다. 이메일이 가장
+                빠르고 편한 방법이며, 아래 채널로도 언제든 찾아오셔도 좋습니다.
+                메시지를 확인하면 정성껏 회신드립니다.
               </p>
-              {!profileData.publicEmail && (
-                <p className="mt-6 inline-flex rounded-full border border-dashed border-night-line px-4 py-2 font-mono text-[11.5px] text-night-muted">
-                  공개 이메일 주소는 확인 절차를 거쳐 추가될 예정입니다.
-                </p>
-              )}
             </Reveal>
             <Reveal delay={100}>
               <div className="rounded-2xl border border-night-line bg-night-raise/70 px-5 py-3 backdrop-blur-sm">
                 <ul aria-label="연락 채널" className="flex flex-col">
+                  {profileData.publicEmail && (
+                    <li>
+                      <a
+                        href={`mailto:${profileData.publicEmail}`}
+                        className="group flex min-h-[56px] items-center gap-4 border-b border-night-line py-3.5"
+                      >
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-[15px] font-bold text-night-ink">Email</span>
+                          <span className="block truncate font-mono text-[11.5px] text-night-muted">
+                            {profileData.publicEmail}
+                          </span>
+                        </span>
+                        <span aria-hidden="true" className="text-night-muted transition-all duration-300 group-hover:translate-x-1 group-hover:text-clay-bright">↗</span>
+                      </a>
+                    </li>
+                  )}
                   {[...profileData.links].map((link) => (
                     <li key={link.label}>
                       <a
@@ -439,22 +440,6 @@ export default function AboutPage() {
                       </a>
                     </li>
                   ))}
-                  {profileData.publicEmail && (
-                    <li>
-                      <a
-                        href={`mailto:${profileData.publicEmail}`}
-                        className="group flex min-h-[56px] items-center gap-4 py-3.5"
-                      >
-                        <span className="min-w-0 flex-1">
-                          <span className="block text-[15px] font-bold text-night-ink">Email</span>
-                          <span className="block truncate font-mono text-[11.5px] text-night-muted">
-                            {profileData.publicEmail}
-                          </span>
-                        </span>
-                        <span aria-hidden="true" className="text-night-muted">↗</span>
-                      </a>
-                    </li>
-                  )}
                 </ul>
               </div>
             </Reveal>

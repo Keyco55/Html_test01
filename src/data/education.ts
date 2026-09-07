@@ -44,14 +44,11 @@ export const educationData: EducationItem[] = [
     period: '2022.07',
     degreeOrType: 'global_service',
     categoryBadge: 'Global Customer Service & Communication',
-    description:
-      '해외 현지 대학에서 진행된 글로벌 승무원 및 고객 서비스 영어 커뮤니케이션 집중 연수 과정입니다.',
+    description: '커스터머 서비스 / 글로벌 커뮤니케이션 과정',
     verifiedHighlights: [
       '다양한 비즈니스 및 비상 상황에서의 실전 영어 대인 응대 및 에티켓 훈련',
       '글로벌 다문화 고객의 심리와 니즈를 배려하는 고객 중심 서비스 마인드셋 학습',
       '돌발 상황 시 침착하고 명확한 안내를 전달하는 위기 대응 커뮤니케이션 시뮬레이션'
-    ],
-    cautionNotice:
-      '※ 본 프로그램은 컴퓨터 과학(CS/SW) 관련 교육이 아니며, [Customer Service / Global Communication] 전문 트레이닝 과정으로 정확히 분류합니다.'
+    ]
   }
 ];

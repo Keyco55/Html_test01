@@ -9,9 +9,10 @@ export const experienceData: ExperienceItem[] = [
     dateTime: '2024-06/2025-01',
     department: '마케팅 / 콘텐츠 운영',
     description:
-      '국내 및 글로벌 소프트웨어 마케팅 지원, 공식 웹사이트 및 프로모션 랜딩페이지의 HTML/CSS 기반 페이지 수정 작업, 그리고 Python을 활용한 엑셀 데이터 취합 및 반복 업무 자동화를 담당했습니다.',
+      '국내 및 글로벌 소프트웨어 마케팅 지원, 공식 SNS 채널(Instagram·YouTube·네이버 블로그·TikTok·Threads) 운영, 공식 웹사이트 및 프로모션 랜딩페이지의 HTML/CSS 기반 페이지 수정 작업, 그리고 Python을 활용한 엑셀 데이터 취합 및 반복 업무 자동화를 담당했습니다.',
     verifiedHighlights: [
       '국내 및 글로벌 마케팅 캠페인 지원 및 SNS·블로그 채널용 콘텐츠 기획·제작',
+      'Instagram, YouTube, 네이버 블로그, TikTok, Threads 등 공식 SNS 채널 콘텐츠 업로드 및 커뮤니티 응대 운영',
       '공식 프로모션 및 이벤트 랜딩페이지의 HTML/CSS 기반 page modification (레이아웃 수정 및 요소 배치)',
       '신규 기능 안내 배너, 홍보 이미지, 비디오 embed, CTA 버튼 및 추적 링크 직접 반영',
       'Python, pandas, openpyxl 라이브러리를 활용해 수작업으로 취합하던 대용량 엑셀 마케팅 데이터를 정리·가공하는 업무 자동화 스크립트 구축',

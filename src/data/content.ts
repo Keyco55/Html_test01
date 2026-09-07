@@ -22,17 +22,17 @@ export const contentData: ContentItem[] = [
     id: 'naver-blog',
     platform: 'naver_blog',
     title: 'KEYCO 네이버 블로그',
-    channelOrBlogName: 'qjadn02',
+    channelOrBlogName: '@Rendezvous',
     url: 'https://blog.naver.com/qjadn02',
-    badge: 'Tech & Project Documentation',
-    roleScope: ['아티클 작성', '기술 트러블슈팅 기록', 'AI 워크플로우 정리', '프로젝트 아카이빙'],
+    badge: 'Tech · Life Documentation',
+    roleScope: ['아티클 작성', '기술 트러블슈팅 기록', 'AI 워크플로우 정리', '일상 · 취미 기록'],
     description:
-      '소프트웨어 개발 과정에서 겪은 기술적 문제 해결, AI 멀티 에이전트 도구 활용법, macOS 생산성 도구 셋업 및 개인 프로젝트의 상세한 설계 과정을 투명하게 기록하고 공유합니다.',
+      '개발과 AI 활용, 기술 트러블슈팅 기록은 물론 일상과 취미까지 함께 담아내는 블로그입니다. 프로젝트 설계 과정과 macOS 생산성 도구 셋업도 투명하게 공유합니다.',
     focusTopics: [
-      'Development: 웹 프론트엔드 및 데이터 다루기 실전 기록',
+      '개발: 웹 프론트엔드 및 데이터 다루기 실전 기록',
       'AI: 프롬프트 엔지니어링 및 AI 코딩 에이전트 파이프라인',
-      'Mac: 터미널 CLI 환경, 키바인딩 및 생산성 셋업',
-      'Project Documentation: 시행착오와 설계 의도를 담은 상세 기술 문서'
+      '기술 트러블슈팅: 시행착오와 해결 과정을 담은 상세 기록',
+      '일상 · 취미: 개발 밖의 관심사와 생활 기록'
     ]
   }
 ];

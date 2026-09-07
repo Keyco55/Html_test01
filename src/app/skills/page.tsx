@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { Reveal } from "@/components/motion/Reveal";
 import { OptionalImage } from "@/components/site/OptionalImage";
 import { WorkflowPipeline } from "@/components/site/WorkflowPipeline";
+import { ArchitectureTopology } from "@/components/site/ArchitectureTopology";
 import { createSiteMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createSiteMetadata("/skills") as Metadata;
@@ -30,8 +31,58 @@ const CORE_GROUPS = [
   },
 ] as const;
 
-const WORKFLOW_TOOLS = ["Git", "GitHub", "Git Worktree", "cmux", "Cloudflare"] as const;
-const COLLAB_TOOLS = ["Jira", "Slack", "Microsoft Teams"] as const;
+/** Working toolkit — semantic groups, evidenced tools only. */
+const TOOLKIT_GROUPS = [
+  {
+    name: "Development & Version Control",
+    tools: ["Git", "GitHub", "Git Worktree", "Cloudflare"],
+    note: "브랜치 전략과 worktree 격리, Cloudflare 기반 배포.",
+  },
+  {
+    name: "AI & CLI Development",
+    tools: ["cmux", "Claude Code", "Codex CLI", "Google Antigravity", "Aider", "OpenCode"],
+    note: "터미널 중심의 AI 에이전트 병렬 운영 환경.",
+  },
+  {
+    name: "Collaboration & Documentation",
+    tools: ["Notion", "Jira", "Slack", "Microsoft Teams"],
+    note: "기획·이슈 트래킹·인수인계 문서화와 팀 협업.",
+  },
+  {
+    name: "Content & Media",
+    tools: ["Final Cut Pro", "Blog", "SNS"],
+    note: "영상 편집과 채널 콘텐츠 제작 파이프라인.",
+  },
+] as const;
+
+/** AI/CLI agent operations — brands are supporting tools, not the protagonist. */
+const AI_CLI_TOOLS = [
+  { name: "Claude / Claude Code", role: "복합 구현 · 리팩터링 트랙" },
+  { name: "Codex / Codex CLI", role: "빠른 단위 작업 · 보조 트랙" },
+  { name: "Google Antigravity", role: "탐색 · 프로토타이핑" },
+  { name: "Aider", role: "Git 연동 pair 편집" },
+  { name: "OpenCode", role: "CLI 범용 에이전트" },
+  { name: "기타 CLI 개발 도구", role: "스크립트 · 자동화 유틸" },
+] as const;
+
+const AI_CLI_PRACTICES = [
+  { label: "Agent Routing", detail: "작업 성격과 잔여 쿼터에 따라 모델·에이전트를 사람이 직접 라우팅" },
+  { label: "Parallel Workers", detail: "독립 트랙을 병렬 워커로 동시 진행 — worktree당 수정 주체 1개" },
+  { label: "Independent Review", detail: "구현 에이전트와 분리된 시니어 리뷰 에이전트가 빌드·타입·보안·회귀 감사" },
+  { label: "Human Final QA", detail: "최종 판단은 항상 사람 — Human Runtime QA와 Security Gate 통과 후 병합" },
+] as const;
+
+const ARCHITECTURE_PRINCIPLES = [
+  "branch / worktree 명시적 격리",
+  "병렬 독립 워커 운영",
+  "worktree당 수정 주체 1개",
+  "독립 시니어 리뷰",
+  "Remediation / 재검토 루프",
+  "Human Runtime QA",
+  "Security / Release Gate",
+  "HANDOFF 문서화",
+] as const;
+
 const DEV_ENVIRONMENT = ["VS Code", "Ghostty", "Yazi", "btop", "LazyGit"] as const;
 
 const NOTION_USES = [
@@ -62,7 +113,7 @@ export default function SkillsPage() {
             그리고 일하는 도구
           </>
         }
-        lede="실제 프로젝트와 업무에서 사용한 기술과 도구입니다. 수준 표시나 별점은 두지 않았습니다."
+        lede="실제 프로젝트와 업무에서 사용한 기술과 도구입니다. 새로운 기술과 AI 활용 방식에 관심이 많아, 실제 프로젝트에 적용하며 계속 학습하고 실험합니다."
       />
 
       {/* ============ CORE GROUPS ============ */}
@@ -117,60 +168,93 @@ export default function SkillsPage() {
         </Container>
       </section>
 
+      {/* ============ AI / CLI DEVELOPMENT ============ */}
+      <section aria-labelledby="skills-ai-cli" className="dot-grid border-y border-night-line bg-night py-14 text-night-ink md:py-20">
+        <Container className="max-w-5xl">
+          <Reveal>
+            <p className="eyebrow text-clay-bright">AI-assisted Development</p>
+            <h2 id="skills-ai-cli" className="mt-2 text-[clamp(1.5rem,3.6vw,2.2rem)] font-extrabold">
+              CLI Agent Operations
+            </h2>
+            <p className="mt-4 max-w-2xl text-[14.5px] leading-relaxed text-night-soft">
+              여러 AI 에이전트와 모델을 도구로 다루며, KBO-Hub와 이 포트폴리오
+              개발에 직접 적용해 온 엔지니어링 워크플로우입니다. AI 브랜드는
+              주인공이 아니라 작업을 지탱하는 도구이며, 라우팅과 검증의 최종
+              판단은 항상 사람이 합니다.
+            </p>
+          </Reveal>
+
+          <div className="mt-9 grid grid-cols-1 gap-5 md:grid-cols-[1fr_1.1fr]">
+            <Reveal delay={60}>
+              <div className="h-full rounded-2xl border border-night-line bg-night-raise/70 p-6">
+                <p className="font-mono text-[11px] tracking-[0.16em] text-clay-bright uppercase">
+                  Tools in Operation
+                </p>
+                <ul className="mt-4 flex flex-col gap-3">
+                  {AI_CLI_TOOLS.map((tool) => (
+                    <li key={tool.name} className="flex flex-wrap items-baseline gap-x-3 border-t border-night-line pt-3 first:border-t-0 first:pt-0">
+                      <span className="text-[14px] font-bold text-night-ink">{tool.name}</span>
+                      <span className="font-mono text-[11.5px] text-night-muted">{tool.role}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <div className="h-full rounded-2xl border border-night-line bg-night-raise/70 p-6">
+                <p className="font-mono text-[11px] tracking-[0.16em] text-clay-bright uppercase">
+                  How They Are Operated
+                </p>
+                <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  {AI_CLI_PRACTICES.map((practice) => (
+                    <li key={practice.label}>
+                      <p className="text-[13.5px] font-bold text-night-ink">{practice.label}</p>
+                      <p className="mt-1 text-[12.5px] leading-relaxed text-night-muted">
+                        {practice.detail}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
       {/* ============ TOOLS & WORKFLOW ============ */}
       <section aria-labelledby="skills-tools" className="border-y border-ink/10 bg-paper-deep/60">
         <Container className="max-w-5xl py-14 md:py-20">
           <Reveal>
             <p className="eyebrow">Tools & Workflow</p>
             <h2 id="skills-tools" className="mt-2 text-[clamp(1.5rem,3.6vw,2.2rem)] font-extrabold text-ink">
-              매일 사용하는 도구
+              일하는 도구 체계
             </h2>
           </Reveal>
 
-          <div className="mt-9 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Reveal delay={60}>
-              <div className="h-full rounded-2xl border border-ink/10 bg-surface p-6">
-                <p className="font-mono text-[11px] tracking-[0.16em] text-clay uppercase">
-                  Version Control · Deploy · Agent Ops
-                </p>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {WORKFLOW_TOOLS.map((tool) => (
-                    <li
-                      key={tool}
-                      className="rounded-full border border-ink/12 bg-paper px-3.5 py-1.5 text-[13.5px] font-bold text-ink-soft"
-                    >
-                      {tool}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-[13px] leading-relaxed text-muted">
-                  Git worktree로 작업을 격리하고 cmux로 에이전트 세션을 병렬
-                  운영하며, Cloudflare Pages로 배포합니다.
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal delay={120}>
-              <div className="h-full rounded-2xl border border-ink/10 bg-surface p-6">
-                <p className="font-mono text-[11px] tracking-[0.16em] text-clay uppercase">
-                  Collaboration
-                </p>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {COLLAB_TOOLS.map((tool) => (
-                    <li
-                      key={tool}
-                      className="rounded-full border border-ink/12 bg-paper px-3.5 py-1.5 text-[13.5px] font-bold text-ink-soft"
-                    >
-                      {tool}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-[13px] leading-relaxed text-muted">
-                  이슈 트래킹, 메신저, 화상 협업 등 팀 업무 환경에서 사용해 온
-                  도구입니다.
-                </p>
-              </div>
-            </Reveal>
+          <div className="mt-9 grid grid-cols-1 gap-5 sm:grid-cols-2">
+            {TOOLKIT_GROUPS.map((group, i) => (
+              <Reveal key={group.name} delay={60 + i * 60}>
+                <div className="h-full rounded-2xl border border-ink/10 bg-surface p-6">
+                  <p className="font-mono text-[11px] tracking-[0.16em] text-clay uppercase">
+                    {group.name}
+                  </p>
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {group.tools.map((tool) => (
+                      <li
+                        key={tool}
+                        className="rounded-full border border-ink/12 bg-paper px-3.5 py-1.5 text-[13.5px] font-bold text-ink-soft"
+                      >
+                        {tool}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-4 text-[13px] leading-relaxed text-muted">
+                    {group.note}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
           </div>
 
           {/* Notion — documentation practice, media-ready */}
@@ -269,6 +353,52 @@ export default function SkillsPage() {
           <div className="mt-14">
             <WorkflowPipeline />
           </div>
+        </Container>
+      </section>
+
+      {/* ============ DEVELOPMENT ARCHITECTURE — system topology ============ */}
+      <section
+        id="architecture"
+        aria-labelledby="skills-architecture"
+        className="scroll-mt-20 bg-paper py-16 md:py-24"
+      >
+        <Container>
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">Development Architecture</p>
+            <h2
+              id="skills-architecture"
+              className="mt-3 text-[clamp(1.7rem,4.4vw,2.6rem)] font-extrabold text-ink"
+            >
+              개발 환경이 연결되는 방식
+            </h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">
+              위의 워크플로우가 <strong className="font-bold text-ink">순서</strong>를
+              보여준다면, 이 다이어그램은 <strong className="font-bold text-ink">구조</strong>를
+              보여줍니다. 사람에서 시작해 문서화, cmux 에이전트 오케스트레이션,
+              Git 격리, 검증 게이트를 거쳐 릴리스와 HANDOFF로 끝나는 개발 환경의
+              시스템 토폴로지입니다.
+            </p>
+          </Reveal>
+
+          <div className="mt-12">
+            <ArchitectureTopology />
+          </div>
+
+          <Reveal delay={100}>
+            <ul
+              aria-label="아키텍처 원칙"
+              className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2"
+            >
+              {ARCHITECTURE_PRINCIPLES.map((principle, i) => (
+                <li key={principle} className="flex items-baseline gap-3 border-t border-ink/10 pt-3">
+                  <span aria-hidden="true" className="font-mono text-[10.5px] text-clay">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[13.5px] font-semibold text-ink-soft">{principle}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </Container>
       </section>
     </div>

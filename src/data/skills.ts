@@ -20,7 +20,7 @@ export const skillsData: SkillCategory[] = [
     description: '효율적인 협업 및 브랜치 관리, 인프라 배포 환경',
     items: ['Git', 'GitHub', 'Worktree', 'Cloudflare'],
     practicalContext:
-      'Git Worktree를 활용한 다중 기능 동시 병렬 격리 작업, GitHub 협업 브랜치 전략, Cloudflare Pages/DNS를 통한 웹 배포.'
+      'Git Worktree를 활용한 다중 기능 동시 병렬 격리 작업, GitHub 협업 브랜치 전략, Cloudflare Workers/Pages·DNS를 통한 웹 배포.'
   },
   {
     category: 'AUTOMATION',
@@ -38,15 +38,15 @@ export const skillsData: SkillCategory[] = [
   },
   {
     category: 'AI WORKFLOW',
-    description: '터미널 멀티플렉서 기반 AI 에이전트 병렬 제어 및 QA',
-    items: ['cmux', 'Multi-Agent', 'Human QA'],
+    description: '터미널 멀티플렉서 기반 AI/CLI 에이전트 병렬 제어 및 QA',
+    items: ['Claude Code', 'Codex CLI', 'Google Antigravity', 'Aider', 'OpenCode', 'cmux', 'Multi-Agent', 'Human QA'],
     practicalContext:
       'cmux 환경에서 복수의 전문 AI 에이전트를 역할별로 분업 조율하고, 결과물을 직접 인간 관점에서 엄격히 검증하는 하이브리드 개발 사이클 운영.'
   },
   {
     category: 'CONTENT',
     description: '기획부터 제작, 채널 운영까지의 콘텐츠 파이프라인',
-    items: ['Video Editing', 'Blog', 'SNS', 'Content Planning'],
+    items: ['Final Cut Pro', 'Video Editing', 'Blog', 'SNS', 'Content Planning'],
     practicalContext:
       '영상 컷편집 및 자막·오디오 작업, 기술 블로그 아티클 작성, 소셜 미디어 채널 커뮤니케이션 및 타깃 맞춤형 콘텐츠 기획.'
   }

@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { BackToTop } from '@/components/layout/BackToTop';
 import { createPersonJsonLd, createSiteMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = createSiteMetadata('/') as Metadata;
@@ -69,6 +70,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );

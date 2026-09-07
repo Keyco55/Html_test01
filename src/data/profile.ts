@@ -1,13 +1,8 @@
 import { ProfileData } from '../types/resume';
 
 export const profileData: ProfileData = {
-  /**
-   * PUBLIC EMAIL VALUE REQUIRED FROM HQ.
-   * No explicitly confirmed public email exists in authoritative project
-   * data, so the slot stays null. Contact UI degrades gracefully and never
-   * invents an address. Set a confirmed public email here when available.
-   */
-  publicEmail: null,
+  /** Public email — approved by HQ (2026-09). */
+  publicEmail: '9ren5dezvous@gmail.com',
   name: 'KEYCO',
   title: '고객과 서비스를 이해하고, 콘텐츠와 기술로 직접 만드는 사람.',
   shortBio:
@@ -67,13 +62,13 @@ export const profileData: ProfileData = {
       label: 'Naver Blog',
       url: 'https://blog.naver.com/qjadn02',
       type: 'blog',
-      description: '개발, AI 워크플로우, macOS 도구 및 프로젝트 기록'
+      description: '@Rendezvous — 개발 · AI · 기술 트러블슈팅 · 일상 · 취미'
     },
     {
       label: 'Instagram',
-      url: 'https://www.instagram.com/sprinrainfa11s/',
+      url: 'https://www.instagram.com/springrainfa11s/',
       type: 'other',
-      description: '@sprinrainfa11s'
+      description: '@springrainfa11s'
     }
   ]
 };

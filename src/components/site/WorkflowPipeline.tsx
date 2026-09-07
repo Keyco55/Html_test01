@@ -25,17 +25,29 @@ const STAGES = [
   { step: "Release Gate", ko: "릴리스 게이트", detail: "보안·프라이버시 최종 확인 후 릴리스합니다." },
 ] as const;
 
-const CAPABILITIES = [
-  "CLI Agent Operations",
-  "Git Branch Strategy",
-  "Git Worktree Strategy",
-  "Agent-per-Worktree Isolation",
-  "Parallel Worker Pipeline",
-  "Independent Senior Review",
-  "Remediation / Re-Review",
-  "Human Runtime QA",
-  "Security / Release Gate",
-  "HANDOFF Documentation",
+/** Relevant capabilities — grouped into 4 meaningful clusters (no chip wall). */
+const CAPABILITY_CLUSTERS = [
+  {
+    name: "Isolation",
+    items: ["Git Branch Strategy", "Git Worktree Strategy", "Agent-per-Worktree"],
+  },
+  {
+    name: "Agent Operations",
+    items: ["CLI Agent Operations", "Parallel Worker Pipeline"],
+  },
+  {
+    name: "Review & Quality",
+    items: [
+      "Independent Senior Review",
+      "Remediation / Re-review",
+      "Human Runtime QA",
+      "Security / Release Gate",
+    ],
+  },
+  {
+    name: "Documentation",
+    items: ["HANDOFF Documentation"],
+  },
 ] as const;
 
 export const WorkflowPipeline: React.FC = () => {
@@ -138,16 +150,26 @@ export const WorkflowPipeline: React.FC = () => {
           <p className="font-mono text-[11px] tracking-[0.18em] text-night-muted uppercase">
             Relevant Capabilities
           </p>
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {CAPABILITIES.map((capability) => (
-              <li
-                key={capability}
-                className="rounded-full border border-night-line bg-night-raise px-3.5 py-1.5 font-mono text-[11.5px] text-night-soft transition-colors duration-200 hover:border-clay-bright/60 hover:text-clay-bright"
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {CAPABILITY_CLUSTERS.map((cluster) => (
+              <div
+                key={cluster.name}
+                className="rounded-xl border border-night-line bg-night-raise/70 p-4"
               >
-                {capability}
-              </li>
+                <p className="font-mono text-[10.5px] tracking-[0.16em] text-clay-bright uppercase">
+                  {cluster.name}
+                </p>
+                <ul className="mt-2.5 flex flex-col gap-1.5">
+                  {cluster.items.map((item) => (
+                    <li key={item} className="flex items-baseline gap-2 text-[13px] text-night-soft">
+                      <span aria-hidden="true" className="h-1 w-1 shrink-0 rotate-45 bg-clay-bright/70" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </Reveal>
     </div>

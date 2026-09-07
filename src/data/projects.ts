@@ -12,24 +12,24 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     tier: 'heroic',
     title: 'KBO-Hub',
     nameEn: 'HOMEPLATE',
-    subtitle: '통합 KBO 팬 라이프스타일 플랫폼',
+    subtitle: '통합 야구팬 라이프스타일 C2C 플랫폼',
     category: 'Full-Stack Product',
     status: 'Closed Beta',
     summary:
-      '야구 팬들의 경기 관람, 선수/구단 데이터, 포토카드 아카이빙, 직관 기록, 커뮤니티를 연결하는 올인원 야구 플랫폼입니다. 단순 프로토타입을 넘어 1인 빌더로서 제품 기획부터 풀스택 개발, Supabase RLS 인증/데이터베이스 설계, Cloudflare 배포, Human Runtime QA까지 실서비스 운영 수준으로 구축했습니다.',
+      '경기 일정·직관 기록, 포토카드 아카이브 및 도감, 팬 커뮤니티, 야구 굿즈 전문 중고 장터를 하나의 제품으로 연결하는 통합 야구팬 라이프스타일 C2C 플랫폼(서비스 브랜드 HOMEPLATE)입니다. 1인 빌더로서 제품 기획부터 풀스택 개발, Supabase RLS 인증/데이터베이스 설계, Cloudflare Workers 배포, Human Runtime QA까지 실서비스 운영 수준으로 구축했습니다.',
     metadata: {
       role: 'Product Planning & Full-Stack Builder',
       timeline: '2026.08 ~ 현재',
-      platform: 'Web (Next.js App Router) & Cloudflare Pages',
+      platform: 'Web (Next.js App Router) & Cloudflare Workers',
       scope: '기획 · 디자인 시스템 · 프론트엔드 · DB/Auth/RLS · 배포 · QA',
     },
     narrative: {
       problem:
-        'KBO 리그 팬들은 경기 일정, 기록 조회, 굿즈/포토카드 거래, 티켓팅 정보 등이 여러 플랫폼에 파편화되어 있어 일상 속에서 통합된 야구 경험을 누리기 어려웠습니다.',
+        '야구팬들은 경기 일정, 기록 조회, 굿즈/포토카드 거래, 티켓팅 정보 등이 여러 플랫폼에 파편화되어 있어 일상 속에서 통합된 야구 경험을 누리기 어려웠습니다.',
       solution:
         'Next.js App Router와 Supabase 기반으로 고성능 웹 플랫폼을 설계했습니다. 비주얼 v3 테마 시스템, 3D 포토카드 틸트 인터랙션, Row Level Security(RLS) 기반 보안 계정 체계, 모바일 최적화 내비게이션을 단일 제품으로 완성했습니다.',
       keyContributions: [
-        '제품 기획 & 요구사항 정의: KBO 팬의 페인 포인트를 분석하여 포토카드 아카이브, 티켓/일정 허브, 커뮤니티를 유기적으로 연결한 핵심 기능 스펙 수립',
+        '제품 기획 & 요구사항 정의: 야구팬의 페인 포인트를 분석하여 경기 일정·직관 기록, 포토카드 아카이브 및 도감, 팬 커뮤니티, 야구 굿즈 전문 중고 장터를 유기적으로 연결한 핵심 기능 스펙 수립',
         'Next.js App Router 아키텍처: App Router 구조 위에 전역 헤더, 실시간 티커 셸, 모바일 드로어 및 FOUC 없는 테마 시스템 구축',
         'Supabase Auth & Database / RLS 설계: Email/Password 인증, public.profiles 트리거 연계, 사용자 데이터 격리를 위한 엄격한 Row Level Security 정책 적용',
         '고성능 클라이언트 인터랙션: 무거운 외부 라이브러리 없이 순수 DOM 제어로 3D 홀로그램 글레어 및 포토카드 틸트 효과 구현, Hydration 안정화',
@@ -40,7 +40,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
         'Supabase Auth & Session Persistence',
         'PostgreSQL Database & Schema Design',
         'Row Level Security (RLS) Policies',
-        'Cloudflare Pages Static Export Delivery',
+        'Cloudflare Workers Delivery',
         'Zero-Dependency 3D Card Tilt Interaction',
         'Human Runtime QA & Security Gate Passed',
       ],
@@ -54,22 +54,29 @@ export const FEATURED_PROJECTS: readonly Project[] = [
       'Supabase',
       'PostgreSQL',
       'Row Level Security',
-      'Cloudflare Pages',
+      'Cloudflare Workers',
       'Tailwind CSS',
     ],
-    featuredStack: ['Next.js App Router', 'React', 'Supabase', 'PostgreSQL', 'Cloudflare Pages'],
+    featuredStack: ['Next.js App Router', 'React', 'Supabase', 'PostgreSQL', 'Cloudflare Workers'],
     metrics: [
-      { label: '배포 상태', value: 'Closed Beta', note: '실제 사용자 초대 기반 운영' },
+      { label: '현재 상태', value: 'Closed Beta', note: '초대 기반 운영 → 2027.02 Open Beta → 2027.03 정식 출시 목표' },
       { label: '보안 검증', value: 'Reviewed', note: 'RLS 격리 & Security Gate 수행' },
       { label: '개발 범위', value: 'Full-Cycle', note: '기획부터 배포·QA까지 전 과정' },
       { label: '인터랙션', value: 'DOM 기반', note: '외부 라이브러리 없는 3D 카드 틸트' },
     ],
-    links: [],
+    links: [
+      {
+        label: '서비스 바로가기 (HOMEPLATE)',
+        url: 'https://kbo-hub.9ren5dezvous.workers.dev/',
+        isExternal: true,
+        icon: 'external',
+      },
+    ],
     architecture: {
       containerId: 'kbo-hub-arch-container',
       title: 'KBO-Hub Full-Stack Architecture',
       description:
-        'Next.js App Router 프론트엔드와 Cloudflare CDN 서빙, Supabase Auth/RLS 데이터베이스 격리 계층이 유기적으로 연결된 실서비스 아키텍처입니다.',
+        'Next.js App Router 프론트엔드와 Cloudflare Workers 서빙, Supabase Auth/RLS 데이터베이스 격리 계층이 유기적으로 연결된 실서비스 아키텍처입니다.',
       diagramType: 'kbo-hub-architecture',
       svgArtifactPath: '/docs/diagrams/kbo-hub-architecture.svg',
     },
@@ -80,91 +87,12 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     },
   },
   {
-    id: 'multi-agent-orchestration',
-    slug: 'multi-agent-orchestration',
-    displayOrder: 2,
-    tier: 'featured',
-    title: 'Multi-Agent Development Orchestration',
-    nameEn: 'Parallel Worktree Pipeline',
-    subtitle: '실전 프로덕트에 적용된 병렬 에이전트 개발 프로세스',
-    category: 'Development Orchestration',
-    status: 'Active Production',
-    summary:
-      '단순히 AI 모델을 나열하는 것이 아닌, 실제 프로덕트(KBO-Hub, Portfolio v1) 개발에 직접 적용한 다중 에이전트 분업 워크플로우입니다. cmux 터미널 멀티플렉서와 Git worktree 격리를 통해 Human Director, Parallel Worker, Independent Senior Reviewer, Remediation, Human QA, Security Gate로 이어지는 엔지니어링 체계를 설계·운영했습니다.',
-    metadata: {
-      role: 'Pipeline Architect & Human Director',
-      timeline: '2026.08 ~ 현재',
-      platform: 'macOS · cmux · Git Worktree · Human-selected Agent Routing',
-      scope: '워크플로우 설계 · 트랙 분할 · 독립 코드리뷰 · 보안 게이트 · QA',
-    },
-    narrative: {
-      problem:
-        '단일 AI 모델에 의존하거나 단일 컨텍스트에서 복잡한 기능을 구현할 경우 컨텍스트 오염, 환각, 회귀 버그, 무분별한 파일 수정 위험이 커지는 한계가 존재했습니다.',
-      solution:
-        'Git worktree를 활용해 Foundation, Platform, Projects, Resume 등으로 물리적 작업 트리를 격리하고, cmux 터미널로 다중 에이전트를 병렬 배치했습니다. 구현(Worker)과 검증(Independent Senior Review)을 분리하고, 최종 Human QA와 Security Gate를 통과해야만 dev에 머지되는 안전 프로세스를 확립했습니다.',
-      keyContributions: [
-        'Track Decomposition 체계화: 대규모 개발 작업을 충돌 없는 독립 트랙으로 쪼개고 소유권(Ownership) 명확화',
-        'cmux 기반 병렬 세션 제어: 단일 화면에서 다중 터미널 세션의 에이전트 작업 상태 및 콘솔 출력을 실시간 감시',
-        'Independent Senior Review 도입: 구현 작업자와 완전히 분리된 검증 에이전트가 빌드, 타입, 보안, 회귀 위험을 엄격히 감사',
-        'Security Gate & Remediation 루프: 발견된 결함을 단계별로 패치하고 재검증하여 dev 브랜치 무결성 보장',
-        'KBO-Hub 실제 개발 적용: Supabase Auth 수직 슬라이스에 본 워크플로우를 적용하고 검토·보완 후 integration 완료',
-      ],
-      technicalHighlights: [
-        'cmux CLI Multi-Terminal Sessions',
-        'Git Worktrees Isolated Working Directories',
-        'Role-Separated Agents (Worker vs Senior Reviewer)',
-        'Remediation & Re-review Enforcement Loop',
-        'Strict Security & Privacy Verification Gates',
-        'Human Runtime QA Final Sign-off',
-      ],
-      learned:
-        'AI 도구의 성패는 모델 자체의 지능보다 "작업을 어떻게 격리하고 어떤 검증 게이트를 거치게 설계하는가"라는 엔지니어링 프로세스에 달려 있음을 실증했습니다.',
-    },
-    techStack: [
-      'cmux',
-      'Git Worktree',
-      'Multi-Agent Routing',
-      'Shell Automation',
-      'Independent Code Review',
-      'Security Gate',
-      'Runtime QA',
-    ],
-    featuredStack: ['cmux', 'Git Worktrees', 'Multi-Agent Routing', 'Security Gate'],
-    metrics: [
-      { label: '병렬 트랙', value: '4+ Tracks', note: 'Foundation · Platform · Projects · Resume' },
-      { label: '리뷰 체계', value: 'Independent', note: '작업자-리뷰어 완전 분리 검증' },
-      { label: '보안 게이트', value: 'Required', note: '시크릿·개인정보·회귀 점검' },
-      { label: '적용 사례', value: 'KBO-Hub', note: '실제 프로덕트 개발 파이프라인으로 운용' },
-    ],
-    links: [
-      {
-        label: '오케스트레이션 아키텍처',
-        url: '#multi-agent-workflow-container',
-        isExternal: false,
-        icon: 'doc',
-      },
-    ],
-    architecture: {
-      containerId: 'multi-agent-workflow-container',
-      title: 'Multi-Agent Parallel Development Workflow',
-      description:
-        'Human Director가 작업을 분해하고, 병렬 worktree에서 Worker가 구현한 후, 독립된 Senior Review와 Remediation을 거쳐 Human QA로 검증되는 실제 개발 흐름입니다.',
-      diagramType: 'multi-agent-workflow',
-      svgArtifactPath: '/docs/diagrams/multi-agent-workflow.svg',
-    },
-    screenshotPlaceholder: {
-      caption: 'cmux 기반 다중 worktree 병렬 세션 및 독립 코드리뷰 피드백 루프',
-      mockupType: 'terminal',
-      badgeText: 'Process Architecture',
-    },
-  },
-  {
     id: 'ai-hub-pet',
     slug: 'ai-hub-pet',
-    displayOrder: 3,
+    displayOrder: 4,
     tier: 'featured',
-    title: 'AI-Hub-pet',
-    nameEn: 'Doro Hub Pet',
+    title: 'Doro Hub Pet',
+    nameEn: 'AI-Hub-pet',
     subtitle: '로컬 AI 에이전트 리소스 관찰 및 세션 라우팅 macOS 네이티브 앱',
     category: 'macOS Native Tool',
     status: 'Open Source',
@@ -231,7 +159,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
   {
     id: 'gom-marketing-automation',
     slug: 'gom-marketing-automation',
-    displayOrder: 4,
+    displayOrder: 3,
     tier: 'featured',
     title: 'GOM Marketing × Web × Automation',
     nameEn: 'Marketing Tech & Data Pipeline',
@@ -302,20 +230,20 @@ export const FEATURED_PROJECTS: readonly Project[] = [
   {
     id: 'ai-status-hub',
     slug: 'ai-status-hub',
-    displayOrder: 5,
+    displayOrder: 2,
     tier: 'featured',
-    title: 'AI Usage Status Hub',
-    nameEn: 'keyco AI Status Hub',
+    title: 'keyco AI Status Hub',
+    nameEn: 'AI Usage Status Hub',
     subtitle: '프라이버시 보존형 다중 AI 리소스 캐시 & 메뉴바·터미널 통합 레이어',
     category: 'Developer Infrastructure',
-    status: 'Preparing Public Release',
+    status: 'Public · Open Source',
     summary:
       '여러 AI 개발 서비스(Codex, Antigravity, Alibaba 등)의 사용량과 초기화 시각을 한눈에 확인하여 최적의 모델 라우팅을 돕는 macOS 도구입니다. Peter Steinberger의 오픈소스 CodexBar 로컬 루프백 데이터를 공급원으로 활용하며, 계정 정보가 남지 않는 프라이버시 보존형 캐시 레이어와 Python 수집기, Swift 메뉴바 헬퍼를 직접 개발하여 터미널(cmux) 워크플로우에 통합했습니다.',
     metadata: {
       role: 'Integration Architect & Developer',
       timeline: '2026.08 ~ 현재',
       platform: 'macOS · Python · Swift AppKit · cmux/tmux',
-      scope: '데이터 수집기 · 캐시 보안 설계 · 메뉴바 헬퍼 · cmux 연동 (공개 릴리스 준비 중)',
+      scope: '데이터 수집기 · 캐시 보안 설계 · 메뉴바 헬퍼 · cmux 연동 (GitHub 공개 저장소)',
     },
     narrative: {
       problem:
@@ -350,12 +278,19 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     ],
     featuredStack: ['Python 3', 'Swift', 'macOS AppKit', 'Privacy Cache Layer'],
     metrics: [
-      { label: '공개 상태', value: '준비 중', note: 'Preparing Public Release' },
+      { label: '공개 상태', value: 'PUBLIC', note: 'Open Source — GitHub 공개 저장소' },
       { label: '보안 격리', value: 'Restricted', note: '로컬 권한 기반 캐시 접근 제한' },
       { label: '프라이버시', value: 'Excluded', note: '자격증명 및 프롬프트 미보관' },
       { label: '통합 환경', value: 'Menubar & CLI', note: 'Swift 메뉴바 + cmux 터미널 지원' },
     ],
-    links: [],
+    links: [
+      {
+        label: 'GitHub 저장소',
+        url: 'https://github.com/Keyco55/keyco-ai-status-hub',
+        isExternal: true,
+        icon: 'github',
+      },
+    ],
     architecture: {
       containerId: 'ai-status-hub-flow-container',
       title: 'AI Usage Status Hub Integration Pipeline',
@@ -367,7 +302,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     screenshotPlaceholder: {
       caption: 'macOS 메뉴바와 cmux 상태창에 표시되는 실시간 provider별 쿼터 및 리셋 카운트다운',
       mockupType: 'macos-app',
-      badgeText: 'Preparing Public Release',
+      badgeText: 'Public · Open Source',
     },
   },
 ] as const;
@@ -385,15 +320,15 @@ export const HERO_DATA = {
   liveStatuses: [
     {
       id: 'kbo-hub',
-      label: 'KBO-Hub',
+      label: 'KBO-Hub · HOMEPLATE',
       badge: 'Closed Beta',
-      description: '통합 야구 라이프스타일 플랫폼',
+      description: '통합 야구팬 라이프스타일 C2C 플랫폼',
       indicatorColor: 'emerald',
       href: '#kbo-hub',
     },
     {
       id: 'ai-hub-pet',
-      label: 'AI-Hub-pet',
+      label: 'Doro Hub Pet',
       badge: 'macOS Native',
       description: '에이전트 모니터링 & 세션 라우터',
       indicatorColor: 'cyan',

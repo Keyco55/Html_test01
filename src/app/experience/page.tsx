@@ -2,12 +2,19 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Reveal } from "@/components/motion/Reveal";
+import { OptionalImage } from "@/components/site/OptionalImage";
 import { experienceData } from "@/data/experience";
 import { createSiteMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createSiteMetadata("/experience") as Metadata;
 
 /** Short factual scope notes — condensed from contextNote in src/data/experience.ts. */
+/** Optional future work-photo slots — invisible until real assets exist. */
+const MEDIA_SLOTS: Record<string, { dir: string; alt: string } | undefined> = {
+  "gom-and-company": { dir: "/images/experience/gom", alt: "곰앤컴퍼니 근무 사진" },
+  "lotte-world": { dir: "/images/experience/lotteworld", alt: "롯데월드 근무 사진" },
+};
+
 const SCOPE_NOTES: Record<string, string | undefined> = {
   "gom-and-company":
     "프론트엔드·백엔드 서비스 전체 개발이 아닌, 콘텐츠·마케팅 페이지 수정과 데이터 자동화 업무 범위입니다.",
@@ -104,6 +111,22 @@ export default function ExperiencePage() {
                       </li>
                     ))}
                   </ul>
+
+                  {/* optional work photos — layout collapses when absent */}
+                  {MEDIA_SLOTS[item.id] && (
+                    <div className="mt-5 flex max-w-2xl flex-wrap gap-3">
+                      {[1, 2].map((n) => (
+                        <OptionalImage
+                          key={n}
+                          src={`${MEDIA_SLOTS[item.id]!.dir}/work-${n}.webp`}
+                          alt={`${MEDIA_SLOTS[item.id]!.alt} ${n}`}
+                          className="rounded-xl border border-ink/10"
+                          aspect="4 / 3"
+                          wrapperClassName="w-[calc(50%-6px)] max-w-[240px]"
+                        />
+                      ))}
+                    </div>
+                  )}
 
                   {SCOPE_NOTES[item.id] && (
                     <p className="mt-5 max-w-2xl border-l-2 border-ink/15 pl-3 text-[12.5px] leading-relaxed text-muted">

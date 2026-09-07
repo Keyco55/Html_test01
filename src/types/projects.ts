@@ -7,6 +7,7 @@ export type ProjectStatusType =
   | 'Closed Beta'
   | 'Active Production'
   | 'Open Source'
+  | 'Public · Open Source'
   | 'Preparing Public Release'
   | 'Internal Production Verified';
 
