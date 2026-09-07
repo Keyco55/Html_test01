@@ -95,7 +95,6 @@ export const ProjectMediaFrame: React.FC<ProjectMediaFrameProps> = ({
             color: '#cbd5e1',
           }}
         >
-          {type === 'browser' && <span style={{ color: '#38bdf8', marginRight: '6px' }}>https://</span>}
           <span>{title}</span>
         </div>
 
@@ -244,7 +243,7 @@ export const ProjectMediaFrame: React.FC<ProjectMediaFrameProps> = ({
           }}
         >
           <span>{caption}</span>
-          <span style={{ fontFamily: 'var(--font-mono, ui-monospace, monospace)' }}>Verified Production</span>
+          <span style={{ fontFamily: 'var(--font-mono, ui-monospace, monospace)' }}>Illustrative Preview</span>
         </figcaption>
       )}
     </figure>

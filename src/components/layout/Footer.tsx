@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
           <span className="font-mono text-sky-400 font-bold">&gt;_</span>
           <span className="text-slate-300 font-medium">KEYCO Portfolio</span>
           <span className="text-slate-600">|</span>
-          <span className="text-slate-400">Full-Stack &amp; AI Engineering</span>
+          <span className="text-slate-400">Customer Experience · Content · Product Development</span>
         </div>
 
         <div className="flex items-center gap-4 text-xs text-slate-500 font-mono">

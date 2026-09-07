@@ -2,9 +2,9 @@ import { absoluteUrl, getSiteUrl, SITE_LANGUAGE, SITE_LOCALE } from "./platform"
 
 export const siteSeo = {
   name: "KEYCO Portfolio",
-  title: "KEYCO | Full-stack & AI Engineering Portfolio",
+  title: "KEYCO | Customer Experience · Content · Product Development",
   description:
-    "풀스택 제품 개발과 AI 협업 워크플로우를 설계하고 구현하는 KEYCO의 포트폴리오입니다.",
+    "고객과 서비스를 이해하고, 콘텐츠와 기술로 직접 만드는 김범우(KEYCO)의 포트폴리오입니다.",
   language: SITE_LANGUAGE,
   locale: SITE_LOCALE,
   ogImagePath: "/og/default.svg",
@@ -52,7 +52,7 @@ export function createPersonJsonLd() {
     "@type": "Person",
     name: "KEYCO",
     url: siteUrl.href,
-    jobTitle: "Full-stack & AI Engineer",
+    jobTitle: "Customer Experience · Content · Product Development",
     inLanguage: siteSeo.language,
   };
 }

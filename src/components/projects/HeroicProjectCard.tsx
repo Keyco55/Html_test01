@@ -240,7 +240,7 @@ export const HeroicProjectCard: React.FC<HeroicProjectCardProps> = ({
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {/* Project Media Frame (Screenshot Slot) */}
             <ProjectMediaFrame
-              title="kbo-hub.app"
+              title="KBO-Hub · Closed Beta Preview"
               type="browser"
               badgeText="Closed Beta"
               caption="Next.js App Router · Supabase RLS · 3D Photocard Engine"
@@ -287,7 +287,7 @@ export const HeroicProjectCard: React.FC<HeroicProjectCardProps> = ({
                         fontWeight: 700,
                       }}
                     >
-                      LIVE SCORE
+                      UI PREVIEW
                     </span>
                   </div>
                   <div
@@ -297,7 +297,7 @@ export const HeroicProjectCard: React.FC<HeroicProjectCardProps> = ({
                       color: '#64748b',
                     }}
                   >
-                    Supabase Auth Session Active
+                    Closed Beta Interface
                   </div>
                 </div>
 
@@ -331,9 +331,8 @@ export const HeroicProjectCard: React.FC<HeroicProjectCardProps> = ({
                         color: '#f8fafc',
                       }}
                     >
-                      <span>LG 트윈스</span>
-                      <span style={{ color: '#38bdf8' }}>5 : 3</span>
-                      <span>KIA 타이거즈</span>
+                      <span>경기 정보</span>
+                      <span style={{ color: '#38bdf8' }}>Match View</span>
                     </div>
                     <div
                       style={{
@@ -343,7 +342,7 @@ export const HeroicProjectCard: React.FC<HeroicProjectCardProps> = ({
                         textAlign: 'right',
                       }}
                     >
-                      ● 8회말 진행중
+                      Illustrative layout
                     </div>
                   </div>
 

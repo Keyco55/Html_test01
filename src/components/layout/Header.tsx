@@ -25,13 +25,13 @@ export const Header: React.FC = () => {
           </a>
           <a
             href="#experience"
-            className="px-2.5 py-1.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-md transition-colors"
+            className="hidden md:inline-flex px-2.5 py-1.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-md transition-colors"
           >
             Experience
           </a>
           <a
             href="#skills"
-            className="px-2.5 py-1.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-md transition-colors"
+            className="hidden md:inline-flex px-2.5 py-1.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-md transition-colors"
           >
             Skills
           </a>

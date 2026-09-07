@@ -30,13 +30,13 @@ export const FEATURED_PROJECTS: readonly Project[] = [
         'Next.js App Router와 Supabase 기반으로 고성능 웹 플랫폼을 설계했습니다. 비주얼 v3 테마 시스템, 3D 포토카드 틸트 인터랙션, Row Level Security(RLS) 기반 보안 계정 체계, 모바일 최적화 내비게이션을 단일 제품으로 완성했습니다.',
       keyContributions: [
         '제품 기획 & 요구사항 정의: KBO 팬의 페인 포인트를 분석하여 포토카드 아카이브, 티켓/일정 허브, 커뮤니티를 유기적으로 연결한 핵심 기능 스펙 수립',
-        'Next.js App Router & React 19 아키텍처: 최신 App Router 구조 위에 전역 헤더, 실시간 티커 셸, 모바일 드로어 및 FOUC 없는 테마 시스템 구축',
+        'Next.js App Router 아키텍처: App Router 구조 위에 전역 헤더, 실시간 티커 셸, 모바일 드로어 및 FOUC 없는 테마 시스템 구축',
         'Supabase Auth & Database / RLS 설계: Email/Password 인증, public.profiles 트리거 연계, 사용자 데이터 격리를 위한 엄격한 Row Level Security 정책 적용',
         '고성능 클라이언트 인터랙션: 무거운 외부 라이브러리 없이 순수 DOM 제어로 3D 홀로그램 글레어 및 포토카드 틸트 효과 구현, Hydration 안정화',
         '체계적인 검증 체계: Day 15 수직 슬라이스에 대해 Senior Security Review PASS 및 철저한 Human Runtime QA를 거쳐 안정적인 Closed Beta 릴리스 달성',
       ],
       technicalHighlights: [
-        'Next.js App Router & React 19',
+        'Next.js App Router & React',
         'Supabase Auth & Session Persistence',
         'PostgreSQL Database & Schema Design',
         'Row Level Security (RLS) Policies',
@@ -49,7 +49,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     },
     techStack: [
       'Next.js App Router',
-      'React 19',
+      'React',
       'TypeScript',
       'Supabase',
       'PostgreSQL',
@@ -57,28 +57,14 @@ export const FEATURED_PROJECTS: readonly Project[] = [
       'Cloudflare Pages',
       'Tailwind CSS',
     ],
-    featuredStack: ['Next.js App Router', 'React 19', 'Supabase', 'PostgreSQL', 'Cloudflare Pages'],
+    featuredStack: ['Next.js App Router', 'React', 'Supabase', 'PostgreSQL', 'Cloudflare Pages'],
     metrics: [
       { label: '배포 상태', value: 'Closed Beta', note: '실제 사용자 초대 기반 운영' },
-      { label: '보안 검증', value: '100% PASS', note: 'RLS 격리 & Security Gate 통과' },
+      { label: '보안 검증', value: 'Reviewed', note: 'RLS 격리 & Security Gate 수행' },
       { label: '개발 범위', value: 'Full-Cycle', note: '기획부터 배포·QA까지 전 과정' },
-      { label: '인터랙션 최적화', value: '60 FPS', note: '순수 DOM 기반 3D 카드 틸트' },
+      { label: '인터랙션', value: 'DOM 기반', note: '외부 라이브러리 없는 3D 카드 틸트' },
     ],
-    links: [
-      {
-        label: 'Closed Beta 안내',
-        url: 'https://github.com/Keyco55/KBO-Hub',
-        isExternal: true,
-        icon: 'github',
-        badge: 'Private Repo',
-      },
-      {
-        label: '아키텍처 스펙',
-        url: '#multi-agent-orchestration',
-        isExternal: false,
-        icon: 'doc',
-      },
-    ],
+    links: [],
     architecture: {
       containerId: 'kbo-hub-arch-container',
       title: 'KBO-Hub Full-Stack Architecture',
@@ -108,7 +94,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     metadata: {
       role: 'Pipeline Architect & Human Director',
       timeline: '2026.08 ~ 현재',
-      platform: 'macOS · cmux · Git Worktree · Multi-LLM Routing',
+      platform: 'macOS · cmux · Git Worktree · Human-selected Agent Routing',
       scope: '워크플로우 설계 · 트랙 분할 · 독립 코드리뷰 · 보안 게이트 · QA',
     },
     narrative: {
@@ -121,7 +107,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
         'cmux 기반 병렬 세션 제어: 단일 화면에서 다중 터미널 세션의 에이전트 작업 상태 및 콘솔 출력을 실시간 감시',
         'Independent Senior Review 도입: 구현 작업자와 완전히 분리된 검증 에이전트가 빌드, 타입, 보안, 회귀 위험을 엄격히 감사',
         'Security Gate & Remediation 루프: 발견된 결함을 단계별로 패치하고 재검증하여 dev 브랜치 무결성 보장',
-        'KBO-Hub 실제 개발 적용: Day 15 Supabase Auth 슬라이스를 본 워크플로우로 100% 검증 완료하여 머지 성공',
+        'KBO-Hub 실제 개발 적용: Supabase Auth 수직 슬라이스에 본 워크플로우를 적용하고 검토·보완 후 integration 완료',
       ],
       technicalHighlights: [
         'cmux CLI Multi-Terminal Sessions',
@@ -147,13 +133,13 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     metrics: [
       { label: '병렬 트랙', value: '4+ Tracks', note: 'Foundation · Platform · Projects · Resume' },
       { label: '리뷰 체계', value: 'Independent', note: '작업자-리뷰어 완전 분리 검증' },
-      { label: '보안 게이트', value: 'Zero Leaks', note: '시크릿/개인정보/회귀 차단' },
+      { label: '보안 게이트', value: 'Required', note: '시크릿·개인정보·회귀 점검' },
       { label: '적용 사례', value: 'KBO-Hub', note: '실제 프로덕트 개발 파이프라인으로 운용' },
     ],
     links: [
       {
         label: '오케스트레이션 아키텍처',
-        url: '#multi-agent-visual',
+        url: '#multi-agent-workflow-container',
         isExternal: false,
         icon: 'doc',
       },
@@ -203,12 +189,12 @@ export const FEATURED_PROJECTS: readonly Project[] = [
         '상태 반응형 스프라이트 엔진: idle, working, thinking, waiting-for-user 등 7가지 상태별 모션 렌더링',
       ],
       technicalHighlights: [
-        'Swift 6 & macOS AppKit / SwiftUI',
+        'Swift & macOS AppKit / SwiftUI',
         'Universal Binary (Apple Silicon & Intel Mac)',
         'Zero-Credential Process State Polling',
         'Smart 2-Line Dynamic HUD Bubble',
         'Session Auto-Focus Window Scripting',
-        'Low-Resource 60fps Sprite Animation',
+        'Low-Resource Sprite Animation',
       ],
       learned:
         '개발자 본인의 작업 흐름에서 느끼는 사소한 마찰을 네이티브 데스크톱 기술로 직접 해결함으로써, 일상적 개발 생산성을 극대화하는 실용적 엔지니어링의 가치를 배웠습니다.',
@@ -223,8 +209,8 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     ],
     featuredStack: ['Swift', 'macOS AppKit', 'SwiftUI', 'Process Lifecycle Tracking'],
     metrics: [
-      { label: '지원 환경', value: 'Universal', note: 'Apple Silicon & Intel Mac 완벽 지원' },
-      { label: '프라이버시', value: 'Zero Data', note: '프롬프트·토큰·비밀번호 비접근' },
+      { label: '지원 환경', value: 'macOS', note: 'Apple Silicon & Intel 대상 네이티브 앱' },
+      { label: '프라이버시', value: 'Limited Access', note: '프롬프트·토큰·비밀번호 비접근' },
       { label: '인터랙션', value: '1-Click', note: '클릭 한 번으로 작업 세션 즉시 이동' },
       { label: '배포 상태', value: 'Open Source', note: 'GitHub 공개 저장소' },
     ],
@@ -295,8 +281,8 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     featuredStack: ['Python', 'pandas', 'openpyxl', 'HTML5/CSS3', 'Excel Automation'],
     metrics: [
       { label: '집계 자동화', value: 'Pipeline', note: '반복 리포트 집계 스크립트 자동화' },
-      { label: '데이터 무결성', value: '0% Error', note: '자동 검증 로직으로 수작업 오기 차단' },
-      { label: '웹 실험 속도', value: '당일 반영', note: '마케터의 직접 코드 수정 및 배포' },
+      { label: '데이터 검증', value: 'Automated', note: '수작업 오기를 줄이는 검증 로직' },
+      { label: '웹 운영', value: '직접 수정', note: 'HTML/CSS·미디어·CTA·링크 반영' },
       { label: '정보 보호', value: 'Anonymized', note: '회사 내부 raw asset 비공개 원칙' },
     ],
     links: [
@@ -366,18 +352,10 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     metrics: [
       { label: '공개 상태', value: '준비 중', note: 'Preparing Public Release' },
       { label: '보안 격리', value: 'Restricted', note: '로컬 권한 기반 캐시 접근 제한' },
-      { label: '프라이버시', value: 'Zero Token', note: '자격증명 및 프롬프트 일체 미보관' },
+      { label: '프라이버시', value: 'Excluded', note: '자격증명 및 프롬프트 미보관' },
       { label: '통합 환경', value: 'Menubar & CLI', note: 'Swift 메뉴바 + cmux 터미널 지원' },
     ],
-    links: [
-      {
-        label: '공개 릴리스 준비 중',
-        url: 'https://github.com/Keyco55/keyco-ai-status-hub',
-        isExternal: true,
-        icon: 'lock',
-        badge: 'Preparing Release',
-      },
-    ],
+    links: [],
     architecture: {
       containerId: 'ai-status-hub-flow-container',
       title: 'AI Usage Status Hub Integration Pipeline',

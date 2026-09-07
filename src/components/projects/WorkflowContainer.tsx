@@ -11,44 +11,65 @@ const PIPELINE_STEPS = [
   {
     step: '01',
     role: 'Human Director',
-    action: 'Track Decomposition & Prompt Boundary',
+    action: 'Scope & Final Decisions',
     icon: '👤',
     color: '#38bdf8', // cyan
   },
   {
     step: '02',
-    role: 'Parallel Workers',
-    action: 'Git Worktrees Isolated Implementation',
+    role: 'Track Decomposition',
+    action: 'Ownership & Prompt Boundaries',
+    icon: '🧭',
+    color: '#38bdf8', // cyan
+  },
+  {
+    step: '03',
+    role: 'Git Worktree',
+    action: 'Isolated Working Directories',
     icon: '⚡',
     color: '#34d399', // emerald
   },
   {
-    step: '03',
+    step: '04',
+    role: 'Parallel Workers',
+    action: 'Scoped Implementation',
+    icon: '⚡',
+    color: '#34d399', // emerald
+  },
+  {
+    step: '05',
     role: 'Independent Senior',
     action: 'Strict Review (Build / Type / Security)',
     icon: '🔍',
     color: '#fbbf24', // amber
   },
   {
-    step: '04',
-    role: 'Remediation Loop',
-    action: 'Scoped Fixes & Independent Re-review',
+    step: '06',
+    role: 'Remediation',
+    action: 'Scoped Defect Fixes',
     icon: '🔄',
     color: '#a78bfa', // purple
   },
   {
-    step: '05',
-    role: 'Integration & QA',
-    action: 'Human Runtime QA & Security Gate',
+    step: '07',
+    role: 'Re-Review',
+    action: 'Independent Gate Re-run',
     icon: '🛡️',
     color: '#f43f5e', // rose
   },
   {
-    step: '06',
-    role: 'Production',
-    action: 'Dev Merge & Cloudflare Static Export',
+    step: '08',
+    role: 'Integration',
+    action: 'Reviewed Changes to Dev',
     icon: '🚀',
     color: '#60a5fa', // blue
+  },
+  {
+    step: '09',
+    role: 'Human Runtime QA',
+    action: 'Final Runtime Sign-off',
+    icon: '👤',
+    color: '#fbbf24', // amber
   },
 ] as const;
 
