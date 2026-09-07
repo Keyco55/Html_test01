@@ -61,6 +61,12 @@ export const profileData: ProfileData = {
       url: 'https://blog.naver.com/qjadn02',
       type: 'blog',
       description: '개발, AI 워크플로우, macOS 도구 및 프로젝트 기록'
+    },
+    {
+      label: 'Instagram',
+      url: 'https://www.instagram.com/sprinrainfa11s/',
+      type: 'other',
+      description: '@sprinrainfa11s'
     }
   ]
 };

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import '@/components/sections/sections.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { createPersonJsonLd, createSiteMetadata } from '@/lib/seo';
@@ -20,7 +19,7 @@ export default function RootLayout({
   const personJsonLd = createPersonJsonLd();
   return (
     <html lang="ko">
-      <body className="flex min-h-screen flex-col bg-slate-950 text-slate-100 antialiased">
+      <body className="flex min-h-screen flex-col bg-paper font-sans text-ink antialiased">
         {personJsonLd ? (
           <script
             type="application/ld+json"

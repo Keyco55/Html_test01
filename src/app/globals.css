@@ -1,69 +1,132 @@
 @import "tailwindcss";
 
+/*
+ * KEYCO Portfolio Visual v2 — Light Editorial × Product Portfolio
+ *
+ * KBO-HUB FONT TODO: KBO-Hub project font evidence is not available in this
+ * worktree. Typography architecture below is intentionally swappable: replace
+ * --font-sans with the confirmed family without touching components.
+ * Temporary stack is Pretendard-compatible system Korean-capable only.
+ * No external font is loaded.
+ */
 :root {
-  /* Minimal Design Tokens: Dark Editorial × Developer Interface */
-  --bg-main: #0a0d14;
-  --bg-surface: #0f1420;
-  --bg-card: rgba(18, 24, 38, 0.7);
-  --bg-card-hover: rgba(26, 35, 54, 0.85);
+  --bg-paper: #faf8f4;
+  --bg-surface: #ffffff;
+  --bg-wash: #f1ede6;
+  --ink: #1b1f26;
+  --ink-soft: #3d4450;
+  --muted: #68727f;
+  --faint: #98a1ad;
+  --line: rgba(27, 31, 38, 0.1);
+  --line-soft: rgba(27, 31, 38, 0.06);
+  --accent-navy: #163a5f;
+  --accent-navy-soft: rgba(22, 58, 95, 0.07);
 
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-muted: rgba(255, 255, 255, 0.14);
-  --border-active: rgba(56, 189, 248, 0.4);
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI",
+    Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", monospace;
 
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-
-  --accent-cyan: #38bdf8;
-  --accent-emerald: #10b981;
-  --accent-amber: #f59e0b;
-
-  --font-sans: -apple-system, BlinkMacSystemFont, "Pretendard Variable", Pretendard, "Inter", "Segoe UI", Roboto, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --radius-media: 14px;
+  --radius-card: 12px;
 }
 
 @theme {
-  --color-bg-main: var(--bg-main);
-  --color-bg-surface: var(--bg-surface);
-  --color-bg-card: var(--bg-card);
-  --color-bg-card-hover: var(--bg-card-hover);
-
-  --color-border-subtle: var(--border-subtle);
-  --color-border-muted: var(--border-muted);
-  --color-border-active: var(--border-active);
-
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-
-  --color-accent-cyan: var(--accent-cyan);
-  --color-accent-emerald: var(--accent-emerald);
-  --color-accent-amber: var(--accent-amber);
-
-  --font-sans: "Pretendard Variable", Pretendard, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --color-paper: var(--bg-paper);
+  --color-surface: var(--bg-surface);
+  --color-wash: var(--bg-wash);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-navy: var(--accent-navy);
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI",
+    Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", monospace;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: var(--bg-main);
-    color: var(--text-primary);
+    background-color: var(--bg-paper);
+    color: var(--ink);
     font-family: var(--font-sans);
   }
 
   body {
     min-height: 100vh;
-    background-color: var(--bg-main);
-    color: var(--text-primary);
+    background-color: var(--bg-paper);
+    color: var(--ink);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    word-break: keep-all;
+    line-height: 1.65;
   }
 
   ::selection {
-    background-color: rgba(56, 189, 248, 0.2);
-    color: #ffffff;
+    background-color: rgba(22, 58, 95, 0.14);
+    color: var(--ink);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--accent-navy);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* Native CSS scroll-snap carousel (no dependency) */
+@layer components {
+  .snap-row {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 20px;
+    padding: 4px 20px 16px;
+    margin-left: -20px;
+    margin-right: -20px;
+    scrollbar-width: none;
+  }
+
+  .snap-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .snap-card {
+    scroll-snap-align: start;
+    flex: 0 0 82%;
+    max-width: 380px;
+  }
+
+  @media (min-width: 768px) {
+    .snap-row {
+      scroll-padding-left: 0;
+      padding-left: 2px;
+      padding-right: 2px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .snap-card {
+      flex-basis: calc((100% - 32px) / 3);
+      max-width: none;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
