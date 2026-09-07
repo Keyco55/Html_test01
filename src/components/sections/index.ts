@@ -1,3 +1,11 @@
-export { Hero } from './hero';
-export { FeaturedProjects } from './featured-projects';
-export { DeveloperTooling } from './developer-tooling';
+export { Hero as HeroSection } from './hero';
+export { FeaturedProjects as FeaturedProjectsSection } from './featured-projects';
+export { AboutSection } from './AboutSection';
+export { ExperienceSection } from './ExperienceSection';
+export { DeveloperTooling as DeveloperToolingSection } from './developer-tooling';
+export { ContentSection } from './ContentSection';
+export { SkillsSection } from './SkillsSection';
+export { EducationSection } from './EducationSection';
+export { AwardsSection } from './AwardsSection';
+export { ResumeSection } from './ResumeSection';
+export { ContactSection } from './ContactSection';
