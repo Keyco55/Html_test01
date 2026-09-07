@@ -1,0 +1,58 @@
+import { absoluteUrl, getSiteUrl, SITE_LANGUAGE, SITE_LOCALE } from "./platform";
+
+export const siteSeo = {
+  name: "KEYCO Portfolio",
+  title: "KEYCO | Full-stack & AI Engineering Portfolio",
+  description:
+    "풀스택 제품 개발과 AI 협업 워크플로우를 설계하고 구현하는 KEYCO의 포트폴리오입니다.",
+  language: SITE_LANGUAGE,
+  locale: SITE_LOCALE,
+  ogImagePath: "/og/default.svg",
+} as const;
+
+/**
+ * Shared metadata values for the root layout. A missing public URL deliberately
+ * produces no canonical or absolute social URL: preview domains must not become
+ * the production canonical by accident.
+ */
+export function createSiteMetadata(pathname = "/") {
+  const siteUrl = getSiteUrl();
+  const canonical = absoluteUrl(pathname, siteUrl);
+  const ogImage = absoluteUrl(siteSeo.ogImagePath, siteUrl);
+
+  return {
+    title: siteSeo.title,
+    description: siteSeo.description,
+    alternates: canonical ? { canonical } : undefined,
+    openGraph: {
+      type: "website" as const,
+      locale: siteSeo.locale,
+      title: siteSeo.title,
+      description: siteSeo.description,
+      url: canonical,
+      siteName: siteSeo.name,
+      images: ogImage ? [{ url: ogImage, width: 1200, height: 630, alt: siteSeo.title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title: siteSeo.title,
+      description: siteSeo.description,
+      images: ogImage ? [ogImage] : undefined,
+    },
+  };
+}
+
+/** JSON-LD is useful for identity, but should only emit a verified URL. */
+export function createPersonJsonLd() {
+  const siteUrl = getSiteUrl();
+  if (!siteUrl) return undefined;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "KEYCO",
+    url: siteUrl.href,
+    jobTitle: "Full-stack & AI Engineer",
+    inLanguage: siteSeo.language,
+  };
+}
