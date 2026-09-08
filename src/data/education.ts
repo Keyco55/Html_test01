@@ -44,7 +44,9 @@ export const educationData: EducationItem[] = [
     period: '2022.07',
     degreeOrType: 'global_service',
     categoryBadge: 'Global Customer Service & Communication',
-    description: '커스터머 서비스 / 글로벌 커뮤니케이션 과정',
+    description: 'HUTECH University에서 진행한 고객 서비스 및 글로벌 커뮤니케이션 과정',
+    imagePath: '/images/education/training-2022-hutech-customer-service-certificate.webp',
+    imageAlt: 'HUTECH University Cabin Crew Service Training 수료증 - 2022년 7월 17일',
     verifiedHighlights: [
       '다양한 비즈니스 및 비상 상황에서의 실전 영어 대인 응대 및 에티켓 훈련',
       '글로벌 다문화 고객의 심리와 니즈를 배려하는 고객 중심 서비스 마인드셋 학습',

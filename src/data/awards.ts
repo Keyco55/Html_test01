@@ -7,7 +7,9 @@ export const awardsData: AwardItem[] = [
     title: '콘텐츠 기획·제작 경진대회 대상',
     organizationConfirmed: false,
     description:
-      '타깃 사용자의 니즈를 분석하여 기획 의도와 전달력을 극대화한 영상 및 디지털 콘텐츠를 제작하여 대상 수상.'
+      '타깃 사용자의 니즈를 분석하여 기획 의도와 전달력을 극대화한 영상 및 디지털 콘텐츠를 제작하여 대상 수상.',
+    imagePath: '/images/awards/award-2023-content-competition-grand-prize.webp',
+    imageAlt: '2023 콘텐츠 기획·제작 경진대회 대상 상장 - 2023년 12월 수여'
   },
   {
     id: 'award-2022-blue-ladder',
@@ -23,7 +25,9 @@ export const awardsData: AwardItem[] = [
     title: '콘텐츠 제작/경진대회 최우수상',
     organizationConfirmed: false,
     description:
-      '디지털 미디어 콘텐츠 기획 및 창의적인 시각 구성 기량을 인정받아 최우수상 수상.'
+      '디지털 미디어 콘텐츠 기획 및 창의적인 시각 구성 기량을 인정받아 최우수상 수상.',
+    imagePath: '/images/awards/award-2021-content-competition-excellence.webp',
+    imageAlt: '2021 콘텐츠 제작 경진대회 최우수상 상장 - 동명대학교 글로벌문화콘텐츠학과'
   },
   {
     id: 'award-2017-lotte-world',
@@ -32,6 +36,10 @@ export const awardsData: AwardItem[] = [
     organizationConfirmed: true,
     organization: '롯데월드',
     description:
-      '어트랙션 현장 근무 중 모범적인 고객 서비스, 안전 규정 준수 및 동료 협업 기여도를 인정받아 수여되는 우수 캐스트 표창 수상.'
+      '어트랙션 현장 근무 중 모범적인 고객 서비스, 안전 규정 준수 및 동료 협업 기여도를 인정받아 수여되는 우수 캐스트 표창 수상.',
+    imagePath: '/images/awards/award-2017-lotteworld-best-lotty-certificate.webp',
+    imageAlt: '2017 롯데월드 베스트로티상 표창장 - BEST LOTTY 봉투와 배지',
+    secondaryImagePath: '/images/awards/award-2017-lotteworld-best-lotty-record.webp',
+    secondaryImageAlt: '2017년 4월 베스트로티 수상 기록 게시물 - 롯데월드 사내 게시'
   }
 ];

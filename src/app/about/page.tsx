@@ -204,39 +204,53 @@ export default function AboutPage() {
             </h3>
           </Reveal>
           <div className="mt-5 flex flex-col gap-5">
-            {trainings.map((item, i) => (
-              <Reveal key={item.id} delay={i * 60}>
-                <div className="grid grid-cols-1 gap-6 rounded-2xl border border-ink/10 bg-surface p-6 md:grid-cols-[1fr_180px]">
-                  <div>
-                    <p className="font-mono text-[10.5px] tracking-[0.16em] text-clay uppercase">
-                      {item.categoryBadge}
-                    </p>
-                    <h4 className="mt-1.5 text-[16.5px] font-extrabold text-ink">
-                      {item.institution}
-                    </h4>
-                    <p className="mt-0.5 text-[14px] font-semibold text-ink-soft">
-                      {item.program}
-                    </p>
-                    <p className="mt-0.5 font-mono text-[11.5px] text-muted">{item.period}</p>
-                    <p className="mt-3 max-w-xl text-[13.5px] leading-relaxed text-ink-soft">
-                      {item.description}
-                    </p>
-                    {item.cautionNotice && (
-                      <p className="mt-3 border-l-2 border-sand pl-3 text-[12.5px] leading-relaxed text-muted">
-                        {item.cautionNotice.replace("※ ", "")}
+            {trainings.map((item, i) => {
+              const hasImage = Boolean(item.imagePath);
+              return (
+                <Reveal key={item.id} delay={i * 60}>
+                  <div
+                    className={`grid grid-cols-1 gap-6 rounded-2xl border border-ink/10 bg-surface p-6 ${hasImage ? "md:grid-cols-[1fr_200px]" : ""}`}
+                  >
+                    <div>
+                      <p className="font-mono text-[10.5px] tracking-[0.16em] text-clay uppercase">
+                        {item.categoryBadge}
                       </p>
+                      <h4 className="mt-1.5 text-[16.5px] font-extrabold text-ink">
+                        {item.institution}
+                      </h4>
+                      <p className="mt-0.5 text-[14px] font-semibold text-ink-soft">
+                        {item.program}
+                      </p>
+                      <p className="mt-0.5 font-mono text-[11.5px] text-muted">{item.period}</p>
+                      <p className="mt-3 max-w-xl text-[13.5px] leading-relaxed text-ink-soft">
+                        {item.description}
+                      </p>
+                      {item.cautionNotice && (
+                        <p className="mt-3 border-l-2 border-sand pl-3 text-[12.5px] leading-relaxed text-muted">
+                          {item.cautionNotice.replace("※ ", "")}
+                        </p>
+                      )}
+                    </div>
+                    {hasImage && (
+                      <a
+                        href={item.imagePath}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${item.institution} 수료증 원본 보기`}
+                        className="group/media self-center overflow-hidden rounded-xl border border-ink/10 bg-white transition-all duration-300 hover:shadow-[0_16px_32px_-20px_rgba(20,22,26,0.3)]"
+                      >
+                        <OptionalImage
+                          src={item.imagePath}
+                          alt={item.imageAlt ?? `${item.institution} 수료 증빙 이미지`}
+                          className="h-auto w-full object-contain transition-transform duration-500 group-hover/media:scale-[1.02]"
+                          wrapperClassName="w-full"
+                        />
+                      </a>
                     )}
                   </div>
-                  <OptionalImage
-                    src={undefined}
-                    alt={`${item.institution} 수료 증빙 이미지`}
-                    className="rounded-xl border border-ink/10"
-                    aspect="4 / 3"
-                    wrapperClassName="self-center"
-                  />
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              );
+            })}
           </div>
         </Container>
       </section>
@@ -251,36 +265,111 @@ export default function AboutPage() {
             </h2>
           </Reveal>
           <ul className="mt-8 flex flex-col">
-            {awardsData.map((award, i) => (
-              <Reveal as="li" key={award.id} delay={i * 60}>
-                <div className="group grid grid-cols-[64px_1fr] items-start gap-5 border-t border-ink/12 py-6 last:border-b md:grid-cols-[92px_1fr_160px]">
-                  <span className="font-mono text-[clamp(1.4rem,3vw,2rem)] font-bold text-ink/25 transition-colors duration-300 group-hover:text-clay">
-                    {award.year}
-                  </span>
-                  <div>
-                    <h3 className="text-[16.5px] font-extrabold text-ink md:text-[18px]">
-                      {award.title}
-                    </h3>
-                    {award.organizationConfirmed && award.organization && (
-                      <p className="mt-0.5 font-mono text-[11.5px] tracking-wide text-clay">
-                        {award.organization}
+            {awardsData.map((award, i) => {
+              const hasImage = Boolean(award.imagePath);
+              const is2017 = award.id === "award-2017-lotte-world";
+              return (
+                <Reveal as="li" key={award.id} delay={i * 60}>
+                  <div
+                    className={`group grid grid-cols-[64px_1fr] items-start gap-5 border-t border-ink/12 py-6 last:border-b ${hasImage ? "md:grid-cols-[92px_1fr_200px]" : "md:grid-cols-[92px_1fr]"}`}
+                  >
+                    <span className="font-mono text-[clamp(1.4rem,3vw,2rem)] font-bold text-ink/25 transition-colors duration-300 group-hover:text-clay">
+                      {award.year}
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="text-[16.5px] font-extrabold text-ink md:text-[18px]">
+                        {award.title}
+                      </h3>
+                      {award.organizationConfirmed && award.organization && (
+                        <p className="mt-0.5 font-mono text-[11.5px] tracking-wide text-clay">
+                          {award.organization}
+                        </p>
+                      )}
+                      <p className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-ink-soft">
+                        {award.description}
                       </p>
+                      {/* mobile media — stacked below text, constrained width so vertical docs stay legible */}
+                      {hasImage && (
+                        <div className="mt-4 md:hidden">
+                          <a
+                            href={award.imagePath}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${award.title} 증빙 원본 보기`}
+                            className="group/media block overflow-hidden rounded-lg border border-ink/10 bg-white"
+                          >
+                            <OptionalImage
+                              src={award.imagePath}
+                              alt={award.imageAlt ?? `${award.title} 증빙 이미지`}
+                              className="h-auto w-full object-contain"
+                              wrapperClassName="mx-auto max-w-[320px]"
+                            />
+                          </a>
+                          {is2017 && award.secondaryImagePath && (
+                            <a
+                              href={award.secondaryImagePath}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`${award.title} 수상 기록 원본 보기`}
+                              className="group/media mt-3 block overflow-hidden rounded-lg border border-ink/10 bg-white opacity-95"
+                            >
+                              <OptionalImage
+                                src={award.secondaryImagePath}
+                                alt={
+                                  award.secondaryImageAlt ?? `${award.title} 수상 기록 이미지`
+                                }
+                                className="h-auto w-full object-contain"
+                                wrapperClassName="mx-auto max-w-[280px]"
+                              />
+                            </a>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                    {/* desktop media slot — fixed width column, vertical docs keep natural portrait ratio */}
+                    {hasImage && (
+                      <div className="hidden flex-col gap-3 md:flex">
+                        <a
+                          href={award.imagePath}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${award.title} 증빙 원본 보기`}
+                          className="group/media block overflow-hidden rounded-lg border border-ink/10 bg-white transition-all duration-300 hover:shadow-[0_16px_32px_-20px_rgba(20,22,26,0.28)]"
+                        >
+                          <OptionalImage
+                            src={award.imagePath}
+                            alt={award.imageAlt ?? `${award.title} 증빙 이미지`}
+                            className="h-auto w-full object-contain transition-transform duration-500 group-hover/media:scale-[1.02]"
+                            wrapperClassName="w-full"
+                          />
+                        </a>
+                        {is2017 && award.secondaryImagePath && (
+                          <a
+                            href={award.secondaryImagePath}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${award.title} 수상 기록 원본 보기`}
+                            className="group/media block overflow-hidden rounded-lg border border-ink/10 bg-white opacity-90 transition-all duration-300 hover:opacity-100"
+                          >
+                            <OptionalImage
+                              src={award.secondaryImagePath}
+                              alt={
+                                award.secondaryImageAlt ?? `${award.title} 수상 기록 이미지`
+                              }
+                              className="h-auto w-full object-contain transition-transform duration-500 group-hover/media:scale-[1.02]"
+                              wrapperClassName="w-full"
+                            />
+                            <span className="block px-2 py-1.5 text-center font-mono text-[10px] tracking-wide text-muted">
+                              수상 기록
+                            </span>
+                          </a>
+                        )}
+                      </div>
                     )}
-                    <p className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-ink-soft">
-                      {award.description}
-                    </p>
                   </div>
-                  {/* future certificate slot — hidden until media exists */}
-                  <OptionalImage
-                    src={undefined}
-                    alt={`${award.title} 증빙 이미지`}
-                    className="rounded-lg border border-ink/10"
-                    aspect="4 / 3"
-                    wrapperClassName="hidden md:block justify-self-end"
-                  />
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              );
+            })}
           </ul>
         </Container>
       </section>

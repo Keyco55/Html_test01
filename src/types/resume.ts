@@ -68,6 +68,9 @@ export interface AwardItem {
   /** Future sanitized certificate image slot (public/images/awards/…). */
   imagePath?: string;
   imageAlt?: string;
+  /** Secondary artifact for 2017 Best Lotty record photo (auxiliary hierarchy). */
+  secondaryImagePath?: string;
+  secondaryImageAlt?: string;
 }
 
 export interface ContentItem {
