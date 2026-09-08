@@ -33,7 +33,40 @@ const KBO_FEATURE = {
   ],
 } as const;
 
-const OTHER_PROJECTS = [
+/**
+ * Editorial project entry. Real screenshots wire into slotPath;
+ * tall/low-res evidence uses fit "contain" (+ optional width cap and
+ * a lower-hierarchy secondary frame) so nothing is awkwardly cropped
+ * or visibly over-enlarged.
+ */
+interface OtherProjectEntry {
+  readonly slug: string;
+  readonly monogram: string;
+  readonly name: string;
+  readonly nameEn: string;
+  readonly category: string;
+  readonly period: string;
+  readonly badge: string;
+  readonly slotPath: string | undefined;
+  readonly aspect: string;
+  readonly fit?: "cover" | "contain";
+  readonly mediaAlt?: string;
+  readonly mediaMaxWidth?: string;
+  readonly secondarySlotPath?: string;
+  readonly secondaryAspect?: string;
+  readonly secondaryAlt?: string;
+  readonly secondaryCaption?: string;
+  readonly mediaSpan: string;
+  readonly contentSpan: string;
+  readonly mediaFirst: boolean;
+  readonly why: string;
+  readonly what: string;
+  readonly how: string;
+  readonly stack: readonly string[];
+  readonly externalLinks: readonly { readonly label: string; readonly url: string }[];
+}
+
+const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
   {
     slug: "ai-status-hub",
     monogram: "STS",
@@ -42,8 +75,14 @@ const OTHER_PROJECTS = [
     category: "Developer Infrastructure",
     period: "2026.08 ~ 현재",
     badge: "Public · Open Source",
-    slotPath: undefined,
-    aspect: "16 / 10",
+    slotPath: "/images/projects/status-hub/status-hub-cover.webp",
+    aspect: "3 / 4",
+    fit: "contain",
+    mediaAlt: "keyco AI Status Hub 대시보드 — AI 서비스별 사용량과 리셋 시각",
+    secondarySlotPath: "/images/projects/status-hub/status-hub-detail.webp",
+    secondaryAspect: "4 / 3",
+    secondaryAlt: "AI 리소스 쿼터 상태 상세 — provider별 잔여율과 리셋 카운트다운",
+    secondaryCaption: "Provider별 쿼터·리셋 카운트다운 상세",
     mediaSpan: "md:col-span-7",
     contentSpan: "md:col-span-5",
     mediaFirst: true,
@@ -80,8 +119,15 @@ const OTHER_PROJECTS = [
     category: "macOS Native Tool",
     period: "2026.08",
     badge: "Open Source",
-    slotPath: undefined,
+    slotPath: "/images/projects/ai-hub-pet/doro-hub-pet-cover.webp",
     aspect: "16 / 10",
+    fit: "contain",
+    mediaAlt: "Doro Hub Pet 플로팅 캐릭터와 컨트롤 메뉴",
+    mediaMaxWidth: "max-w-[360px]",
+    secondarySlotPath: "/images/projects/ai-hub-pet/doro-hub-pet-feature.webp",
+    secondaryAspect: "4 / 3",
+    secondaryAlt: "Doro Hub Pet 쿼터 부족 경고 인터랙션",
+    secondaryCaption: "쿼터 부족 경고 상태",
     mediaSpan: "md:col-span-6",
     contentSpan: "md:col-span-6",
     mediaFirst: false,
@@ -91,7 +137,7 @@ const OTHER_PROJECTS = [
     stack: ["Swift", "macOS AppKit", "SwiftUI", "Universal Binary", "Sprite Animation"],
     externalLinks: [{ label: "GitHub 저장소", url: "https://github.com/Keyco55/AI-Hub-pet" }],
   },
-] as const;
+];
 
 export default function ProjectsPage() {
   return (
@@ -302,14 +348,30 @@ export default function ProjectsPage() {
                   className="grid scroll-mt-24 grid-cols-1 items-center gap-8 md:grid-cols-12 md:gap-10"
                 >
                   <div className={`${project.mediaSpan} ${project.mediaFirst ? "" : "md:order-2"}`}>
-                    <ProjectMedia
-                      title={project.name}
-                      monogram={project.monogram}
-                      slotPath={project.slotPath}
-                      alt={`${project.name} 대표 이미지`}
-                      badgeText={project.badge}
-                      aspect={project.aspect}
-                    />
+                    <div className={`w-full ${project.mediaMaxWidth ?? ""}`}>
+                      <ProjectMedia
+                        title={project.name}
+                        monogram={project.monogram}
+                        slotPath={project.slotPath}
+                        alt={project.mediaAlt ?? `${project.name} 대표 이미지`}
+                        badgeText={project.badge}
+                        aspect={project.aspect}
+                        fit={project.fit}
+                      />
+                    </div>
+                    {project.secondarySlotPath && (
+                      <div className="mt-4 w-full max-w-[300px]">
+                        <ProjectMedia
+                          title={`${project.name} 상세`}
+                          monogram={project.monogram}
+                          slotPath={project.secondarySlotPath}
+                          alt={project.secondaryAlt ?? `${project.name} 상세 이미지`}
+                          aspect={project.secondaryAspect ?? "4 / 3"}
+                          fit="contain"
+                          caption={project.secondaryCaption}
+                        />
+                      </div>
+                    )}
                   </div>
 
                   <div className={project.contentSpan}>

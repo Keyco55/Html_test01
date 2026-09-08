@@ -12,6 +12,8 @@ interface ProjectMediaProps {
   readonly badgeText?: string;
   /** dark = night composition (KBO-Hub feature), light = paper composition. */
   readonly tone?: "dark" | "light";
+  /** cover crops to fill (default); contain shows the full frame for tall/small evidence shots. */
+  readonly fit?: "cover" | "contain";
   readonly aspect?: string;
   readonly className?: string;
   readonly loading?: "lazy" | "eager";
@@ -35,6 +37,7 @@ export const ProjectMedia: React.FC<ProjectMediaProps> = ({
   caption,
   badgeText,
   tone = "light",
+  fit = "cover",
   aspect = "16 / 10",
   className = "",
   loading = "lazy",
@@ -133,7 +136,7 @@ export const ProjectMedia: React.FC<ProjectMediaProps> = ({
             decoding={decoding}
             {...(fetchPriority !== "auto" ? { fetchPriority } : {})}
             onError={() => setImgOk(false)}
-            className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover/media:scale-[1.03]"
+            className={`absolute inset-0 h-full w-full ${fit === "contain" ? "object-contain" : "object-cover"} object-center transition-transform duration-700 ease-out group-hover/media:scale-[1.03] motion-reduce:transition-none`}
           />
         )}
       </div>
