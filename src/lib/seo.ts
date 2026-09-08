@@ -7,7 +7,7 @@ export const siteSeo = {
     "고객과 서비스를 이해하고, 콘텐츠와 기술로 직접 만드는 김범우(KEYCO)의 포트폴리오입니다.",
   language: SITE_LANGUAGE,
   locale: SITE_LOCALE,
-  ogImagePath: "/og/default.svg",
+  ogImagePath: "/og/keyco-signature.png",
 } as const;
 
 /**
