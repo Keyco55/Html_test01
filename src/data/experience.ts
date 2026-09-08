@@ -5,8 +5,8 @@ export const experienceData: ExperienceItem[] = [
     id: 'gom-and-company',
     company: '곰앤컴퍼니 (GOM & Company)',
     role: '마케팅 & 웹 콘텐츠 운영 (Marketing & Web Content Operations)',
-    period: '2024.06 – 2025.01',
-    dateTime: '2024-06/2025-01',
+    period: '2024.04 – 2025.01',
+    dateTime: '2024-04/2025-01',
     department: '마케팅 / 콘텐츠 운영',
     description:
       '국내외 소프트웨어 마케팅과 공식 SNS 채널(Instagram·YouTube·네이버 블로그·TikTok·Threads)을 운영했습니다. 공식 웹사이트와 프로모션 랜딩 페이지는 HTML/CSS로 수정했고, 반복적인 엑셀 데이터 취합 업무는 Python으로 자동화했습니다.',
