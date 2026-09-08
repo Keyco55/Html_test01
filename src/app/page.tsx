@@ -41,7 +41,9 @@ const SUPPORTING = [
     what: "여러 AI 서비스의 사용량과 리셋 시각을 메뉴바와 터미널에 모아 보여주는 프라이버시 보존형 로컬 도구입니다.",
     stack: "Python · Swift · cmux",
     badge: "Public · Open Source",
-    slotPath: undefined,
+    slotPath: "/images/projects/status-hub/status-hub-cover.webp",
+    alt: "keyco AI Status Hub — AI 서비스별 쿼터와 리셋 시각을 보여주는 메뉴바 대시보드",
+    fit: "contain" as const,
     span: "md:col-span-2",
   },
   {
@@ -63,7 +65,9 @@ const SUPPORTING = [
     what: "AI 에이전트의 작업 상태를 말풍선으로 알리고, 클릭 한 번으로 해당 세션으로 이동시키는 macOS 플로팅 앱입니다.",
     stack: "Swift · AppKit · SwiftUI",
     badge: "Open Source",
-    slotPath: undefined,
+    slotPath: "/images/projects/ai-hub-pet/doro-hub-pet-cover.webp",
+    alt: "Doro Hub Pet — 화면 위에 떠 있는 펫 캐릭터와 컨트롤 메뉴",
+    fit: "contain" as const,
     span: "md:col-span-2",
   },
 ] as const;
@@ -414,9 +418,12 @@ export default function HomePage() {
                     title={project.name}
                     monogram={project.monogram}
                     slotPath={project.slotPath}
-                    alt={`${project.name} 대표 이미지`}
+                    alt={
+                      (project as { alt?: string }).alt ?? `${project.name} 대표 이미지`
+                    }
                     badgeText={project.badge}
                     aspect="16 / 9"
+                    fit={(project as { fit?: "cover" | "contain" }).fit}
                     className="rounded-none border-0 shadow-none"
                   />
                   <div className="flex flex-1 flex-col p-5">
