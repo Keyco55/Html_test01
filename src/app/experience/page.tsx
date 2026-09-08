@@ -2,16 +2,35 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Reveal } from "@/components/motion/Reveal";
-import { OptionalImage } from "@/components/site/OptionalImage";
+import { LightboxImage } from "@/components/site/ImageLightbox";
 import { experienceData } from "@/data/experience";
 import { createSiteMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createSiteMetadata("/experience") as Metadata;
 
-/** Short factual scope notes — condensed from contextNote in src/data/experience.ts. */
+interface WorkMediaItem {
+  src: string;
+  alt: string;
+  label: string;
+  footer?: string;
+}
+
 /** Optional future work-photo slots — invisible until real assets exist. */
-const MEDIA_SLOTS: Record<string, { dir: string; alt: string } | undefined> = {
-  "gom-and-company": undefined,
+const MEDIA_SLOTS: Record<string, WorkMediaItem[] | undefined> = {
+  "gom-and-company": [
+    {
+      src: "/images/experience/gom/gom-experience-collage.webp",
+      alt: "곰앤컴퍼니 사옥 브랜딩 로고 및 재직 증빙 사진",
+      label: "곰앤컴퍼니 사옥 브랜딩 및 재직",
+      footer: "사옥 브랜딩 · 재직",
+    },
+    {
+      src: "/images/experience/gom/gom-content-blog.webp",
+      alt: "곰앤컴퍼니 공식 GOMLab 블로그 채널 운영 화면",
+      label: "공식 GOMLab 블로그 운영",
+      footer: "공식 블로그 운영",
+    },
+  ],
   "lotte-world": undefined,
 };
 
@@ -115,15 +134,18 @@ export default function ExperiencePage() {
                   {/* optional work photos — layout collapses when absent */}
                   {MEDIA_SLOTS[item.id] && (
                     <div className="mt-5 flex max-w-2xl flex-wrap gap-3">
-                      {[1, 2].map((n) => (
-                        <OptionalImage
-                          key={n}
-                          src={`${MEDIA_SLOTS[item.id]!.dir}/work-${n}.webp`}
-                          alt={`${MEDIA_SLOTS[item.id]!.alt} ${n}`}
-                          className="rounded-xl border border-ink/10"
-                          aspect="4 / 3"
-                          wrapperClassName="w-[calc(50%-6px)] max-w-[240px]"
-                        />
+                      {MEDIA_SLOTS[item.id]!.map((media, mIdx) => (
+                        <div key={mIdx} className="w-[calc(50%-6px)] max-w-[240px]">
+                          <LightboxImage
+                            src={media.src}
+                            alt={media.alt}
+                            label={media.label}
+                            footer={media.footer}
+                            buttonClassName="w-full overflow-hidden rounded-xl border border-ink/10 bg-surface text-left transition-all duration-300 hover:border-clay/40 hover:shadow-[0_12px_24px_-16px_rgba(20,22,26,0.25)]"
+                            thumbnailClassName="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover/media:scale-[1.02] motion-reduce:transition-none"
+                            thumbnailWrapperClassName="w-full bg-paper-deep"
+                          />
+                        </div>
                       ))}
                     </div>
                   )}

@@ -54,7 +54,9 @@ const SUPPORTING = [
     what: "마케팅 데이터 취합·리포트 작성과 랜딩 페이지 수정 업무를 Python 파이프라인으로 자동화한 실무 프로젝트입니다.",
     stack: "Python · pandas · openpyxl",
     badge: "Work Project",
-    slotPath: undefined,
+    slotPath: "/images/projects/gom/gom-blog-source-workflow.webp",
+    alt: "GOM 마케팅 웹 소스 정리 및 트랜지션 애니메이션 코드",
+    fit: "contain" as const,
     span: "md:col-span-2",
   },
   {
