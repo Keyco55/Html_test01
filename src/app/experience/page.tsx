@@ -56,7 +56,7 @@ export default function ExperiencePage() {
             제품 개발까지
           </>
         }
-        lede="고객 응대와 현장 운영에서 출발해 콘텐츠·마케팅, 웹 운영을 거쳐 지금은 서비스를 직접 개발합니다. 모든 이력은 실제 수행한 업무 기준으로 정리했습니다."
+        lede="고객 응대와 현장 운영에서 시작해 콘텐츠·마케팅과 웹 운영을 맡았고, 지금은 서비스를 직접 만들고 있습니다."
       />
 
       <Container className="max-w-5xl py-14 md:py-20">

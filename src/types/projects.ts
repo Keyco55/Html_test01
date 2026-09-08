@@ -54,7 +54,6 @@ export interface ProjectArchitecture {
   readonly title: string;
   readonly description: string;
   readonly diagramType: 'multi-agent-workflow' | 'kbo-hub-architecture' | 'ai-status-hub-flow';
-  readonly svgArtifactPath?: string;
 }
 
 export interface Project {

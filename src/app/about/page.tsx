@@ -33,7 +33,7 @@ export default function AboutPage() {
             제품까지, 김범우
           </>
         }
-        lede="고객 응대에서 시작해 콘텐츠와 마케팅, 웹 운영을 거쳐 지금은 서비스를 직접 기획하고 개발합니다."
+        lede="고객 응대에서 시작해 콘텐츠와 마케팅, 웹 운영을 경험했고 지금은 서비스를 직접 기획하고 만듭니다."
       />
 
       {/* ============ PROFILE — art-directed photo composition ============ */}
@@ -441,12 +441,11 @@ export default function AboutPage() {
                 id="about-contact"
                 className="mt-3 text-[clamp(1.8rem,4.4vw,2.6rem)] font-extrabold"
               >
-                연락을 기다립니다.
+                함께할 이야기를 기다립니다.
               </h2>
               <p className="mt-4 max-w-md text-[15px] leading-relaxed text-night-soft">
-                프로젝트, 협업, 채용 이야기 모두 환영합니다. 이메일이 가장
-                빠르고 편한 방법이며, 아래 채널로도 언제든 찾아오셔도 좋습니다.
-                메시지를 확인하면 정성껏 회신드립니다.
+                프로젝트와 협업, 채용 이야기는 이메일로 편하게 보내 주세요.
+                아래 공개 채널에서도 작업 과정과 새로운 기록을 확인할 수 있습니다.
               </p>
             </Reveal>
             <Reveal delay={100}>

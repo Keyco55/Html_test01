@@ -20,10 +20,10 @@ const KBO_FEATURE = {
   period: "2026.08 ~ 현재",
   status: "Deployed · Closed Beta",
   intro:
-    "통합 야구팬 라이프스타일 C2C 플랫폼. 경기 일정·직관 기록, 포토카드 아카이브 및 도감, 팬 커뮤니티, 야구 굿즈 전문 중고 장터를 하나의 제품으로 묶었습니다.",
-  why: "경기 일정과 기록, 굿즈·티켓 정보가 여러 플랫폼에 흩어져 있어 야구팬의 일상 경험이 파편화되어 있었습니다.",
-  what: "경기 일정·직관 기록, 포토카드 아카이브 및 도감, 팬 커뮤니티, 야구 굿즈 전문 중고 장터를 연결하는 웹 플랫폼입니다. 1인 빌더로 기획부터 배포·QA까지 전 과정을 담당했습니다.",
-  how: "Next.js App Router와 Supabase 인증·RLS 기반으로 설계했고, 외부 라이브러리 없이 순수 DOM으로 3D 포토카드 인터랙션을 구현했습니다. 보안 리뷰와 Human Runtime QA를 거쳐 Closed Beta로 운영 중이며, 2027.02 Open Beta, 2027.03 정식 서비스 출시를 목표로 합니다.",
+    "경기 일정과 직관 기록, 포토카드 아카이브 및 도감, 팬 커뮤니티, 야구 굿즈 중고 장터를 한곳에 모은 야구팬용 C2C 서비스입니다.",
+  why: "경기 기록과 굿즈·티켓 정보가 여러 서비스에 흩어져 있어 필요한 정보를 한 번에 확인하기 어려웠습니다.",
+  what: "경기 일정과 직관 기록부터 포토카드, 팬 커뮤니티, 굿즈 거래까지 이어지는 웹 서비스를 만들었습니다. 1인 빌더로 기획부터 배포와 QA까지 맡았습니다.",
+  how: "Next.js App Router와 Supabase 인증·RLS로 구성하고, 외부 라이브러리 없이 DOM 기반 3D 포토카드 인터랙션을 구현했습니다. 보안 리뷰와 Human Runtime QA를 거쳐 Closed Beta로 운영 중이며, 2027.02 Open Beta와 2027.03 정식 출시를 목표로 합니다.",
   serviceUrl: "https://kbo-hub.9ren5dezvous.workers.dev/",
   roadmap: "Closed Beta (현재) → 2027.02 Open Beta → 2027.03 정식 서비스 출시 목표",
   stackGroups: [
@@ -91,9 +91,9 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     mediaSpan: "md:col-span-6",
     contentSpan: "md:col-span-6",
     mediaFirst: true,
-    why: "AI 서비스마다 쿼터와 리셋 시각을 브라우저와 대시보드를 오가며 따로 확인해야 했습니다.",
-    what: "여러 AI 서비스의 사용량과 초기화 시각을 메뉴바와 터미널 상태줄에 모아 보여주는 프라이버시 보존형 로컬 도구입니다.",
-    how: "오픈소스 CodexBar의 로컬 루프백 데이터를 최소 수치만 추출해 소비하는 독립 통합 레이어를 Python 수집기와 Swift 메뉴바 헬퍼로 직접 개발했습니다. 자격증명·프롬프트·쿠키는 보관하지 않습니다.",
+    why: "AI 서비스마다 남은 사용량과 초기화 시각을 서로 다른 화면에서 확인해야 했습니다.",
+    what: "여러 AI 서비스의 사용량과 초기화 시각을 메뉴바와 터미널 상태줄에서 함께 확인하는 로컬 도구입니다.",
+    how: "오픈소스 CodexBar의 로컬 데이터에서 필요한 수치만 읽는 Python 수집기와 Swift 메뉴바 도구를 만들었습니다. 자격증명·프롬프트·쿠키는 저장하지 않습니다.",
     stack: ["Python 3", "Swift", "macOS AppKit", "CodexBar 로컬 데이터 연동", "cmux / tmux"],
     externalLinks: [{ label: "GitHub 저장소", url: "https://github.com/Keyco55/keyco-ai-status-hub" }],
   },
@@ -118,9 +118,9 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     mediaSpan: "md:col-span-6",
     contentSpan: "md:col-span-6",
     mediaFirst: false,
-    why: "매주 반복되는 엑셀 데이터 취합에 시간이 쌓이고 수작업 실수가 반복되었습니다.",
-    what: "국내·글로벌 마케팅 콘텐츠 운영과 공식 SNS 채널(Instagram·YouTube·네이버 블로그·TikTok·Threads) 관리, 랜딩 페이지 HTML/CSS 수정, 데이터 취합 자동화를 담당한 실무 프로젝트입니다.",
-    how: "Python(pandas·openpyxl) 스크립트로 리포트 집계와 검증을 자동화하고, 프로모션 페이지의 마크업과 CTA를 직접 수정해 실험 주기를 줄였습니다. 회사 내부 자산은 비공개 원칙에 따라 익명화된 프로세스 증빙을 제공합니다.",
+    why: "매주 엑셀 데이터를 취합하면서 같은 작업을 반복했고, 수작업 오류도 생겼습니다.",
+    what: "국내외 콘텐츠 마케팅과 공식 SNS 채널을 운영하고, 랜딩 페이지의 HTML/CSS를 수정했습니다. 반복적인 데이터 취합·정리는 Python으로 자동화했습니다.",
+    how: "pandas와 openpyxl로 리포트 집계·검증 스크립트를 만들었습니다. 웹 업무는 별도로 프로모션 페이지의 마크업과 CTA를 직접 수정했습니다. 공개 자료는 회사 내부 정보가 드러나지 않도록 정리했습니다.",
     stack: ["Python", "pandas", "openpyxl", "HTML5 / CSS3", "Excel Automation"],
     externalLinks: [],
   },
@@ -146,9 +146,9 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     mediaSpan: "md:col-span-6",
     contentSpan: "md:col-span-6",
     mediaFirst: false,
-    why: "여러 터미널에서 돌아가는 에이전트의 상태를 확인하기 위해 창을 계속 전환해야 했습니다.",
-    what: "로컬 AI 에이전트의 작업 상태와 사용량을 말풍선으로 보여주고, 클릭 한 번으로 해당 세션으로 이동시키는 macOS 플로팅 앱입니다.",
-    how: "Swift와 AppKit/SwiftUI로 가볍게 구현했고, 상태별 스프라이트 애니메이션을 지원합니다. 프롬프트·토큰·비밀번호에는 접근하지 않고 프로세스 상태와 로컬 캐시만 확인합니다.",
+    why: "여러 터미널에서 실행 중인 에이전트의 상태를 확인하려고 창을 계속 전환해야 했습니다.",
+    what: "로컬 AI 에이전트의 작업 상태와 사용량을 말풍선으로 보여주고, 클릭하면 해당 세션으로 이동하는 macOS 플로팅 앱입니다.",
+    how: "Swift와 AppKit/SwiftUI로 구현하고 상태별 캐릭터 움직임을 더했습니다. 프롬프트·토큰·비밀번호에는 접근하지 않고 프로세스 상태와 로컬 캐시만 확인합니다.",
     stack: ["Swift", "macOS AppKit", "SwiftUI", "Universal Binary", "Sprite Animation"],
     externalLinks: [{ label: "GitHub 저장소", url: "https://github.com/Keyco55/AI-Hub-pet" }],
   },
@@ -168,7 +168,7 @@ export default function ProjectsPage() {
             직접 만든 프로젝트
           </>
         }
-        lede="제품 기획과 개발, 배포와 QA까지 직접 진행한 작업들입니다. 가장 큰 작업은 KBO-Hub이며, 현재 Closed Beta로 운영 중입니다."
+        lede="기획부터 개발, 배포와 QA까지 직접 맡은 작업을 모았습니다. KBO-Hub는 현재 Closed Beta로 운영하고 있습니다."
       />
 
       {/* ============ KBO-HUB — dominant feature ============ */}
@@ -489,10 +489,10 @@ export default function ProjectsPage() {
         <Container className="flex flex-col items-start gap-6 py-14 md:flex-row md:items-center md:justify-between md:py-16">
           <Reveal>
             <h2 id="projects-contact" className="text-[clamp(1.4rem,3.4vw,2rem)] font-extrabold">
-              프로젝트에 대한 질문이 있으신가요?
+              작업이 더 궁금하신가요?
             </h2>
             <p className="mt-2 text-[14.5px] text-night-soft">
-              각 프로젝트의 세부 과정과 기술적 판단은 공개 채널에서 더 자세히 확인하실 수 있습니다.
+              프로젝트를 만든 과정과 기술 선택은 공개 채널에 더 자세히 기록하고 있습니다.
             </p>
           </Reveal>
           <Reveal delay={100} className="flex flex-wrap gap-3">

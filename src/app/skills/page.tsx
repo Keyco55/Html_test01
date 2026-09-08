@@ -41,7 +41,7 @@ const TOOLKIT_GROUPS = [
   {
     name: "AI & CLI Development",
     tools: ["cmux", "Claude Code", "Codex CLI", "Google Antigravity", "Aider", "OpenCode"],
-    note: "터미널 중심의 AI 에이전트 병렬 운영 환경.",
+    note: "작업을 나누고 독립 검수하는 터미널 중심 개발 환경.",
   },
   {
     name: "Collaboration & Documentation",
@@ -66,10 +66,10 @@ const AI_CLI_TOOLS = [
 ] as const;
 
 const AI_CLI_PRACTICES = [
-  { label: "Agent Routing", detail: "작업 성격과 잔여 쿼터에 따라 모델·에이전트를 사람이 직접 라우팅" },
-  { label: "Parallel Workers", detail: "독립 트랙을 병렬 워커로 동시 진행 — worktree당 수정 주체 1개" },
-  { label: "Independent Review", detail: "구현 에이전트와 분리된 시니어 리뷰 에이전트가 빌드·타입·보안·회귀 감사" },
-  { label: "Human Final QA", detail: "최종 판단은 항상 사람 — Human Runtime QA와 Security Gate 통과 후 병합" },
+  { label: "Agent Routing", detail: "작업 성격에 맞는 도구를 사람이 선택" },
+  { label: "Parallel Workers", detail: "서로 겹치지 않는 작업은 worktree로 나누어 진행" },
+  { label: "Independent Review", detail: "구현과 검수를 분리해 빌드·타입·보안·회귀 확인" },
+  { label: "Human Final QA", detail: "실제 화면은 사람이 확인하고 최종 판단" },
 ] as const;
 
 const ARCHITECTURE_PRINCIPLES = [
@@ -113,7 +113,7 @@ export default function SkillsPage() {
             그리고 일하는 도구
           </>
         }
-        lede="실제 프로젝트와 업무에서 사용한 기술과 도구입니다. 새로운 기술과 AI 활용 방식에 관심이 많아, 실제 프로젝트에 적용하며 계속 학습하고 실험합니다."
+        lede="실제 업무와 프로젝트에서 사용한 기술과 도구를 정리했습니다. 필요한 도구를 골라 적용하고, 독립 검수와 직접 확인을 거쳐 작업합니다."
       />
 
       {/* ============ CORE GROUPS ============ */}
@@ -177,10 +177,9 @@ export default function SkillsPage() {
               CLI Agent Operations
             </h2>
             <p className="mt-4 max-w-2xl text-[14.5px] leading-relaxed text-night-soft">
-              여러 AI 에이전트와 모델을 도구로 다루며, KBO-Hub와 이 포트폴리오
-              개발에 직접 적용해 온 엔지니어링 워크플로우입니다. AI 브랜드는
-              주인공이 아니라 작업을 지탱하는 도구이며, 라우팅과 검증의 최종
-              판단은 항상 사람이 합니다.
+              필요한 AI 도구를 작업에 맞게 고르고, KBO-Hub와 이 포트폴리오를
+              만드는 데 활용했습니다. 구현과 검수를 나누되, 작업 방향과 최종
+              판단은 사람이 맡습니다.
             </p>
           </Reveal>
 
@@ -269,8 +268,8 @@ export default function SkillsPage() {
                     기록이 곧 인수인계입니다
                   </h3>
                   <p className="mt-3 max-w-md text-[14px] leading-relaxed text-ink-soft">
-                    Notion은 단순 메모가 아니라 프로젝트 운영의 중심 도구로
-                    사용합니다. 기획부터 릴리스까지의 기록을 한 곳에서 관리합니다.
+                    기획과 작업 기록, QA 결과를 Notion에서 관리합니다. 다음 작업을
+                    이어갈 때 필요한 결정과 진행 상황도 함께 남깁니다.
                   </p>
                   <ul className="mt-5 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
                     {NOTION_USES.map((use) => (
@@ -344,9 +343,8 @@ export default function SkillsPage() {
               계획부터 릴리스 게이트까지
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-night-soft">
-              KBO-Hub와 이 포트폴리오 모두 아래 프로세스로 개발했습니다. 작업을
-              격리하고, 구현과 검증을 분리하고, 사람이 최종 확인합니다. 스크롤에
-              따라 파이프라인이 진행됩니다.
+              KBO-Hub와 이 포트폴리오 모두 작업 범위를 나누고, 구현과 검수를
+              분리한 뒤 사람이 실제 화면을 확인하는 순서로 개발했습니다.
             </p>
           </Reveal>
 
@@ -372,11 +370,10 @@ export default function SkillsPage() {
               개발 환경이 연결되는 방식
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">
-              위의 워크플로우가 <strong className="font-bold text-ink">순서</strong>를
-              보여준다면, 이 다이어그램은 <strong className="font-bold text-ink">구조</strong>를
-              보여줍니다. 사람에서 시작해 문서화, cmux 에이전트 오케스트레이션,
-              Git 격리, 검증 게이트를 거쳐 릴리스와 HANDOFF로 끝나는 개발 환경의
-              시스템 토폴로지입니다.
+              위의 워크플로우가 <strong className="font-bold text-ink">작업 순서</strong>라면,
+              이 다이어그램은 <strong className="font-bold text-ink">도구의 연결 관계</strong>를
+              보여줍니다. 사람이 범위를 정하고 문서화한 뒤, cmux와 Git worktree로
+              작업을 나누고 검수·QA·HANDOFF까지 이어지는 구조입니다.
             </p>
           </Reveal>
 

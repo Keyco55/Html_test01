@@ -12,8 +12,8 @@ export const metadata: Metadata = createSiteMetadata("/") as Metadata;
 /** Live statuses — grounded in src/data/projects.ts. No invented facts. */
 const LIVE_STATUSES = [
   { label: "KBO-Hub", badge: "Closed Beta", note: "통합 야구팬 라이프스타일 C2C 플랫폼 · HOMEPLATE", dot: "var(--grass)" },
-  { label: "keyco AI Status Hub", badge: "Public · Open Source", note: "AI 사용량 통합 로컬 레이어", dot: "var(--clay-bright)" },
-  { label: "Doro Hub Pet", badge: "Open Source", note: "macOS 네이티브 에이전트 모니터", dot: "var(--sand)" },
+  { label: "keyco AI Status Hub", badge: "Public · Open Source", note: "AI 서비스 사용량을 모아 보는 로컬 도구", dot: "var(--clay-bright)" },
+  { label: "Doro Hub Pet", badge: "Open Source", note: "작업 상태를 알려주는 macOS 플로팅 앱", dot: "var(--sand)" },
 ] as const;
 
 const MARQUEE_ITEMS = [
@@ -38,7 +38,7 @@ const SUPPORTING = [
     monogram: "STS",
     name: "keyco AI Status Hub",
     nameEn: "AI Usage Status Hub",
-    what: "여러 AI 서비스의 사용량과 리셋 시각을 메뉴바와 터미널에 모아 보여주는 프라이버시 보존형 로컬 도구입니다.",
+    what: "여러 AI 서비스의 사용량과 초기화 시각을 메뉴바와 터미널에서 한 번에 확인하는 로컬 도구입니다.",
     stack: "Python · Swift · cmux",
     badge: "Public · Open Source",
     slotPath: "/images/projects/status-hub/status-hub-detail.webp",
@@ -51,7 +51,7 @@ const SUPPORTING = [
     monogram: "GOM",
     name: "GOM Automation",
     nameEn: "Marketing × Web × Python",
-    what: "마케팅 데이터 취합·리포트 작성과 랜딩 페이지 수정 업무를 Python 파이프라인으로 자동화한 실무 프로젝트입니다.",
+    what: "Python으로 반복적인 마케팅 데이터 정리를 자동화하고, HTML/CSS로 랜딩 페이지를 수정한 실무 작업입니다.",
     stack: "Python · pandas · openpyxl",
     badge: "Work Project",
     slotPath: "/images/projects/gom/gom-blog-source-workflow.webp",
@@ -64,7 +64,7 @@ const SUPPORTING = [
     monogram: "PET",
     name: "Doro Hub Pet",
     nameEn: "AI-Hub-pet",
-    what: "AI 에이전트의 작업 상태를 말풍선으로 알리고, 클릭 한 번으로 해당 세션으로 이동시키는 macOS 플로팅 앱입니다.",
+    what: "AI 에이전트의 작업 상태를 말풍선으로 보여주고, 클릭하면 해당 세션으로 이동하는 macOS 플로팅 앱입니다.",
     stack: "Swift · AppKit · SwiftUI",
     badge: "Open Source",
     slotPath: "/images/projects/ai-hub-pet/doro-hub-pet-cover.webp",
@@ -342,8 +342,8 @@ export default function HomePage() {
                   <p className="mt-5 max-w-md text-[15px] leading-relaxed text-night-soft">
                     경기 일정·직관 기록, 포토카드 아카이브 및 도감, 팬 커뮤니티,
                     야구 굿즈 전문 중고 장터를 하나로 묶은 통합 야구팬
-                    라이프스타일 C2C 플랫폼입니다. 기획부터 프론트엔드, Supabase
-                    인증·RLS 설계, 배포와 QA까지 1인 빌더로 완성했습니다.
+                    라이프스타일 C2C 서비스입니다. 기획과 프론트엔드, Supabase
+                    인증·RLS 설계, 배포와 QA까지 직접 맡았습니다.
                   </p>
                   <ul className="mt-5 flex flex-wrap gap-2">
                     {["Next.js App Router", "Supabase", "PostgreSQL", "RLS", "Cloudflare Workers"].map((tech) => (
@@ -473,7 +473,7 @@ export default function HomePage() {
             <div>
               <p className="eyebrow">How I Work</p>
               <h2 id="home-workflow" className="mt-2 text-[clamp(1.4rem,3.4vw,2rem)] font-extrabold text-ink">
-                문서화로 시작해 QA 게이트로 끝냅니다
+                기록하고, 나누어 만들고, 직접 확인합니다
               </h2>
             </div>
             <Link
@@ -555,7 +555,7 @@ export default function HomePage() {
             <Reveal>
               <p className="eyebrow">Contact</p>
               <h2 id="home-contact" className="mt-2 text-[clamp(1.7rem,4vw,2.6rem)] font-extrabold text-ink">
-                연락을 기다립니다.
+                함께할 이야기를 기다립니다.
               </h2>
               <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink-soft">
                 프로젝트, 협업, 채용 이야기 모두 환영합니다. 이메일로 편하게

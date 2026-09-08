@@ -16,7 +16,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     category: 'Full-Stack Product',
     status: 'Closed Beta',
     summary:
-      '경기 일정·직관 기록, 포토카드 아카이브 및 도감, 팬 커뮤니티, 야구 굿즈 전문 중고 장터를 하나의 제품으로 연결하는 통합 야구팬 라이프스타일 C2C 플랫폼(서비스 브랜드 HOMEPLATE)입니다. 1인 빌더로서 제품 기획부터 풀스택 개발, Supabase RLS 인증/데이터베이스 설계, Cloudflare Workers 배포, Human Runtime QA까지 실서비스 운영 수준으로 구축했습니다.',
+      'HOMEPLATE는 경기 일정과 직관 기록, 포토카드 아카이브 및 도감, 팬 커뮤니티, 야구 굿즈 중고 장터를 한곳에 모은 야구팬용 C2C 서비스입니다. 1인 빌더로 기획부터 개발, Supabase 인증·RLS 설계, Cloudflare Workers 배포와 QA까지 맡았습니다.',
     metadata: {
       role: 'Product Planning & Full-Stack Builder',
       timeline: '2026.08 ~ 현재',
@@ -25,15 +25,15 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     },
     narrative: {
       problem:
-        '야구팬들은 경기 일정, 기록 조회, 굿즈/포토카드 거래, 티켓팅 정보 등이 여러 플랫폼에 파편화되어 있어 일상 속에서 통합된 야구 경험을 누리기 어려웠습니다.',
+        '경기 일정과 기록, 굿즈·포토카드 거래, 티켓 정보가 여러 서비스에 흩어져 있어 필요한 정보를 한 번에 확인하기 어려웠습니다.',
       solution:
-        'Next.js App Router와 Supabase 기반으로 고성능 웹 플랫폼을 설계했습니다. 비주얼 v3 테마 시스템, 3D 포토카드 틸트 인터랙션, Row Level Security(RLS) 기반 보안 계정 체계, 모바일 최적화 내비게이션을 단일 제품으로 완성했습니다.',
+        'Next.js App Router와 Supabase로 서비스를 만들고, 테마 시스템과 3D 포토카드 인터랙션, RLS 기반 계정별 데이터 보호, 모바일 내비게이션을 구현했습니다.',
       keyContributions: [
-        '제품 기획 & 요구사항 정의: 야구팬의 페인 포인트를 분석하여 경기 일정·직관 기록, 포토카드 아카이브 및 도감, 팬 커뮤니티, 야구 굿즈 전문 중고 장터를 유기적으로 연결한 핵심 기능 스펙 수립',
+        '제품 기획과 요구사항 정의: 경기 일정·직관 기록, 포토카드 아카이브 및 도감, 팬 커뮤니티, 야구 굿즈 중고 장터의 기능과 연결 방식 정의',
         'Next.js App Router 아키텍처: App Router 구조 위에 전역 헤더, 실시간 티커 셸, 모바일 드로어 및 FOUC 없는 테마 시스템 구축',
         'Supabase Auth & Database / RLS 설계: Email/Password 인증, public.profiles 트리거 연계, 사용자 데이터 격리를 위한 엄격한 Row Level Security 정책 적용',
-        '고성능 클라이언트 인터랙션: 무거운 외부 라이브러리 없이 순수 DOM 제어로 3D 홀로그램 글레어 및 포토카드 틸트 효과 구현, Hydration 안정화',
-        '체계적인 검증 체계: Day 15 수직 슬라이스에 대해 Senior Security Review PASS 및 철저한 Human Runtime QA를 거쳐 안정적인 Closed Beta 릴리스 달성',
+        '클라이언트 인터랙션: 외부 라이브러리 없이 DOM 제어로 3D 홀로그램 글레어와 포토카드 틸트 효과를 구현하고 Hydration 오류 방지',
+        '검증: 기능 단위 보안 리뷰와 Human Runtime QA를 거쳐 Closed Beta 배포',
       ],
       technicalHighlights: [
         'Next.js App Router & React',
@@ -45,7 +45,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
         'Human Runtime QA & Security Gate Passed',
       ],
       learned:
-        '백엔드 전담 개발자가 아니더라도, 제품 중심 사고와 탄탄한 아키텍처 이해를 바탕으로 인증, 데이터 격리, 고성능 UI까지 완성도 높은 풀스택 서비스를 주도적으로 구축할 수 있음을 입증했습니다.',
+        '기획한 기능을 실제 서비스로 운영하려면 화면 구현뿐 아니라 인증, 데이터 격리, 배포와 사용자 확인까지 함께 설계해야 한다는 점을 배웠습니다.',
     },
     techStack: [
       'Next.js App Router',
@@ -76,9 +76,8 @@ export const FEATURED_PROJECTS: readonly Project[] = [
       containerId: 'kbo-hub-arch-container',
       title: 'KBO-Hub Full-Stack Architecture',
       description:
-        'Next.js App Router 프론트엔드와 Cloudflare Workers 서빙, Supabase Auth/RLS 데이터베이스 격리 계층이 유기적으로 연결된 실서비스 아키텍처입니다.',
+        'Next.js App Router, Cloudflare Workers, Supabase Auth와 RLS가 연결되는 서비스 구조입니다.',
       diagramType: 'kbo-hub-architecture',
-      svgArtifactPath: '/docs/diagrams/kbo-hub-architecture.svg',
     },
     screenshotPlaceholder: {
       caption: 'KBO-Hub 메인 대시보드 및 실시간 경기/포토카드 아카이브 인터페이스',
@@ -97,7 +96,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     category: 'macOS Native Tool',
     status: 'Open Source',
     summary:
-      '화면 위에 조용히 떠 있는 플로팅 펫이 로컬에서 실행 중인 AI 개발 에이전트(Antigravity, Claude Code, Codex 등)의 작업 상태를 관찰하고, 2줄 말풍선으로 리소스 사용량과 쿼터 리셋 시간을 직관적으로 알려주며 세션으로 바로 이동시켜주는 macOS 네이티브 도구입니다. 다중 에이전트 개발 환경의 실제 불편을 해소하기 위해 Swift로 직접 개발했습니다.',
+      'Doro Hub Pet은 화면 위에 떠 있는 캐릭터가 로컬 AI 에이전트의 작업 상태와 사용량, 쿼터 초기화 시각을 알려주는 macOS 앱입니다. 말풍선을 클릭하면 해당 작업 세션으로 바로 이동합니다.',
     metadata: {
       role: 'Solo Native Developer',
       timeline: '2026.08',
@@ -106,12 +105,12 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     },
     narrative: {
       problem:
-        '여러 터미널에서 AI 에이전트를 동시에 실행할 때, 어떤 에이전트가 생각 중이고 어떤 에이전트가 사용자의 입력을 기다리는지 확인하기 위해 끊임없이 창을 전환해야 하는 컨텍스트 스위칭 비용이 컸습니다.',
+        '여러 터미널에서 AI 에이전트를 동시에 실행하면 작업 중인지 입력을 기다리는지 확인하려고 창을 자주 전환해야 했습니다.',
       solution:
-        'Swift와 AppKit 기반의 초경량 플로팅 윈도우 앱을 구축했습니다. 시스템 자원을 거의 소모하지 않으면서 로컬 프로세스 수명주기와 사용량 캐시만 안전하게 감지하여, 상태별 스프라이트 모션과 클릭 한 번으로 세션을 포커싱하는 단축 인터랙션을 구현했습니다.',
+        'Swift와 AppKit으로 플로팅 윈도우를 만들고, 로컬 프로세스 상태와 사용량 캐시만 읽도록 범위를 제한했습니다. 상태별 캐릭터 움직임과 원클릭 세션 이동도 함께 구현했습니다.',
       keyContributions: [
         'macOS Native AppKit & SwiftUI 설계: 가볍고 부드러운 플로팅 윈도우, 클릭 스루 및 드래그 인터랙션 구현',
-        '프라이버시 최우선 안전 감지: 에이전트의 프롬프트, 대화 내용, 쿠키, 비밀번호는 절대 읽지 않고 프로세스 실행 상태와 로컬 캐시만 최소한으로 확인',
+        '정보 접근 제한: 프롬프트, 대화 내용, 쿠키, 비밀번호는 읽지 않고 프로세스 실행 상태와 로컬 캐시만 확인',
         '2줄 지능형 작업 말풍선: 현재 작업 중인 provider(AG/CC/Codex)와 실제 로컬 쿼터 캐시를 순환 표시',
         '원클릭 세션 포커스: 말풍선 클릭 또는 펫 더블클릭 시 현재 활성 에이전트의 터미널/작업 환경으로 즉시 전환',
         '상태 반응형 스프라이트 엔진: idle, working, thinking, waiting-for-user 등 7가지 상태별 모션 렌더링',
@@ -125,7 +124,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
         'Low-Resource Sprite Animation',
       ],
       learned:
-        '개발자 본인의 작업 흐름에서 느끼는 사소한 마찰을 네이티브 데스크톱 기술로 직접 해결함으로써, 일상적 개발 생산성을 극대화하는 실용적 엔지니어링의 가치를 배웠습니다.',
+        '작업 중 반복되는 작은 불편을 관찰하고, 필요한 기능만 담은 네이티브 도구로 해결하는 과정을 익혔습니다.',
     },
     techStack: [
       'Swift',
@@ -163,11 +162,11 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     tier: 'featured',
     title: 'GOM Marketing × Web × Automation',
     nameEn: 'Marketing Tech & Data Pipeline',
-    subtitle: '콘텐츠 마케팅·웹 전환 최적화 및 파이썬 엑셀 업무 자동화',
+    subtitle: '콘텐츠 마케팅·웹페이지 수정 및 Python 엑셀 업무 자동화',
     category: 'Growth & Automation',
     status: 'Internal Production Verified',
     summary:
-      '국내 및 글로벌 마케팅 캠페인을 전개하며, 반복적인 데이터 취합 업무를 Python(pandas, openpyxl) 파이프라인으로 자동화하고, 마케팅 랜딩 페이지의 HTML/CSS를 직접 수정하여 CTA 전환율을 극대화한 실무 프로젝트입니다. 회사 내부 기밀 자산은 철저히 보호하며 익명화된 프로세스로 프레젠테이션합니다.',
+      '국내외 콘텐츠 마케팅과 공식 SNS 채널을 운영하고, 랜딩 페이지의 HTML/CSS를 수정했습니다. Python과 Excel로 반복적인 데이터 취합·정리 업무를 자동화했으며, 공개 자료에는 회사 내부 정보가 드러나지 않도록 처리했습니다.',
     metadata: {
       role: 'Growth Marketer & Automation Builder',
       timeline: '2024 ~ 2025',
@@ -176,26 +175,26 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     },
     narrative: {
       problem:
-        '매주/매월 여러 채널에서 쏟아지는 마케팅 성과 데이터를 수작업으로 엑셀에 취합하는 과정에서 수 시간의 단순 반복 노동과 휴먼 에러가 빈번하게 발생했고, 랜딩 페이지 수정 시 개발 부서와의 커뮤니케이션 비용으로 인해 전환 최적화 실험 속도가 지연되었습니다.',
+        '여러 채널의 마케팅 데이터를 매주·매월 엑셀로 취합하는 과정에서 반복 작업과 수작업 오류가 생겼습니다. 랜딩 페이지의 작은 수정도 별도 요청이 필요해 반영이 늦어지곤 했습니다.',
       solution:
-        'Python의 pandas와 openpyxl 라이브러리를 활용해 원클릭 데이터 검증 및 엑셀 리포트 생성 스크립트를 작성하고, 마케팅 페이지의 HTML/CSS/CTA 버튼 마크업을 직접 안전하게 수정·배포하여 실험 주기를 획기적으로 단축했습니다.',
+        'pandas와 openpyxl로 데이터 검증과 엑셀 정리를 자동화하는 스크립트를 작성했습니다. 웹 업무는 별도로 HTML/CSS와 CTA 마크업을 직접 수정해 필요한 내용을 반영했습니다.',
       keyContributions: [
-        '국내 & 글로벌 마케팅 전략 수립: 브랜드 인지도 증대 및 제품 전환을 위한 다채널 SNS·블로그 콘텐츠 큐레이션',
-        '웹 페이지 직접 수정 & 전환 최적화: 마케팅 랜딩 페이지의 HTML/CSS 구조를 직접 핸들링하여 CTA 배치, 링크 구조, 인터랙티브 임베드 개선',
+        '국내외 콘텐츠 마케팅: 공식 SNS와 블로그 채널에 맞는 콘텐츠 기획·제작 및 운영',
+        '웹페이지 수정: 마케팅 랜딩 페이지의 HTML/CSS, CTA 배치, 링크 구조와 미디어 삽입 코드 수정',
         'Python 데이터 전처리 자동화: 여러 광고 매체 및 유입 경로의 원시 데이터를 정규화하고 중복을 제거하는 CLI 스크립트 제작',
         '대용량 엑셀 워크플로우 자동화: 주간 정산 및 KPI 리포트 집계 반복 업무를 스크립트 파이프라인으로 자동화',
-        '보안 및 데이터 거버넌스 준수: 민감한 고객 정보나 회사 기밀 자산을 노출하지 않는 안전한 자동화 아키텍처 수립',
+        '정보 보호: 고객 정보와 회사 내부 자료가 공개 결과물에 포함되지 않도록 작업 범위 관리',
       ],
       technicalHighlights: [
         'Python 3 Scripting & CLI Automation',
         'pandas Data Cleansing & Transformation',
         'openpyxl Formatted Excel Report Generation',
         'Semantic HTML5 & Responsive CSS Optimization',
-        'Conversion-Oriented CTA & Embed Structuring',
-        'Zero-Leak Data Privacy Anonymization',
+        'CTA & Media Embed Markup',
+        'Public Asset Anonymization',
       ],
       learned:
-        '마케팅 비즈니스 도메인에 기술과 코드를 직접 결합했을 때 조직의 반복 노동을 얼마나 혁신적으로 줄이고 빠른 실험 속도를 만들어낼 수 있는지 체득했습니다.',
+        '마케팅 업무를 직접 해 본 경험이 있어 반복되는 지점을 찾고, 작은 스크립트와 웹 수정으로 운영 부담을 줄일 수 있었습니다.',
     },
     techStack: [
       'Python',
@@ -238,7 +237,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     category: 'Developer Infrastructure',
     status: 'Public · Open Source',
     summary:
-      '여러 AI 개발 서비스(Codex, Antigravity, Alibaba 등)의 사용량과 초기화 시각을 한눈에 확인하여 최적의 모델 라우팅을 돕는 macOS 도구입니다. Peter Steinberger의 오픈소스 CodexBar 로컬 루프백 데이터를 공급원으로 활용하며, 계정 정보가 남지 않는 프라이버시 보존형 캐시 레이어와 Python 수집기, Swift 메뉴바 헬퍼를 직접 개발하여 터미널(cmux) 워크플로우에 통합했습니다.',
+      '여러 AI 개발 서비스의 사용량과 초기화 시각을 메뉴바와 터미널에서 함께 확인하는 macOS 도구입니다. 오픈소스 CodexBar의 로컬 데이터를 받아 필요한 수치만 저장하는 Python 수집기와 Swift 메뉴바 도구를 만들었습니다.',
     metadata: {
       role: 'Integration Architect & Developer',
       timeline: '2026.08 ~ 현재',
@@ -247,13 +246,13 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     },
     narrative: {
       problem:
-        '멀티 에이전트 협업 환경에서 각 서비스의 쿼터 소진율과 리셋 시간을 확인하기 위해 여러 브라우저 탭과 대시보드를 번갈아 확인해야 했고, 작업 중간에 토큰이 고갈되어 개발 흐름이 끊기는 문제가 있었습니다.',
+        '각 AI 서비스의 남은 사용량과 초기화 시각을 확인하려면 여러 화면을 오가야 했고, 작업 도중 사용량이 소진되는 일도 있었습니다.',
       solution:
-        'CodexBar의 로컬 loopback API를 기반으로, 필요한 최소한의 수치(Quota, Reset Countdown)만 안전하게 추출하는 Python collector를 제작했습니다. 인증 정보나 프롬프트를 배제한 제한된 로컬 권한의 로컬 캐시를 구성하고, Swift 메뉴바 및 cmux 상태창에 실시간 공급하는 통합 레이어를 구축했습니다.',
+        'CodexBar의 로컬 loopback API에서 사용량과 초기화 시각만 읽는 Python 수집기를 만들었습니다. 인증 정보와 프롬프트는 저장하지 않고, 결과를 Swift 메뉴바와 cmux 상태창에 표시합니다.',
       keyContributions: [
         'CodexBar 로컬 루프백 데이터 통합: 기존 검증된 오픈소스(CodexBar)의 출력을 비침습적으로 연계 (CodexBar 자체를 직접 개발했다고 과장하지 않음)',
         '프라이버시 보존형 상태 캐시 설계: 사용자 ID, 토큰, 프롬프트, 쿠키를 일절 배제하고 오직 쿼터 퍼센트와 리셋 타임만 정규화하여 원자적(atomic) 파일 쓰기 구현',
-        'Python 표준 라이브러리 기반 Collector: 무거운 외부 종속성 없이 OS 기본 환경에서 초경량으로 주기적 데이터 수집',
+        'Python 표준 라이브러리 기반 Collector: 별도 외부 종속성 없이 필요한 데이터를 주기적으로 수집',
         'Swift AppKit 메뉴바 헬퍼 & 터미널 출력: macOS 메뉴바(AG/CC/C/ALI) 및 cmux/tmux 하단 상태 표시줄에 즉시 출력 지원',
         'Multi-Agent 리소스 기반 라우팅 지원: 잔여 쿼터와 리셋 시간을 기준으로 병렬 작업 트리에 어떤 모델을 투입할지 신속 판단',
       ],
@@ -266,7 +265,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
         'cmux & tmux Integration Pipeline',
       ],
       learned:
-        '기존의 훌륭한 오픈소스 생태계를 존중하면서, 내 작업 흐름에 꼭 필요한 통합 레이어와 프라이버시 보호 장치를 더해 강력한 개인화 개발 인프라를 완성하는 소프트웨어 조합 능력을 길렀습니다.',
+        '기존 오픈소스의 역할을 분명히 밝히면서, 제 작업에 필요한 연결 기능과 정보 보호 범위만 더하는 방법을 익혔습니다.',
     },
     techStack: [
       'Python 3',
@@ -295,9 +294,8 @@ export const FEATURED_PROJECTS: readonly Project[] = [
       containerId: 'ai-status-hub-flow-container',
       title: 'AI Usage Status Hub Integration Pipeline',
       description:
-        'CodexBar 로컬 루프백 → Python 수집기 → 무결성 상태 캐시 → Swift 메뉴바 및 cmux 터미널로 이어지는 안전한 로컬 파이프라인 구조입니다.',
+        'CodexBar 로컬 루프백에서 Python 수집기와 상태 캐시를 거쳐 Swift 메뉴바와 cmux로 이어지는 구조입니다.',
       diagramType: 'ai-status-hub-flow',
-      svgArtifactPath: '/docs/diagrams/ai-status-hub-flow.svg',
     },
     screenshotPlaceholder: {
       caption: 'macOS 메뉴바와 cmux 상태창에 표시되는 실시간 provider별 쿼터 및 리셋 카운트다운',
@@ -316,7 +314,7 @@ export const HERO_DATA = {
   roleTitle: 'Customer Experience · Content · Product Development',
   slogan: '고객과 서비스를 이해하고,\n콘텐츠와 기술로 직접 만드는 사람.',
   subDescription:
-    '고객 관점의 서비스 기획과 마케팅 자동화부터, 풀스택 웹 애플리케이션과 macOS 네이티브 도구 개발까지. 문제를 직접 정의하고, AI 멀티에이전트 오케스트레이션과 엔지니어링으로 빠르게 실서비스를 구축합니다.',
+    '고객 응대와 콘텐츠 운영 경험을 바탕으로 서비스를 기획하고 만듭니다. 웹 애플리케이션부터 반복 업무를 줄이는 자동화와 macOS 도구까지, 필요한 형태를 직접 찾아 구현합니다.',
   liveStatuses: [
     {
       id: 'kbo-hub',
