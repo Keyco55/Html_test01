@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Reveal } from "@/components/motion/Reveal";
 import { OptionalImage } from "@/components/site/OptionalImage";
+import { LightboxImage } from "@/components/site/ImageLightbox";
 import { profileData } from "@/data/profile";
 import { educationData } from "@/data/education";
 import { awardsData } from "@/data/awards";
@@ -231,21 +232,15 @@ export default function AboutPage() {
                         </p>
                       )}
                     </div>
-                    {hasImage && (
-                      <a
-                        href={item.imagePath}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${item.institution} 수료증 원본 보기`}
-                        className="group/media self-center overflow-hidden rounded-xl border border-ink/10 bg-white transition-all duration-300 hover:shadow-[0_16px_32px_-20px_rgba(20,22,26,0.3)]"
-                      >
-                        <OptionalImage
-                          src={item.imagePath}
-                          alt={item.imageAlt ?? `${item.institution} 수료 증빙 이미지`}
-                          className="h-auto w-full object-contain transition-transform duration-500 group-hover/media:scale-[1.02]"
-                          wrapperClassName="w-full"
-                        />
-                      </a>
+                    {hasImage && item.imagePath && (
+                      <LightboxImage
+                        src={item.imagePath}
+                        alt={item.imageAlt ?? `${item.institution} 수료 증빙 이미지`}
+                        label={`${item.institution} 수료증`}
+                        buttonClassName="self-center overflow-hidden rounded-xl border border-ink/10 bg-white transition-all duration-300 hover:shadow-[0_16px_32px_-20px_rgba(20,22,26,0.3)]"
+                        thumbnailClassName="h-auto w-full object-contain transition-transform duration-500 group-hover/media:scale-[1.02] motion-reduce:transition-none"
+                        thumbnailWrapperClassName="w-full"
+                      />
                     )}
                   </div>
                 </Reveal>
@@ -289,80 +284,54 @@ export default function AboutPage() {
                         {award.description}
                       </p>
                       {/* mobile media — stacked below text, constrained width so vertical docs stay legible */}
-                      {hasImage && (
+                      {hasImage && award.imagePath && (
                         <div className="mt-4 md:hidden">
-                          <a
-                            href={award.imagePath}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`${award.title} 증빙 원본 보기`}
-                            className="group/media block overflow-hidden rounded-lg border border-ink/10 bg-white"
-                          >
-                            <OptionalImage
-                              src={award.imagePath}
-                              alt={award.imageAlt ?? `${award.title} 증빙 이미지`}
-                              className="h-auto w-full object-contain"
-                              wrapperClassName="mx-auto max-w-[320px]"
-                            />
-                          </a>
+                          <LightboxImage
+                            src={award.imagePath}
+                            alt={award.imageAlt ?? `${award.title} 증빙 이미지`}
+                            label={award.title}
+                            buttonClassName="block overflow-hidden rounded-lg border border-ink/10 bg-white"
+                            thumbnailClassName="h-auto w-full object-contain"
+                            thumbnailWrapperClassName="mx-auto max-w-[320px]"
+                          />
                           {is2017 && award.secondaryImagePath && (
-                            <a
-                              href={award.secondaryImagePath}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label={`${award.title} 수상 기록 원본 보기`}
-                              className="group/media mt-3 block overflow-hidden rounded-lg border border-ink/10 bg-white opacity-95"
-                            >
-                              <OptionalImage
-                                src={award.secondaryImagePath}
-                                alt={
-                                  award.secondaryImageAlt ?? `${award.title} 수상 기록 이미지`
-                                }
-                                className="h-auto w-full object-contain"
-                                wrapperClassName="mx-auto max-w-[280px]"
-                              />
-                            </a>
+                            <LightboxImage
+                              src={award.secondaryImagePath}
+                              alt={
+                                award.secondaryImageAlt ?? `${award.title} 수상 기록 이미지`
+                              }
+                              label={`${award.title} 수상 기록`}
+                              buttonClassName="mt-3 block overflow-hidden rounded-lg border border-ink/10 bg-white opacity-95"
+                              thumbnailClassName="h-auto w-full object-contain"
+                              thumbnailWrapperClassName="mx-auto max-w-[280px]"
+                            />
                           )}
                         </div>
                       )}
                     </div>
                     {/* desktop media slot — fixed width column, vertical docs keep natural portrait ratio */}
-                    {hasImage && (
+                    {hasImage && award.imagePath && (
                       <div className="hidden flex-col gap-3 md:flex">
-                        <a
-                          href={award.imagePath}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`${award.title} 증빙 원본 보기`}
-                          className="group/media block overflow-hidden rounded-lg border border-ink/10 bg-white transition-all duration-300 hover:shadow-[0_16px_32px_-20px_rgba(20,22,26,0.28)]"
-                        >
-                          <OptionalImage
-                            src={award.imagePath}
-                            alt={award.imageAlt ?? `${award.title} 증빙 이미지`}
-                            className="h-auto w-full object-contain transition-transform duration-500 group-hover/media:scale-[1.02]"
-                            wrapperClassName="w-full"
-                          />
-                        </a>
+                        <LightboxImage
+                          src={award.imagePath}
+                          alt={award.imageAlt ?? `${award.title} 증빙 이미지`}
+                          label={award.title}
+                          buttonClassName="block overflow-hidden rounded-lg border border-ink/10 bg-white transition-all duration-300 hover:shadow-[0_16px_32px_-20px_rgba(20,22,26,0.28)]"
+                          thumbnailClassName="h-auto w-full object-contain transition-transform duration-500 group-hover/media:scale-[1.02] motion-reduce:transition-none"
+                          thumbnailWrapperClassName="w-full"
+                        />
                         {is2017 && award.secondaryImagePath && (
-                          <a
-                            href={award.secondaryImagePath}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`${award.title} 수상 기록 원본 보기`}
-                            className="group/media block overflow-hidden rounded-lg border border-ink/10 bg-white opacity-90 transition-all duration-300 hover:opacity-100"
-                          >
-                            <OptionalImage
-                              src={award.secondaryImagePath}
-                              alt={
-                                award.secondaryImageAlt ?? `${award.title} 수상 기록 이미지`
-                              }
-                              className="h-auto w-full object-contain transition-transform duration-500 group-hover/media:scale-[1.02]"
-                              wrapperClassName="w-full"
-                            />
-                            <span className="block px-2 py-1.5 text-center font-mono text-[10px] tracking-wide text-muted">
-                              수상 기록
-                            </span>
-                          </a>
+                          <LightboxImage
+                            src={award.secondaryImagePath}
+                            alt={
+                              award.secondaryImageAlt ?? `${award.title} 수상 기록 이미지`
+                            }
+                            label={`${award.title} 수상 기록`}
+                            buttonClassName="block overflow-hidden rounded-lg border border-ink/10 bg-white opacity-90 transition-all duration-300 hover:opacity-100"
+                            thumbnailClassName="h-auto w-full object-contain transition-transform duration-500 group-hover/media:scale-[1.02] motion-reduce:transition-none"
+                            thumbnailWrapperClassName="w-full"
+                            footer="수상 기록"
+                          />
                         )}
                       </div>
                     )}
