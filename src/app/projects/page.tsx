@@ -33,6 +33,29 @@ const KBO_FEATURE = {
   ],
 } as const;
 
+const MULTI_AGENT_FEATURE = {
+  name: "Multi-Agent Development Orchestration",
+  nameEn: "Multi-Agent Development Environment",
+  category: "Development Orchestration",
+  status: "Public · Open Source",
+  intro:
+    "여러 CLI 에이전트를 역할별로 나누고, Git Worktree로 작업 공간을 격리해 구현·검수·QA를 분리해서 운영하는 개인 개발환경입니다.",
+  why: "한 에이전트가 구현과 검수, 통합까지 모두 맡으면 문맥과 책임이 섞이고 동시에 수정할 때 작업이 충돌하기 쉬웠습니다.",
+  what: "Human/HQ가 범위를 정하고 Worker와 Worker Fast가 구현을 맡습니다. 별도의 Senior Review와 Security Gate, Human Runtime QA를 거친 뒤에만 통합 여부를 결정합니다.",
+  how: "Day마다 하나의 feature branch와 임시 worktree를 만들고, 수정 주체는 worktree당 하나로 제한합니다. 역할은 특정 모델에 고정하지 않으며 merge와 push는 사람이 최종 결정합니다.",
+  actualUse: "HOMEPLATE와 이 포트폴리오를 포함한 개인 프로젝트 개발에 실제로 적용하고 있습니다.",
+  principles: [
+    "One Modifier per Worktree",
+    "feature branch isolation",
+    "Worker / Senior role separation",
+    "Independent Review",
+    "Security Gate",
+    "Human Runtime QA",
+    "Human-controlled merge / push",
+  ],
+  repositoryUrl: "https://github.com/Keyco55/multi-agent-project",
+} as const;
+
 /**
  * Editorial project entry. Real screenshots wire into slotPath;
  * tall/low-res evidence uses fit "contain" (+ optional width cap and
@@ -340,6 +363,136 @@ export default function ProjectsPage() {
         </Container>
       </section>
 
+      {/* ============ MULTI-AGENT — second main project ============ */}
+      <section
+        id="multi-agent-orchestration"
+        aria-labelledby="multi-agent-heading"
+        className="scroll-mt-20 border-t border-ink/10 bg-paper-deep/60"
+      >
+        <Container className="py-14 md:py-20">
+          <Reveal>
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="eyebrow">02 — {MULTI_AGENT_FEATURE.category}</p>
+              <span className="rounded-full border border-ink/15 bg-surface px-3 py-1 font-mono text-[10.5px] font-semibold text-clay">
+                {MULTI_AGENT_FEATURE.status}
+              </span>
+            </div>
+            <h2
+              id="multi-agent-heading"
+              className="mt-4 max-w-4xl text-[clamp(2rem,6vw,3.8rem)] font-extrabold leading-[1.04] text-ink"
+            >
+              {MULTI_AGENT_FEATURE.name}
+            </h2>
+            <p className="mt-2 font-mono text-[11.5px] tracking-[0.16em] text-clay uppercase">
+              {MULTI_AGENT_FEATURE.nameEn}
+            </p>
+            <p className="mt-5 max-w-3xl text-[16px] leading-relaxed text-ink-soft md:text-[17.5px]">
+              {MULTI_AGENT_FEATURE.intro}
+            </p>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <div className="mt-10">
+              <ProjectMedia
+                title="역할·브랜치 분리 구조"
+                monogram="MA"
+                slotPath="/images/projects/multi-agent/multi-agent-role-branch-architecture.webp"
+                alt="초기 멀티에이전트 실험에서 역할별 에이전트와 feature branch를 분리한 구조"
+                caption="초기 역할·브랜치 분리 실험 — 현재는 Day별 단일 feature worktree로 운영"
+                aspect="16 / 9"
+                fit="contain"
+                lightbox={true}
+              />
+            </div>
+          </Reveal>
+
+          <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
+            <Reveal className="md:col-span-7">
+              <dl className="flex flex-col">
+                {[
+                  { t: "만든 이유", d: MULTI_AGENT_FEATURE.why },
+                  { t: "운영 구조", d: MULTI_AGENT_FEATURE.what },
+                  { t: "격리 방식", d: MULTI_AGENT_FEATURE.how },
+                  { t: "실제 사용", d: MULTI_AGENT_FEATURE.actualUse },
+                ].map((row) => (
+                  <div key={row.t} className="grid grid-cols-[88px_1fr] gap-4 border-t border-ink/10 py-5 last:border-b">
+                    <dt className="pt-0.5 font-mono text-[11px] font-semibold tracking-[0.12em] text-clay uppercase">
+                      {row.t}
+                    </dt>
+                    <dd className="text-[14.5px] leading-relaxed text-ink-soft">{row.d}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+            <Reveal delay={100} className="md:col-span-5">
+              <div className="h-full rounded-2xl border border-ink/10 bg-surface p-6">
+                <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">
+                  Operating Principles
+                </p>
+                <ul className="mt-4 flex flex-col gap-2.5">
+                  {MULTI_AGENT_FEATURE.principles.map((principle) => (
+                    <li key={principle} className="flex items-baseline gap-2.5 text-[13.5px] text-ink-soft">
+                      <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rotate-45 bg-clay" />
+                      {principle}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={MULTI_AGENT_FEATURE.repositoryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex min-h-[44px] items-center gap-1.5 rounded-full bg-clay px-5 text-[13.5px] font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-clay-bright"
+                >
+                  GitHub에서 보기 <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <Reveal>
+              <ProjectMedia
+                title="CLI Agent Runtime"
+                monogram="CLI"
+                slotPath="/images/projects/multi-agent/multi-agent-cli-runtime.webp"
+                alt="cmux에서 여러 CLI 에이전트를 역할별로 나누어 실행하는 화면"
+                caption="cmux에서 역할별 CLI Agent를 나누어 실행하는 환경"
+                aspect="16 / 9"
+                fit="contain"
+                lightbox={true}
+              />
+            </Reveal>
+            <Reveal delay={60}>
+              <ProjectMedia
+                title="Independent Senior Review"
+                monogram="SR"
+                slotPath="/images/projects/multi-agent/multi-agent-senior-review.webp"
+                alt="Worker 작업과 별도로 여러 검수 결과를 확인하는 Senior Review 화면"
+                caption="Worker와 분리해 진행한 Senior Review와 Security Gate"
+                aspect="16 / 10"
+                fit="contain"
+                lightbox={true}
+              />
+            </Reveal>
+          </div>
+
+          <Reveal delay={80}>
+            <div className="mx-auto mt-6 max-w-3xl">
+              <ProjectMedia
+                title="CLI Agent Operations"
+                monogram="OPS"
+                slotPath="/images/projects/multi-agent/multi-agent-operations-map.webp"
+                alt="웹 개발, QA, 자동화, 문서화 등 작업 영역으로 이어지는 CLI 운영 구조"
+                caption="프로젝트와 작업 성격에 맞춰 확장한 CLI 운영 범위"
+                aspect="16 / 9"
+                fit="contain"
+                lightbox={true}
+              />
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
       <hr className="stitch-rule mx-auto max-w-6xl opacity-60" aria-hidden="true" />
 
       {/* ============ OTHER PROJECTS — alternating editorial ============ */}
@@ -422,7 +575,7 @@ export default function ProjectsPage() {
 
                   <div className={project.contentSpan}>
                     <p className="font-mono text-[11.5px] tracking-[0.16em] text-clay uppercase">
-                      {String(index + 2).padStart(2, "0")} — {project.category}
+                      {String(index + 3).padStart(2, "0")} — {project.category}
                       <span className="ml-2 normal-case text-muted">{project.period}</span>
                     </p>
                     <h3

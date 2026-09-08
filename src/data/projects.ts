@@ -86,9 +86,80 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     },
   },
   {
+    id: 'multi-agent-orchestration',
+    slug: 'multi-agent-orchestration',
+    displayOrder: 2,
+    tier: 'heroic',
+    title: 'Multi-Agent Development Orchestration',
+    nameEn: 'MULTI-AGENT DEVELOPMENT ENVIRONMENT',
+    subtitle: '역할 분리와 Git Worktree 격리를 적용한 개인 개발 운영 환경',
+    category: 'Development Orchestration',
+    status: 'Public · Open Source',
+    summary:
+      '여러 CLI 에이전트를 역할별로 나누고 Git Worktree로 작업 공간을 격리해 구현, 검수, QA를 분리해서 운영하는 개인 개발환경입니다. HOMEPLATE와 이 포트폴리오를 포함한 실제 개인 프로젝트에 적용하고 있습니다.',
+    metadata: {
+      role: 'System Designer & Human Operator',
+      timeline: '운영 중',
+      platform: 'cmux · CLI Agent · Git Worktree',
+      scope: '운영 구조 설계 · 역할 분리 · 작업 공간 격리 · 검수 · Human Runtime QA',
+    },
+    narrative: {
+      problem:
+        '한 에이전트가 구현과 검수, 통합까지 모두 맡으면 문맥과 책임이 섞이고, 여러 작업을 동시에 수정할 때 충돌하기 쉬웠습니다.',
+      solution:
+        'Human/HQ가 범위를 정하고 Worker와 Worker Fast가 구현을 맡도록 역할을 나눴습니다. Day마다 하나의 feature branch와 임시 worktree를 사용하고, 별도의 Senior Review와 Security Gate, Human Runtime QA를 거친 뒤 통합 여부를 결정합니다.',
+      keyContributions: [
+        'cmux에서 Worker, Worker Fast, Senior Review, QA 역할을 나누어 실행',
+        'Day 작업마다 하나의 feature branch와 임시 worktree를 생성하는 운영 방식 정리',
+        'worktree당 수정 주체를 하나로 제한해 동시 수정 충돌 방지',
+        '구현과 독립 검수, Security Gate, Human Runtime QA를 분리',
+        '동일한 작업 조건에서 모델별 결과를 비교하는 benchmark 기록',
+        'merge와 push는 Human이 최종 결정하는 승인 경계 유지',
+      ],
+      technicalHighlights: [
+        'cmux CLI Agent Operations',
+        'Dynamic Feature Worktree Runtime',
+        'One Modifier per Worktree',
+        'Independent Senior Review',
+        'Read-Only Security Gate',
+        'Human Runtime QA',
+      ],
+      learned:
+        '모델 이름보다 역할과 책임을 분명히 나누고, 작업 공간과 승인 경계를 지키는 것이 결과를 안정적으로 검수하는 데 더 중요했습니다.',
+    },
+    techStack: ['cmux', 'CLI Agent', 'Git', 'Git Worktree', 'Shell', 'Markdown'],
+    featuredStack: ['cmux', 'CLI Agent', 'Git Worktree', 'Security Gate'],
+    metrics: [
+      { label: '작업 공간', value: 'Isolated', note: 'Day별 단일 feature branch와 임시 worktree' },
+      { label: '수정 원칙', value: 'One Modifier', note: 'worktree당 수정 주체 1개' },
+      { label: '검수', value: 'Independent', note: 'Worker와 Senior Review 역할 분리' },
+      { label: '최종 판단', value: 'Human', note: 'Runtime QA와 merge·push 결정' },
+    ],
+    links: [
+      {
+        label: 'GitHub에서 보기',
+        url: 'https://github.com/Keyco55/multi-agent-project',
+        isExternal: true,
+        icon: 'github',
+      },
+    ],
+    architecture: {
+      containerId: 'multi-agent-orchestration-container',
+      title: 'Multi-Agent Development Environment',
+      description:
+        'Human/HQ, 역할별 CLI Agent, 단일 feature worktree, 독립 검수와 QA가 이어지는 개발 운영 구조입니다.',
+      diagramType: 'multi-agent-workflow',
+    },
+    screenshotPlaceholder: {
+      caption: 'cmux에서 역할별 CLI Agent와 독립 검수를 함께 운영하는 실제 환경',
+      mockupType: 'workflow',
+      badgeText: 'Public · Open Source',
+    },
+  },
+  {
     id: 'ai-hub-pet',
     slug: 'ai-hub-pet',
-    displayOrder: 4,
+    displayOrder: 5,
     tier: 'featured',
     title: 'Doro Hub Pet',
     nameEn: 'AI-Hub-pet',
@@ -158,7 +229,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
   {
     id: 'gom-marketing-automation',
     slug: 'gom-marketing-automation',
-    displayOrder: 3,
+    displayOrder: 4,
     tier: 'featured',
     title: 'GOM Marketing × Web × Automation',
     nameEn: 'Marketing Tech & Data Pipeline',
@@ -229,7 +300,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
   {
     id: 'ai-status-hub',
     slug: 'ai-status-hub',
-    displayOrder: 2,
+    displayOrder: 3,
     tier: 'featured',
     title: 'keyco AI Status Hub',
     nameEn: 'AI Usage Status Hub',
@@ -323,6 +394,14 @@ export const HERO_DATA = {
       description: '통합 야구팬 라이프스타일 C2C 플랫폼',
       indicatorColor: 'emerald',
       href: '#kbo-hub',
+    },
+    {
+      id: 'multi-agent-orchestration',
+      label: 'Multi-Agent Development Orchestration',
+      badge: 'Public · Open Source',
+      description: '역할 분리와 Git Worktree 격리를 적용한 개발환경',
+      indicatorColor: 'blue',
+      href: '#multi-agent-orchestration',
     },
     {
       id: 'ai-hub-pet',

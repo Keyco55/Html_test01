@@ -31,8 +31,21 @@ const MARQUEE_ITEMS = [
   "Tailwind CSS",
 ] as const;
 
-/** Supporting work — condensed from src/data/projects.ts. Order: 02 Status Hub, 03 GOM, 04 Doro Hub Pet. */
+/** Supporting work — condensed from src/data/projects.ts. */
 const SUPPORTING = [
+  {
+    slug: "multi-agent-orchestration",
+    monogram: "MA",
+    name: "Multi-Agent Development Orchestration",
+    nameEn: "Multi-Agent Development Environment",
+    what: "CLI 에이전트를 역할별로 나누고 Git Worktree로 작업 공간을 격리해 구현과 검수를 분리해서 운영하는 개발환경입니다.",
+    stack: "cmux · CLI Agent · Git Worktree",
+    badge: "Public · Open Source",
+    slotPath: "/images/projects/multi-agent/multi-agent-role-branch-architecture.webp",
+    alt: "역할별 에이전트와 feature branch, Senior Review의 분리 구조",
+    fit: "contain" as const,
+    span: "md:col-span-2",
+  },
   {
     slug: "ai-status-hub",
     monogram: "STS",
@@ -409,7 +422,7 @@ export default function HomePage() {
 
         {/* Supporting work — asymmetric grid (desktop) / snap rail (mobile) */}
         <Container className="pb-16 pt-10 md:pb-24 md:pt-12">
-          <div className="snap-rail md:grid-cols-6 md:gap-6">
+          <div className="snap-rail md:grid-cols-8 md:gap-5">
             {SUPPORTING.map((project, i) => (
               <Reveal key={project.slug} delay={i * 80} className={`flex ${project.span}`}>
                 <article
