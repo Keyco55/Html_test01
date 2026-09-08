@@ -39,8 +39,6 @@ const SCOPE_NOTES: Record<string, string | undefined> = {
     "프론트엔드·백엔드 서비스 전체 개발이 아닌, 콘텐츠·마케팅 페이지 수정과 데이터 자동화 업무 범위입니다.",
   "songpa-post-office":
     "공공기관 내부 규정에 따라 내부 전산망·비공개 데이터·고객 개인정보는 포함하지 않습니다.",
-  "lotte-world":
-    "정확한 근무 기간은 이력 검증이 끝나는 대로 확정해 표기할 예정입니다.",
 };
 
 export default function ExperiencePage() {
@@ -85,7 +83,14 @@ export default function ExperiencePage() {
                         </span>
                       </>
                     ) : (
-                      item.period
+                      <>
+                        {item.period}
+                        {item.duration && (
+                          <span className="mt-1 block text-[10.5px] text-muted/80">
+                            {item.duration}
+                          </span>
+                        )}
+                      </>
                     )}
                   </p>
                 </div>

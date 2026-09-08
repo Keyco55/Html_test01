@@ -30,6 +30,7 @@ export interface ExperienceItem {
   company: string;
   role: string;
   period: string;
+  duration?: string;
   dateTime?: string;
   periodNeedsConfirmation?: boolean;
   department?: string;
