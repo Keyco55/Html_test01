@@ -52,10 +52,13 @@ interface OtherProjectEntry {
   readonly fit?: "cover" | "contain";
   readonly mediaAlt?: string;
   readonly mediaMaxWidth?: string;
+  readonly primaryCaption?: string;
+  readonly mediaLayout?: "gallery" | "stacked";
   readonly secondarySlotPath?: string;
   readonly secondaryAspect?: string;
   readonly secondaryAlt?: string;
   readonly secondaryCaption?: string;
+  readonly secondaryMaxWidth?: string;
   readonly mediaSpan: string;
   readonly contentSpan: string;
   readonly mediaFirst: boolean;
@@ -76,15 +79,17 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     period: "2026.08 ~ 현재",
     badge: "Public · Open Source",
     slotPath: "/images/projects/status-hub/status-hub-cover.webp",
-    aspect: "3 / 4",
+    aspect: "4 / 5",
     fit: "contain",
     mediaAlt: "keyco AI Status Hub 대시보드 — AI 서비스별 사용량과 리셋 시각",
+    primaryCaption: "전체 메뉴바 대시보드 (클릭 확대)",
+    mediaLayout: "gallery",
     secondarySlotPath: "/images/projects/status-hub/status-hub-detail.webp",
-    secondaryAspect: "4 / 3",
+    secondaryAspect: "4 / 5",
     secondaryAlt: "AI 리소스 쿼터 상태 상세 — provider별 잔여율과 리셋 카운트다운",
-    secondaryCaption: "Provider별 쿼터·리셋 카운트다운 상세",
-    mediaSpan: "md:col-span-7",
-    contentSpan: "md:col-span-5",
+    secondaryCaption: "쿼터·리셋 상세 (클릭 확대)",
+    mediaSpan: "md:col-span-6",
+    contentSpan: "md:col-span-6",
     mediaFirst: true,
     why: "AI 서비스마다 쿼터와 리셋 시각을 브라우저와 대시보드를 오가며 따로 확인해야 했습니다.",
     what: "여러 AI 서비스의 사용량과 초기화 시각을 메뉴바와 터미널 상태줄에 모아 보여주는 프라이버시 보존형 로컬 도구입니다.",
@@ -124,10 +129,12 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     fit: "contain",
     mediaAlt: "Doro Hub Pet 플로팅 캐릭터와 컨트롤 메뉴",
     mediaMaxWidth: "max-w-[360px]",
+    primaryCaption: "플로팅 캐릭터 및 상태 메뉴 (클릭 확대)",
     secondarySlotPath: "/images/projects/ai-hub-pet/doro-hub-pet-feature.webp",
     secondaryAspect: "4 / 3",
     secondaryAlt: "Doro Hub Pet 쿼터 부족 경고 인터랙션",
-    secondaryCaption: "쿼터 부족 경고 상태",
+    secondaryCaption: "쿼터 부족 경고 상태 (클릭 확대)",
+    secondaryMaxWidth: "max-w-[280px]",
     mediaSpan: "md:col-span-6",
     contentSpan: "md:col-span-6",
     mediaFirst: false,
@@ -348,29 +355,60 @@ export default function ProjectsPage() {
                   className="grid scroll-mt-24 grid-cols-1 items-center gap-8 md:grid-cols-12 md:gap-10"
                 >
                   <div className={`${project.mediaSpan} ${project.mediaFirst ? "" : "md:order-2"}`}>
-                    <div className={`w-full ${project.mediaMaxWidth ?? ""}`}>
-                      <ProjectMedia
-                        title={project.name}
-                        monogram={project.monogram}
-                        slotPath={project.slotPath}
-                        alt={project.mediaAlt ?? `${project.name} 대표 이미지`}
-                        badgeText={project.badge}
-                        aspect={project.aspect}
-                        fit={project.fit}
-                      />
-                    </div>
-                    {project.secondarySlotPath && (
-                      <div className="mt-4 w-full max-w-[300px]">
+                    {project.mediaLayout === "gallery" && project.secondarySlotPath ? (
+                      <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                        <ProjectMedia
+                          title={project.name}
+                          monogram={project.monogram}
+                          slotPath={project.slotPath}
+                          alt={project.mediaAlt ?? `${project.name} 대표 이미지`}
+                          badgeText={project.badge}
+                          aspect={project.aspect}
+                          fit={project.fit}
+                          caption={project.primaryCaption}
+                          lightbox={Boolean(project.slotPath)}
+                        />
                         <ProjectMedia
                           title={`${project.name} 상세`}
                           monogram={project.monogram}
                           slotPath={project.secondarySlotPath}
                           alt={project.secondaryAlt ?? `${project.name} 상세 이미지`}
-                          aspect={project.secondaryAspect ?? "4 / 3"}
+                          aspect={project.secondaryAspect ?? project.aspect}
                           fit="contain"
                           caption={project.secondaryCaption}
+                          lightbox={true}
                         />
                       </div>
+                    ) : (
+                      <>
+                        <div className={`w-full ${project.mediaMaxWidth ?? ""}`}>
+                          <ProjectMedia
+                            title={project.name}
+                            monogram={project.monogram}
+                            slotPath={project.slotPath}
+                            alt={project.mediaAlt ?? `${project.name} 대표 이미지`}
+                            badgeText={project.badge}
+                            aspect={project.aspect}
+                            fit={project.fit}
+                            caption={project.primaryCaption}
+                            lightbox={Boolean(project.slotPath)}
+                          />
+                        </div>
+                        {project.secondarySlotPath && (
+                          <div className={`mt-4 w-full ${project.secondaryMaxWidth ?? "max-w-[300px]"}`}>
+                            <ProjectMedia
+                              title={`${project.name} 상세`}
+                              monogram={project.monogram}
+                              slotPath={project.secondarySlotPath}
+                              alt={project.secondaryAlt ?? `${project.name} 상세 이미지`}
+                              aspect={project.secondaryAspect ?? "4 / 3"}
+                              fit="contain"
+                              caption={project.secondaryCaption}
+                              lightbox={true}
+                            />
+                          </div>
+                        )}
+                      </>
                     )}
                   </div>
 

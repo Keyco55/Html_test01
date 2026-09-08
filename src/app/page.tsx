@@ -41,8 +41,8 @@ const SUPPORTING = [
     what: "여러 AI 서비스의 사용량과 리셋 시각을 메뉴바와 터미널에 모아 보여주는 프라이버시 보존형 로컬 도구입니다.",
     stack: "Python · Swift · cmux",
     badge: "Public · Open Source",
-    slotPath: "/images/projects/status-hub/status-hub-cover.webp",
-    alt: "keyco AI Status Hub — AI 서비스별 쿼터와 리셋 시각을 보여주는 메뉴바 대시보드",
+    slotPath: "/images/projects/status-hub/status-hub-detail.webp",
+    alt: "keyco AI Status Hub — AI 서비스별 쿼터와 리셋 시각을 보여주는 상태 상세 화면",
     fit: "contain" as const,
     span: "md:col-span-2",
   },
@@ -412,21 +412,23 @@ export default function HomePage() {
               <Reveal key={project.slug} delay={i * 80} className={`flex ${project.span}`}>
                 <article
                   aria-labelledby={`home-support-${project.slug}`}
-                  className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-clay/40 hover:shadow-[0_20px_44px_-28px_rgba(20,22,26,0.35)]"
+                  className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-surface p-3.5 pb-0 transition-all duration-300 hover:-translate-y-1 hover:border-clay/40 hover:shadow-[0_20px_44px_-28px_rgba(20,22,26,0.35)]"
                 >
-                  <ProjectMedia
-                    title={project.name}
-                    monogram={project.monogram}
-                    slotPath={project.slotPath}
-                    alt={
-                      (project as { alt?: string }).alt ?? `${project.name} 대표 이미지`
-                    }
-                    badgeText={project.badge}
-                    aspect="16 / 9"
-                    fit={(project as { fit?: "cover" | "contain" }).fit}
-                    className="rounded-none border-0 shadow-none"
-                  />
-                  <div className="flex flex-1 flex-col p-5">
+                  <div className="overflow-hidden rounded-xl border border-ink/8 bg-paper/40">
+                    <ProjectMedia
+                      title={project.name}
+                      monogram={project.monogram}
+                      slotPath={project.slotPath}
+                      alt={
+                        (project as { alt?: string }).alt ?? `${project.name} 대표 이미지`
+                      }
+                      badgeText={project.badge}
+                      aspect="16 / 10"
+                      fit={(project as { fit?: "cover" | "contain" }).fit}
+                      className="rounded-none border-0 shadow-none"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col px-1.5 py-4">
                     <h3
                       id={`home-support-${project.slug}`}
                       className="text-[17px] font-extrabold tracking-tight text-ink"
