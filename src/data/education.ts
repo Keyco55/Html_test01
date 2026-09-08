@@ -28,6 +28,8 @@ export const educationData: EducationItem[] = [
     categoryBadge: 'Software Intensive Training',
     description:
       '네이버 커넥트재단이 주관하는 소프트웨어 개발자 양성 과정의 프론트엔드/웹 기초 집중 훈련 프로그램인 [부스트캠프 2020 챌린지]를 수료했습니다.',
+    imagePath: '/images/education/training-2020-naver-boostcamp-challenge-certificate.webp',
+    imageAlt: 'NAVER Connect 부스트캠프 2020 챌린지 수료증 - 김범우, 2020.07.27~2020.08.21',
     verifiedHighlights: [
       '컴퓨터 공학(CS) 기초 원리, 운영체제 및 네트워크 기본 개념 학습',
       'JavaScript(ES6+) 언어의 동작 원리 분석 및 순수 구현 과제 매일 1개씩 해결',
