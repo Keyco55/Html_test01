@@ -6,6 +6,7 @@ import { OptionalImage } from "./OptionalImage";
 
 export interface LightboxModalProps {
   readonly src: string;
+  readonly reducedMotionSrc?: string;
   readonly alt: string;
   /** Base label, e.g. award title or institution (used for open/close aria-labels). */
   readonly label: string;
@@ -19,6 +20,7 @@ export interface LightboxModalProps {
  */
 export const LightboxModal: React.FC<LightboxModalProps> = ({
   src,
+  reducedMotionSrc,
   alt,
   label,
   onClose,
@@ -81,12 +83,26 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
         <span aria-hidden="true">×</span>
       </button>
       {/* eslint-disable-next-line @next/next/no-img-element -- static export + images.unoptimized; raw <img> is intentional */}
-      <img
-        src={src}
-        alt={alt}
-        onClick={(event) => event.stopPropagation()}
-        className="h-auto max-h-[85vh] w-auto max-w-[92vw] rounded-lg bg-white object-contain shadow-2xl"
-      />
+      {reducedMotionSrc ? (
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcSet={reducedMotionSrc} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={src}
+            alt={alt}
+            onClick={(event) => event.stopPropagation()}
+            className="h-auto max-h-[85vh] w-auto max-w-[92vw] rounded-lg bg-white object-contain shadow-2xl"
+          />
+        </picture>
+      ) : (
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img
+          src={src}
+          alt={alt}
+          onClick={(event) => event.stopPropagation()}
+          className="h-auto max-h-[85vh] w-auto max-w-[92vw] rounded-lg bg-white object-contain shadow-2xl"
+        />
+      )}
     </div>,
     document.body,
   );
@@ -154,6 +170,7 @@ export const LightboxImage: React.FC<LightboxImageProps> = ({
       {open && (
         <LightboxModal
           src={src}
+          reducedMotionSrc={reducedMotionSrc}
           alt={alt}
           label={label}
           onClose={close}

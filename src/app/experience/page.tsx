@@ -99,7 +99,13 @@ const SONGPA_CASES: readonly SongpaCaseItem[] = [
 ];
 
 /** Representative Songpa visuals (max 4) */
-const SONGPA_VISUALS = [
+const SONGPA_VISUALS: readonly {
+  readonly src: string;
+  readonly reducedMotionSrc?: string;
+  readonly alt: string;
+  readonly label: string;
+  readonly caption: string;
+}[] = [
   {
     src: "/images/experience/songpa/songpa-prereg-guide.webp",
     alt: "우체국 간편사전접수 이용 안내 포스터",
@@ -107,7 +113,8 @@ const SONGPA_VISUALS = [
     caption: "간편사전접수 이용 안내 (창구 부착)",
   },
   {
-    src: "/images/experience/songpa/songpa-cs-day-intro.webp",
+    src: "/images/experience/songpa/songpa-cs-day-intro-anim.webp",
+    reducedMotionSrc: "/images/experience/songpa/songpa-cs-day-intro.webp",
     alt: "송파우체국 수요일 CS Day 사내 커뮤니케이션 콘텐츠",
     label: "CS Day 내부 커뮤니케이션",
     caption: "수요일 CS Day 사내 커뮤니케이션",
@@ -124,7 +131,7 @@ const SONGPA_VISUALS = [
     label: "우체국 예금 이벤트 안내물",
     caption: "예금 신규 예치 이벤트 안내",
   },
-] as const;
+];
 
 export default function ExperiencePage() {
   return (
@@ -465,6 +472,7 @@ export default function ExperiencePage() {
                               <div className="overflow-hidden rounded-xl border border-ink/10 bg-surface">
                                 <LightboxImage
                                   src={vis.src}
+                                  reducedMotionSrc={vis.reducedMotionSrc}
                                   alt={vis.alt}
                                   label={vis.label}
                                   footer={vis.caption}
