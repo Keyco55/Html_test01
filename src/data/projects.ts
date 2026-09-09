@@ -251,7 +251,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
         'pandas와 openpyxl로 중복 데이터를 정리하고 조건별로 분류해 결과 파일을 자동 생성했습니다. 웹에서는 HTML·CSS·JavaScript를 직접 수정해 레이아웃과 콘텐츠 구조, 탐색 흐름, CTA 영역을 손봤습니다.',
       keyContributions: [
         '국내외 콘텐츠 마케팅: 공식 SNS와 블로그 채널에 맞는 콘텐츠 기획·제작 및 운영',
-        '웹페이지 수정: 마케팅 랜딩 페이지의 HTML/CSS, CTA 배치, 링크 구조와 미디어 삽입 코드 수정',
+        '웹페이지 수정: 마케팅 랜딩 페이지의 HTML·CSS·JavaScript, 레이아웃, 탐색 흐름 및 CTA 영역 수정',
         'Python 업무 자동화: 반복되는 Excel 데이터의 중복 정리와 조건별 분류를 자동화',
         '결과 파일 자동 생성: pandas와 openpyxl로 필요한 형식의 Excel 파일 생성',
         '정보 보호: 고객 정보와 회사 내부 자료가 공개 결과물에 포함되지 않도록 작업 범위 관리',

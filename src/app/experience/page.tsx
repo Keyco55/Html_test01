@@ -262,7 +262,7 @@ export default function ExperiencePage() {
                         </div>
                         <div className="border-t border-ink/10 p-4 sm:border-t-0">
                           <p className="text-[1.35rem] font-extrabold text-ink">약 +1K</p>
-                          <p className="text-[12px] text-muted">Naver Blog 일 방문자</p>
+                          <p className="text-[12px] text-muted">Naver Blog 일 방문자 증가</p>
                         </div>
                       </div>
 
