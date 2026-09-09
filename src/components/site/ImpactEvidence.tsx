@@ -393,7 +393,7 @@ export const LotteMetricStrip: React.FC<LotteMetricStripProps> = ({
   radioEpisodes,
 }) => {
   const items = [
-    { label: "근무 기간", value: duration, trust: "verified" as const },
+    { label: "근무 기간", value: duration, trust: "approx" as const },
     { label: "직책", value: role, trust: "verified" as const },
     { label: "현장 표창", value: award, trust: "verified" as const },
     { label: "사내 라디오", value: radioEpisodes, trust: "verified" as const },

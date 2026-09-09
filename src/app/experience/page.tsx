@@ -22,10 +22,10 @@ export const metadata: Metadata = createSiteMetadata("/experience") as Metadata;
 
 /** GOM Verified File / Content Count */
 const GOM_CHART_DATA = [
-  { label: "숏폼 영상 콘텐츠", value: 5, sublabel: "Short-form (인스타·유튜브)" },
-  { label: "공개 아티클", value: 3, sublabel: "Public Articles (네이버·자사 블로그)" },
-  { label: "웹 워크플로우", value: 2, sublabel: "Web Layout Before/After" },
-  { label: "업무 자동화", value: 1, sublabel: "Python Automation Script" },
+  { label: "Short-form", value: 5, sublabel: "Short-form (인스타·유튜브)" },
+  { label: "Public Articles", value: 3, sublabel: "Public Articles (네이버·자사 블로그)" },
+  { label: "Web Workflow", value: 2, sublabel: "Web Layout Before/After" },
+  { label: "Automation", value: 1, sublabel: "Python Automation Script" },
 ] as const;
 
 /** GOM Representative Public Work Cards (8 Verified URLs) */
@@ -66,10 +66,10 @@ const GOM_PUBLIC_WORKS = [
 
 /** Songpa Verified Category Count */
 const SONGPA_CHART_DATA = [
-  { label: "CS 커뮤니케이션", value: 4, sublabel: "CS Day 내부 안내 4종" },
-  { label: "고객 접점 안내", value: 1, sublabel: "간편사전접수 가이드 포스터" },
-  { label: "문화 행사 홍보", value: 1, sublabel: "우체국 문화전 포스터 편집" },
-  { label: "금융 이벤트", value: 1, sublabel: "예금 이벤트 홍보 안내물" },
+  { label: "CS Communication", value: 4, sublabel: "CS Day 내부 커뮤니케이션 4종" },
+  { label: "Customer Guide", value: 1, sublabel: "간편사전접수 가이드 포스터 1종" },
+  { label: "Culture Promotion", value: 1, sublabel: "우체국 문화전 포스터 편집 1종" },
+  { label: "Financial Event", value: 1, sublabel: "예금 이벤트 홍보 안내물 1종" },
 ] as const;
 
 /** Songpa Case Study Items (Problem → Action → Evidence → Outcome) */
@@ -77,26 +77,26 @@ const SONGPA_CASES: readonly SongpaCaseItem[] = [
   {
     id: "songpa-case-prereg",
     title: "간편사전접수 고객 안내",
-    problem: "간편사전접수 절차가 낯설어 창구 문의가 반복되고 대기 시간이 길어짐",
-    action: "단계별 스마트폰 이용 절차를 시각 안내물로 제작하고 창구에서 1:1 안내 진행",
-    evidence: "간편사전접수 안내 포스터 + 창구 현장 직접 안내",
-    outcome: "방문 고객이 접수 절차를 한눈에 이해하고 스마트폰으로 직접 접수하도록 유도",
+    problem: "간편사전접수 절차가 낯설어 창구 문의가 반복됨",
+    action: "단계별 이용 방법을 시각 자료로 제작",
+    evidence: "간편사전접수 안내물 + 현장 직접 안내",
+    outcome: "고객이 절차를 한 화면에서 이해하도록 지원",
   },
   {
     id: "songpa-case-cs-day",
-    title: "수요일 CS Day 소통",
-    problem: "고객 응대 기준과 CS 메시지를 지점 직원들에게 주기적으로 환기할 필요",
-    action: "매주 수요일 CS Day에 맞춰 내부 서비스 기준과 공감 메시지 콘텐츠 기획·편집",
-    evidence: "CS Day 내부 커뮤니케이션 비주얼 자료 4종",
-    outcome: "친절 응대 기준과 근무 환경 개선 내용을 지점 구성원에게 효과적으로 공유",
+    title: "CS Day 사내 소통",
+    problem: "CS 메시지를 반복적으로 공유할 필요",
+    action: "CS Day 내부 커뮤니케이션 콘텐츠 기획·촬영·편집",
+    evidence: "CS 관련 visual evidence",
+    outcome: "서비스 메시지를 구성원에게 반복 전달",
   },
   {
     id: "songpa-case-promo",
     title: "문화전 & 예금 이벤트 홍보",
-    problem: "공모전 규격과 금융 이벤트 혜택 정보가 복잡해 고객이 조건을 놓치기 쉬움",
-    action: "공모전 포스터 편집 및 예금 신규 예치 핵심 혜택을 강조한 홍보물 제작·게시",
-    evidence: "문화전 포스터 1종 + 예금 이벤트 안내물 1종",
-    outcome: "창구 방문 고객에게 복잡한 이벤트 조건과 일정을 명확하게 전달",
+    problem: "공모전·금융 이벤트 정보를 고객에게 쉽게 전달할 필요",
+    action: "홍보물 편집·제작·발행",
+    evidence: "문화전 홍보 · 예금 이벤트 홍보",
+    outcome: "고객 접점에서 핵심 정보를 이해하기 쉽게 전달",
   },
 ];
 
@@ -367,12 +367,12 @@ export default function ExperiencePage() {
 
                           <div className="flex flex-col justify-center text-[13px] leading-relaxed text-ink-soft">
                             <p className="font-bold text-ink">
-                              반복 취합 시간 단축
+                              반복 엑셀 데이터 정제 자동화
                             </p>
                             <p className="mt-1.5 text-muted">
-                              여러 캠페인에서 유입된 수천 행의 엑셀 데이터를
-                              중복 이메일 제거, 구매 여부 조건 필터링, 결과 파일
-                              생성까지 CLI 스크립트로 처리했습니다.
+                              여러 캠페인에서 유입된 엑셀 데이터를 중복 이메일
+                              제거, 구매 여부 조건 필터링, 결과 파일 생성까지
+                              CLI 스크립트로 처리했습니다.
                             </p>
                             <p className="mt-2 font-mono text-[11.5px] text-clay">
                               ※ 사내 회원 정보 및 내부 원시 데이터는 제외하고
@@ -515,9 +515,9 @@ export default function ExperiencePage() {
                       {/* 1. Compact Editorial Metric Strip (Horizontal on desktop, 2x2 mobile) */}
                       <LotteMetricStrip
                         duration="약 2년 1개월"
-                        role="팀장 (Team Lead)"
-                        award="베스트로티상 1회"
-                        radioEpisodes="20개 에피소드"
+                        role="Team Lead"
+                        award="1 Best Lotty Award"
+                        radioEpisodes="20 Radio Episodes"
                       />
 
                       {/* 2. Abstract Process & Field Evidence (No confidential safety manual leaks) */}
