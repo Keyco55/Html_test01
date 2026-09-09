@@ -424,7 +424,7 @@ export default function ExperiencePage() {
                       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                         <MetricCard
                           label="주요 작업"
-                          value="5개 프로젝트"
+                          value="5개 주요 작업"
                           note="안내물 제작 · 고객 직접 안내 · CS 콘텐츠 · 문화전 · 예금 이벤트"
                         />
                         <MetricCard
