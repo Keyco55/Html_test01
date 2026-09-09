@@ -46,8 +46,8 @@ export const skillsData: SkillCategory[] = [
   {
     category: 'CONTENT',
     description: '기획부터 제작, 채널 운영까지의 콘텐츠 파이프라인',
-    items: ['Final Cut Pro', 'Video Editing', 'Blog', 'SNS', 'Content Planning'],
+    items: ['Final Cut Pro', 'Google Analytics', 'Video Editing', 'Blog', 'SNS', 'Content Planning'],
     practicalContext:
-      '영상 컷편집 및 자막·오디오 작업, 기술 블로그 아티클 작성, 소셜 미디어 채널 커뮤니케이션 및 타깃 맞춤형 콘텐츠 기획.'
+      '영상 컷편집 및 자막·오디오 작업, Google Analytics 유입 흐름 확인, 기술 블로그 아티클 작성, 소셜 미디어 채널 커뮤니케이션 및 타깃 맞춤형 콘텐츠 기획.'
   }
 ];

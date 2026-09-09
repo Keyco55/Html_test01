@@ -94,6 +94,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
 
 interface LightboxImageProps {
   readonly src: string;
+  readonly reducedMotionSrc?: string;
   readonly alt: string;
   /** Base label, e.g. award title or institution (used for open/close aria-labels). */
   readonly label: string;
@@ -111,6 +112,7 @@ interface LightboxImageProps {
  */
 export const LightboxImage: React.FC<LightboxImageProps> = ({
   src,
+  reducedMotionSrc,
   alt,
   label,
   buttonClassName = "",
@@ -137,6 +139,7 @@ export const LightboxImage: React.FC<LightboxImageProps> = ({
       >
         <OptionalImage
           src={src}
+          reducedMotionSrc={reducedMotionSrc}
           alt={alt}
           className={thumbnailClassName}
           wrapperClassName={thumbnailWrapperClassName}

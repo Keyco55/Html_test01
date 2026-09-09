@@ -4,6 +4,7 @@ import React from "react";
 
 interface OptionalImageProps {
   readonly src?: string;
+  readonly reducedMotionSrc?: string;
   readonly alt: string;
   readonly className?: string;
   readonly wrapperClassName?: string;
@@ -18,6 +19,7 @@ interface OptionalImageProps {
  */
 export const OptionalImage: React.FC<OptionalImageProps> = ({
   src,
+  reducedMotionSrc,
   alt,
   className = "",
   wrapperClassName = "",
@@ -39,16 +41,32 @@ export const OptionalImage: React.FC<OptionalImageProps> = ({
 
   return (
     <figure className={wrapperClassName} style={{ margin: 0 }}>
-      {/* eslint-disable-next-line @next/next/no-img-element -- static export + images.unoptimized; raw <img> with graceful removal is intentional */}
-      <img
-        ref={imgRef}
-        src={src}
-        alt={alt}
-        loading="lazy"
-        onError={() => setOk(false)}
-        className={className}
-        style={aspect ? { aspectRatio: aspect, objectFit: "cover", width: "100%" } : undefined}
-      />
+      {reducedMotionSrc ? (
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcSet={reducedMotionSrc} />
+          {/* eslint-disable-next-line @next/next/no-img-element -- static export + images.unoptimized; raw <img> with graceful removal is intentional */}
+          <img
+            ref={imgRef}
+            src={src}
+            alt={alt}
+            loading="lazy"
+            onError={() => setOk(false)}
+            className={className}
+            style={aspect ? { aspectRatio: aspect, objectFit: "cover", width: "100%" } : undefined}
+          />
+        </picture>
+      ) : (
+        /* eslint-disable-next-line @next/next/no-img-element -- static export + images.unoptimized; raw <img> with graceful removal is intentional */
+        <img
+          ref={imgRef}
+          src={src}
+          alt={alt}
+          loading="lazy"
+          onError={() => setOk(false)}
+          className={className}
+          style={aspect ? { aspectRatio: aspect, objectFit: "cover", width: "100%" } : undefined}
+        />
+      )}
       {caption && (
         <figcaption className="mt-2 text-[12px] text-muted">{caption}</figcaption>
       )}

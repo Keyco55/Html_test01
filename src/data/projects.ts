@@ -374,6 +374,59 @@ export const FEATURED_PROJECTS: readonly Project[] = [
       badgeText: 'Public · Open Source',
     },
   },
+  {
+    id: 'university-content',
+    slug: 'university-content',
+    displayOrder: 6,
+    tier: 'standard',
+    title: '대학 콘텐츠 기획·제작 & 데이터 수집',
+    nameEn: 'Content · Storytelling · Automation',
+    subtitle: '학과 홍보영상·인스타툰 기획 제작 및 Python 웹 크롤링 실습',
+    category: 'Growth & Automation',
+    status: 'Internal Production Verified',
+    summary:
+      '학과 홍보영상과 교내 경진대회 영상 콘텐츠를 기획·제작하고 4부작 인스타툰을 발행했습니다. 실습 프로젝트에서는 Python(BeautifulSoup/Selenium)으로 웹 데이터를 수집했습니다. 2023 콘텐츠 기획·제작 경진대회 대상, 2021 최우수상을 수상했습니다.',
+    metadata: {
+      role: 'Content Creator & Python Practitioner',
+      timeline: '2021 ~ 2023',
+      platform: 'Video · Webtoon · Python Web Scraping',
+      scope: '기획 · 영상 촬영/편집 · 웹툰 연재 · 데이터 수집',
+    },
+    narrative: {
+      problem:
+        '학과 홍보와 경진대회 참가, 데이터 분석 실습 과정에서 시각 콘텐츠 기획과 웹 크롤링이 필요했습니다.',
+      solution:
+        '영상 기획과 컷편집, 웹툰 스토리텔링으로 정보를 시각화하고, Python으로 웹 데이터를 수집했습니다.',
+      keyContributions: [
+        '학과 홍보영상 2편 기획·촬영·편집: 학생 관점의 전공 소개 영상 제작',
+        '교내 경진대회 수상: 2023 콘텐츠 기획·제작 경진대회 대상, 2021 최우수상 수상',
+        '인스타툰 2편 (4개 파트) 연재: 일상과 연수 경험을 스토리텔링형 웹툰으로 구성',
+        'Python 크롤링 실습: BeautifulSoup과 Selenium을 활용한 데이터 수집',
+      ],
+      technicalHighlights: [
+        'Content Planning & Video Editing',
+        'Visual Storytelling & Instatoon Serialization',
+        'Python 3 Web Scraping (BeautifulSoup & Selenium)',
+        'Award-Winning Media Production (Grand Prize & Excellence)',
+      ],
+      learned:
+        '영상이든 코드든 전달하려는 핵심 메시지와 사용자 관점을 먼저 정리하는 것이 중요하다는 점을 배웠습니다.',
+    },
+    techStack: ['콘텐츠 기획', '영상 편집', '인스타툰', 'Python', 'BeautifulSoup', 'Selenium'],
+    featuredStack: ['콘텐츠 기획', '영상 편집', '인스타툰', 'Python'],
+    metrics: [
+      { label: '수상 실적', value: '2 Awards', note: '2023 대상 · 2021 최우수상' },
+      { label: '홍보 영상', value: '2편', note: '학과 소개 및 활동 안내 영상' },
+      { label: '경진대회', value: '2편', note: '경진대회 출품 및 수상 산출물' },
+      { label: '웹툰 연재', value: '4 파트', note: '2편 구성 인스타툰 발행' },
+    ],
+    links: [],
+    screenshotPlaceholder: {
+      caption: '2023 콘텐츠 기획·제작 경진대회 대상 수상 영상 및 인스타툰 표지',
+      mockupType: 'browser',
+      badgeText: 'Award Winning',
+    },
+  },
 ] as const;
 
 /**

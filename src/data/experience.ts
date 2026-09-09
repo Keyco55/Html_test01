@@ -62,13 +62,13 @@ export const experienceData: ExperienceItem[] = [
   {
     id: 'lotte-world',
     company: '롯데월드 (Lotte World)',
-    role: '어트랙션 서비스 & 현장 운영 (Attraction Service & Operations)',
+    role: '어트랙션서비스팀 팀장 (Attraction Service Team Lead)',
     period: '2017.04 – 2019.04',
     duration: '약 2년 1개월',
     dateTime: '2017-04/2019-04',
     department: '파크 운영 / 어트랙션 서비스',
     description:
-      '테마파크 어트랙션 안전 운영과 고객 응대, 대기열 동선 관리를 맡고 현장 매뉴얼과 안내 방식을 보완했습니다.',
+      '어트랙션 안전 운영과 고객 응대, 대기열 동선 관리를 맡고 현장 매뉴얼과 안내 방식을 정립했습니다. 신규 캐스트 OJT 표준화와 사내 라디오 프로그램을 운영했습니다.',
     verifiedHighlights: [
       '어트랙션 탑승 안전 수칙 안내, 안전 장구 점검 및 비상 상황 매뉴얼 준수',
       '성수기 대규모 인파 밀집 시 대기열 동선 통제 및 안전사고 예방',
@@ -76,6 +76,6 @@ export const experienceData: ExperienceItem[] = [
       '현장에서 빈번하게 발생하는 고객 불편 사항을 파악하고 동선 안내 멘트 및 사인 개선',
       '모범적인 고객 응대 및 안전 운영 성과를 인정받아 ‘베스트로티상’ 수상'
     ],
-    skills: ['어트랙션 서비스', '고객 응대', '현장 안전 운영', 'OJT 매뉴얼', '서비스 개선', '베스트로티상']
+    skills: ['어트랙션 서비스', '팀 리딩', '고객 응대', '현장 안전 운영', 'OJT 매뉴얼', '베스트로티상']
   }
 ];

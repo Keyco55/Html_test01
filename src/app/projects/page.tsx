@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Reveal } from "@/components/motion/Reveal";
 import { ProjectMedia } from "@/components/projects/ProjectMedia";
+import { LightboxImage } from "@/components/site/ImageLightbox";
 import { createSiteMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createSiteMetadata("/projects") as Metadata;
@@ -90,6 +91,15 @@ interface OtherProjectEntry {
   readonly how: string;
   readonly stack: readonly string[];
   readonly externalLinks: readonly { readonly label: string; readonly url: string }[];
+  readonly supportingEvidence?: {
+    readonly countSummary: string;
+    readonly items: readonly {
+      readonly src: string;
+      readonly alt: string;
+      readonly label: string;
+      readonly caption: string;
+    }[];
+  };
 }
 
 const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
@@ -128,24 +138,24 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     category: "Work Project",
     period: "2024 ~ 2025",
     badge: "사내 적용 · 익명화 프로세스",
-    slotPath: "/images/projects/gom/gom-blog-source-workflow.webp",
+    slotPath: "/images/projects/gom/gom-blog-layout-after.webp",
     aspect: "16 / 10",
     fit: "contain",
-    mediaAlt: "GOM 블로그 소스 정리 및 웹 트랜지션 애니메이션 코드",
-    primaryCaption: "블로그 웹 소스 구조화 및 트랜지션 코드 (클릭 확대)",
-    secondarySlotPath: "/images/projects/gom/gom-automation-scripts.webp",
+    mediaAlt: "GOM 블로그 웹 구조 리팩토링 및 CTA 개선 화면",
+    primaryCaption: "블로그 웹 구조 리팩토링 및 CTA 개선 (클릭 확대)",
+    secondarySlotPath: "/images/projects/gom/gom-python-pandas-automation.webp",
     secondaryAspect: "16 / 9",
-    secondaryAlt: "Python 마케팅 데이터 필터링 및 자동화 스크립트 모듈 구조",
-    secondaryCaption: "Python 데이터 필터링 및 자동화 스크립트 (클릭 확대)",
+    secondaryAlt: "Python 마케팅 데이터 필터링 및 엑셀 취합 자동화 스크립트",
+    secondaryCaption: "Python 엑셀 데이터 취합 자동화 스크립트 (클릭 확대)",
     secondaryMaxWidth: "max-w-[340px]",
     mediaSpan: "md:col-span-6",
     contentSpan: "md:col-span-6",
     mediaFirst: false,
-    why: "매주 엑셀 데이터를 취합하면서 같은 작업을 반복했고, 수작업 오류도 생겼습니다.",
-    what: "국내외 콘텐츠 마케팅과 공식 SNS 채널을 운영하고, 랜딩 페이지의 HTML/CSS를 수정했습니다. 반복적인 데이터 취합·정리는 Python으로 자동화했습니다.",
-    how: "pandas와 openpyxl로 리포트 집계·검증 스크립트를 만들었습니다. 웹 업무는 별도로 프로모션 페이지의 마크업과 CTA를 직접 수정했습니다. 공개 자료는 회사 내부 정보가 드러나지 않도록 정리했습니다.",
+    why: "매주 여러 캠페인의 엑셀 데이터를 취합하면서 반복 작업과 수작업 오류가 생겼고, 프로모션 페이지 수정 요청도 신속한 반영이 필요했습니다.",
+    what: "공식 마케팅 채널을 운영하며 프로모션 페이지의 HTML/CSS와 CTA를 직접 수정하고, 반복적인 데이터 취합·정리는 Python으로 자동화했습니다.",
+    how: "pandas와 openpyxl로 리포트 집계·중복 검증 스크립트를 만들어 처리 시간을 줄였습니다. 웹 업무는 별도로 프로모션 페이지의 마크업과 링크 구조를 직접 수정했습니다. 회사 내부 정보는 비공개 원칙을 준수했습니다.",
     stack: ["Python", "pandas", "openpyxl", "HTML5 / CSS3", "Excel Automation"],
-    externalLinks: [],
+    externalLinks: [{ label: "경력 상세에서 전체 증빙 보기", url: "/experience#gom-and-company" }],
   },
   {
     slug: "ai-hub-pet",
@@ -174,6 +184,62 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     how: "Swift와 AppKit/SwiftUI로 구현하고 상태별 캐릭터 움직임을 더했습니다. 프롬프트·토큰·비밀번호에는 접근하지 않고 프로세스 상태와 로컬 캐시만 확인합니다.",
     stack: ["Swift", "macOS AppKit", "SwiftUI", "Universal Binary", "Sprite Animation"],
     externalLinks: [{ label: "GitHub 저장소", url: "https://github.com/Keyco55/AI-Hub-pet" }],
+  },
+  {
+    slug: "university-content",
+    monogram: "UNI",
+    name: "대학 콘텐츠 기획·제작 & 데이터 수집",
+    nameEn: "Content · Storytelling · Automation",
+    category: "Academic & Creative",
+    period: "2021 ~ 2023",
+    badge: "경진대회 대상 · 최우수상",
+    slotPath: "/images/projects/university-content/univ-competition-2023.webp",
+    aspect: "16 / 9",
+    fit: "contain",
+    mediaAlt: "2023 콘텐츠 기획·제작 경진대회 대상 수상작 영상 화면",
+    primaryCaption: "2023 경진대회 대상 수상작 (클릭 확대)",
+    secondarySlotPath: "/images/projects/university-content/univ-webtoon-cover.webp",
+    secondaryAspect: "3 / 4",
+    secondaryAlt: "인스타툰 '베트남에서 생긴 일 EP.1' 표지",
+    secondaryCaption: "인스타툰 에피소드 표지 (클릭 확대)",
+    secondaryMaxWidth: "max-w-[240px]",
+    mediaSpan: "md:col-span-6",
+    contentSpan: "md:col-span-6",
+    mediaFirst: true,
+    why: "학과 홍보와 교내 경진대회, 데이터 수집 실습 과정에서 시각 콘텐츠 기획과 웹 크롤링이 필요했습니다.",
+    what: "홍보영상 기획·촬영부터 인스타툰 스토리텔링, Python 웹 크롤링을 활용한 데이터 수집까지 하나의 파이프라인으로 수행했습니다.",
+    how: "전공 홍보영상과 경진대회 콘텐츠를 제작해 대상(2023)과 최우수상(2021)을 수상했고, 4부작 인스타툰을 발행했습니다. 실습에서는 Python(BeautifulSoup/Selenium)으로 웹 데이터를 수집했습니다.",
+    stack: ["콘텐츠 기획", "영상 편집", "인스타툰", "Python", "BeautifulSoup", "Selenium"],
+    externalLinks: [],
+    supportingEvidence: {
+      countSummary: "2 Awards (대상·최우수상) · 2 Promo Videos · 2 Competitions · 2 Webtoons (4 Parts) · 1 Python Automation",
+      items: [
+        {
+          src: "/images/projects/university-content/univ-department-promo.webp",
+          alt: "학과 홍보영상 프레임",
+          label: "학과 홍보영상",
+          caption: "학과 홍보영상 프레임 (영상 기획·촬영)",
+        },
+        {
+          src: "/images/projects/university-content/univ-competition-2023.webp",
+          alt: "2023 경진대회 대상 수상작",
+          label: "경진대회 대상",
+          caption: "2023 경진대회 대상 수상작 (기획·편집)",
+        },
+        {
+          src: "/images/projects/university-content/univ-webtoon-cover.webp",
+          alt: "인스타툰 표지",
+          label: "인스타툰 4부작",
+          caption: "인스타툰 에피소드 표지 (스토리텔링)",
+        },
+        {
+          src: "/images/projects/university-content/univ-python-scraping.webp",
+          alt: "Python 웹 크롤링 스크립트",
+          label: "Python 데이터 수집",
+          caption: "Python 웹 크롤링 자동화 (데이터 수집)",
+        },
+      ],
+    },
   },
 ];
 
@@ -627,6 +693,39 @@ export default function ProjectsPage() {
                             {link.label} <span aria-hidden="true">↗</span>
                           </a>
                         ))}
+                      </div>
+                    )}
+
+                    {project.supportingEvidence && (
+                      <div className="mt-5 rounded-xl border border-ink/10 bg-paper-deep/60 p-3.5">
+                        <div className="flex items-center justify-between">
+                          <span className="font-mono text-[10.5px] font-bold text-clay uppercase">
+                            Verified Summary
+                          </span>
+                          <span className="font-mono text-[10.5px] text-muted">
+                            4개 대표 증빙
+                          </span>
+                        </div>
+                        <p className="mt-1 font-mono text-[11.5px] text-ink-soft">
+                          {project.supportingEvidence.countSummary}
+                        </p>
+                        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                          {project.supportingEvidence.items.map((it) => (
+                            <div key={it.src} className="flex flex-col">
+                              <LightboxImage
+                                src={it.src}
+                                alt={it.alt}
+                                label={it.label}
+                                footer={it.caption}
+                                buttonClassName="w-full overflow-hidden rounded-lg border border-ink/10 bg-surface text-left transition-transform duration-200 hover:scale-105"
+                                thumbnailClassName="aspect-[4/3] w-full object-cover"
+                              />
+                              <p className="mt-1 text-center font-mono text-[9.5px] text-muted truncate">
+                                {it.label}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>

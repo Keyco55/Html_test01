@@ -49,9 +49,9 @@ const TOOLKIT_GROUPS = [
     note: "기획·이슈 트래킹·인수인계 문서화와 팀 협업.",
   },
   {
-    name: "Content & Media",
-    tools: ["Final Cut Pro", "Blog", "SNS"],
-    note: "영상 편집과 채널 콘텐츠 제작 파이프라인.",
+    name: "Content & Marketing",
+    tools: ["Final Cut Pro", "Google Analytics", "Blog / SEO", "SNS"],
+    note: "영상 편집과 채널 콘텐츠 기획, 유입 데이터 분석 및 마케팅 도구 파이프라인.",
   },
 ] as const;
 
