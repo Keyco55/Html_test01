@@ -84,7 +84,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
       </button>
       {/* eslint-disable-next-line @next/next/no-img-element -- static export + images.unoptimized; raw <img> is intentional */}
       {reducedMotionSrc ? (
-        <picture>
+        <picture className="contents" onClick={(event) => event.stopPropagation()}>
           <source media="(prefers-reduced-motion: reduce)" srcSet={reducedMotionSrc} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

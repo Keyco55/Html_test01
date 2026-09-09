@@ -91,15 +91,6 @@ interface OtherProjectEntry {
   readonly how: string;
   readonly stack: readonly string[];
   readonly externalLinks: readonly { readonly label: string; readonly url: string }[];
-  readonly supportingEvidence?: {
-    readonly countSummary: string;
-    readonly items: readonly {
-      readonly src: string;
-      readonly alt: string;
-      readonly label: string;
-      readonly caption: string;
-    }[];
-  };
 }
 
 const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
@@ -121,8 +112,8 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     secondaryAspect: "4 / 5",
     secondaryAlt: "AI 리소스 쿼터 상태 상세 — provider별 잔여율과 리셋 카운트다운",
     secondaryCaption: "쿼터·리셋 상세 (클릭 확대)",
-    mediaSpan: "md:col-span-6",
-    contentSpan: "md:col-span-6",
+    mediaSpan: "lg:col-span-6",
+    contentSpan: "lg:col-span-6",
     mediaFirst: true,
     why: "AI 서비스마다 남은 사용량과 초기화 시각을 서로 다른 화면에서 확인해야 했습니다.",
     what: "여러 AI 서비스의 사용량과 초기화 시각을 메뉴바와 터미널 상태줄에서 함께 확인하는 로컬 도구입니다.",
@@ -148,8 +139,8 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     secondaryAlt: "Python 마케팅 데이터 필터링 및 엑셀 취합 자동화 스크립트",
     secondaryCaption: "Python 엑셀 데이터 취합 자동화 스크립트 (클릭 확대)",
     secondaryMaxWidth: "max-w-[340px]",
-    mediaSpan: "md:col-span-6",
-    contentSpan: "md:col-span-6",
+    mediaSpan: "lg:col-span-6",
+    contentSpan: "lg:col-span-6",
     mediaFirst: false,
     why: "반복되는 Excel 데이터 정리와 조건별 분류에 시간이 들었고, 마케팅 페이지도 콘텐츠에 맞춰 직접 수정할 필요가 있었습니다.",
     what: "6개 채널의 콘텐츠를 운영하고, 관련 페이지의 HTML·CSS·JavaScript 구조와 화면을 직접 수정했습니다. 반복되는 Excel 작업은 Python으로 자동화했습니다.",
@@ -176,8 +167,8 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     secondaryAlt: "Doro Hub Pet 쿼터 부족 경고 인터랙션",
     secondaryCaption: "쿼터 부족 경고 상태 (클릭 확대)",
     secondaryMaxWidth: "max-w-[280px]",
-    mediaSpan: "md:col-span-6",
-    contentSpan: "md:col-span-6",
+    mediaSpan: "lg:col-span-6",
+    contentSpan: "lg:col-span-6",
     mediaFirst: false,
     why: "여러 터미널에서 실행 중인 에이전트의 상태를 확인하려고 창을 계속 전환해야 했습니다.",
     what: "로컬 AI 에이전트의 작업 상태와 사용량을 말풍선으로 보여주고, 클릭하면 해당 세션으로 이동하는 macOS 플로팅 앱입니다.",
@@ -185,63 +176,71 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     stack: ["Swift", "macOS AppKit", "SwiftUI", "Universal Binary", "Sprite Animation"],
     externalLinks: [{ label: "GitHub 저장소", url: "https://github.com/Keyco55/AI-Hub-pet" }],
   },
-  {
-    slug: "university-content",
-    monogram: "UNI",
-    name: "대학 콘텐츠 기획·제작 & 데이터 수집",
-    nameEn: "Content · Storytelling · Automation",
-    category: "Academic & Creative",
-    period: "2021 ~ 2023",
-    badge: "경진대회 대상 · 최우수상",
-    slotPath: "/images/projects/university-content/univ-department-promo-v2.webp",
-    aspect: "16 / 9",
-    fit: "contain",
-    mediaAlt: "직접 기획하고 촬영·편집한 학과 홍보영상 화면",
-    primaryCaption: "학과 홍보영상 기획·촬영·편집 (클릭 확대)",
-    mediaLayout: "gallery",
-    secondarySlotPath: "/images/projects/university-content/univ-competition-2021.webp",
-    secondaryAspect: "16 / 9",
-    secondaryAlt: "2021 창의적 콘텐츠 제작 경진대회 최우수상 수상작 화면",
-    secondaryCaption: "2021 경진대회 최우수상 수상작 (클릭 확대)",
-    mediaSpan: "md:col-span-6",
-    contentSpan: "md:col-span-6",
-    mediaFirst: true,
-    why: "학과와 전공 경험을 학생의 시선으로 소개하고, 교내 경진대회와 수업에서 영상·웹툰·데이터 수집 작업을 직접 해보고 싶었습니다.",
-    what: "학과 홍보영상과 교내 경진대회 콘텐츠를 직접 만들고 웹툰 10화를 연재했습니다. 수업에서는 Python으로 필요한 웹 데이터를 수집하고 정리했습니다.",
-    how: "홍보영상 2편과 경진대회 작업 2건의 기획·촬영·편집을 맡았습니다. 2021년 최우수상과 2023년 대상을 받았고, 웹툰은 EP.1부터 EP.10까지 제작·발행했습니다.",
-    stack: ["콘텐츠 기획", "영상 편집", "웹툰", "Python", "BeautifulSoup", "Selenium"],
-    externalLinks: [],
-    supportingEvidence: {
-      countSummary: "수상 2회 · 학과 홍보영상 2편 · 경진대회 작업 2건 · 웹툰 10화 · Python 데이터 수집",
-      items: [
-        {
-          src: "/images/projects/university-content/univ-competition-2023-v2.webp",
-          alt: "2023 경진대회 대상 수상작",
-          label: "2023 대상",
-          caption: "2023 경진대회 대상 수상작 (기획·편집)",
-        },
-        {
-          src: "/images/projects/university-content/univ-webtoon-ep1.webp",
-          alt: "웹툰 베트남에서 생긴 일 EP.1 대표 이미지",
-          label: "웹툰 EP.1",
-          caption: "웹툰 10화 중 EP.1 대표 이미지",
-        },
-        {
-          src: "/images/projects/university-content/univ-webtoon-ep9.webp",
-          alt: "웹툰 베트남에서 생긴 일 EP.9 대표 이미지",
-          label: "웹툰 EP.9",
-          caption: "웹툰 10화 중 EP.9 대표 이미지",
-        },
-        {
-          src: "/images/projects/university-content/univ-python-data-collection.webp",
-          alt: "Python과 Selenium을 활용한 웹 데이터 수집 코드",
-          label: "Python 데이터 수집",
-          caption: "Python으로 웹 데이터를 수집·정리한 수업 작업",
-        },
-      ],
-    },
-  },
 ];
+
+/** Bespoke University supporting project data — deliberate hierarchy & normalized scale */
+const UNIVERSITY_FEATURE = {
+  slug: "university-content",
+  monogram: "UNI",
+  name: "대학 콘텐츠 기획·제작 & 데이터 수집",
+  nameEn: "Content · Storytelling · Automation",
+  category: "Academic & Creative",
+  period: "2021 ~ 2023",
+  badge: "경진대회 대상 · 최우수상",
+  why: "학과와 전공 경험을 학생의 시선으로 소개하고, 교내 경진대회와 수업에서 영상·웹툰·데이터 수집 작업을 직접 해보고 싶었습니다.",
+  what: "학과 홍보영상과 교내 경진대회 콘텐츠를 직접 만들고 웹툰 10화를 연재했습니다. 수업에서는 Python으로 필요한 웹 데이터를 수집하고 정리했습니다.",
+  how: "홍보영상 2편과 경진대회 작업 2건의 기획·촬영·편집을 맡았습니다. 2021년 최우수상과 2023년 대상을 받았고, 웹툰은 EP.1부터 EP.10까지 제작·발행했습니다.",
+  stack: ["콘텐츠 기획", "영상 편집", "웹툰", "Python", "BeautifulSoup", "Selenium"],
+  summary: "수상 2회 · 학과 홍보영상 2편 · 경진대회 작업 2건 · 웹툰 10화 · Python 데이터 수집",
+  primaryWorks: [
+    {
+      title: "학과 홍보영상",
+      slotPath: "/images/projects/university-content/univ-department-promo-v2.webp",
+      alt: "직접 기획하고 촬영·편집한 학과 홍보영상 화면",
+      badgeText: "학과 홍보영상",
+      caption: "학과 홍보영상 기획·촬영·편집 (클릭 확대)",
+      sublabel: "학과 홍보영상 기획·촬영·편집",
+    },
+    {
+      title: "2021 경진대회 최우수상",
+      slotPath: "/images/projects/university-content/univ-competition-2021.webp",
+      alt: "2021 창의적 콘텐츠 제작 경진대회 최우수상 수상작 화면",
+      badgeText: "2021 최우수상",
+      caption: "2021 경진대회 최우수상 수상작 (클릭 확대)",
+      sublabel: "2021 경진대회 최우수상 수상작",
+    },
+  ],
+  supportingItems: [
+    {
+      src: "/images/projects/university-content/univ-competition-2023-v2.webp",
+      alt: "2023 경진대회 대상 수상작",
+      label: "2023 경진대회 대상",
+      caption: "2023 경진대회 대상 수상작 (기획·편집)",
+      sublabel: "창의적 콘텐츠 제작 경진대회 대상",
+    },
+    {
+      src: "/images/projects/university-content/univ-webtoon-ep1.webp",
+      alt: "웹툰 베트남에서 생긴 일 EP.1 대표 이미지",
+      label: "웹툰 연재 — EP.1",
+      caption: "웹툰 10화 중 EP.1 대표 이미지",
+      sublabel: "베트남에서 생긴 일 (총 10화 연재)",
+    },
+    {
+      src: "/images/projects/university-content/univ-webtoon-ep9.webp",
+      alt: "웹툰 베트남에서 생긴 일 EP.9 대표 이미지",
+      label: "웹툰 연재 — EP.9",
+      caption: "웹툰 10화 중 EP.9 대표 이미지",
+      sublabel: "베트남에서 생긴 일 후반 에피소드",
+    },
+    {
+      src: "/images/projects/university-content/univ-python-data-collection.webp",
+      alt: "Python과 Selenium을 활용한 웹 데이터 수집 코드",
+      label: "Python 웹 데이터 수집",
+      caption: "Python으로 웹 데이터를 수집·정리한 수업 작업",
+      sublabel: "BeautifulSoup · Selenium 활용",
+    },
+  ],
+} as const;
 
 export default function ProjectsPage() {
   return (
@@ -579,71 +578,24 @@ export default function ProjectsPage() {
                 <article
                   id={project.slug}
                   aria-labelledby={`${project.slug}-heading`}
-                  className="grid scroll-mt-24 grid-cols-1 items-center gap-8 md:grid-cols-12 md:gap-10"
+                  className="grid scroll-mt-24 grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12"
                 >
-                  <div className={`${project.mediaSpan} ${project.mediaFirst ? "" : "md:order-2"}`}>
-                    {project.mediaLayout === "gallery" && project.secondarySlotPath ? (
-                      <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                        <ProjectMedia
-                          title={project.name}
-                          monogram={project.monogram}
-                          slotPath={project.slotPath}
-                          alt={project.mediaAlt ?? `${project.name} 대표 이미지`}
-                          badgeText={project.badge}
-                          aspect={project.aspect}
-                          fit={project.fit}
-                          caption={project.primaryCaption}
-                          lightbox={Boolean(project.slotPath)}
-                        />
-                        <ProjectMedia
-                          title={`${project.name} 상세`}
-                          monogram={project.monogram}
-                          slotPath={project.secondarySlotPath}
-                          alt={project.secondaryAlt ?? `${project.name} 상세 이미지`}
-                          aspect={project.secondaryAspect ?? project.aspect}
-                          fit="contain"
-                          caption={project.secondaryCaption}
-                          lightbox={true}
-                        />
-                      </div>
-                    ) : (
-                      <>
-                        <div className={`w-full ${project.mediaMaxWidth ?? ""}`}>
-                          <ProjectMedia
-                            title={project.name}
-                            monogram={project.monogram}
-                            slotPath={project.slotPath}
-                            alt={project.mediaAlt ?? `${project.name} 대표 이미지`}
-                            badgeText={project.badge}
-                            aspect={project.aspect}
-                            fit={project.fit}
-                            caption={project.primaryCaption}
-                            lightbox={Boolean(project.slotPath)}
-                          />
-                        </div>
-                        {project.secondarySlotPath && (
-                          <div className={`mt-4 w-full ${project.secondaryMaxWidth ?? "max-w-[300px]"}`}>
-                            <ProjectMedia
-                              title={`${project.name} 상세`}
-                              monogram={project.monogram}
-                              slotPath={project.secondarySlotPath}
-                              alt={project.secondaryAlt ?? `${project.name} 상세 이미지`}
-                              aspect={project.secondaryAspect ?? "4 / 3"}
-                              fit="contain"
-                              caption={project.secondaryCaption}
-                              lightbox={true}
-                            />
-                          </div>
-                        )}
-                      </>
-                    )}
-                  </div>
+                  {/* Content Column: SEMANTICALLY FIRST in DOM (Order 1 on mobile, responsive order on desktop) */}
+                  <div
+                    className={`w-full ${project.contentSpan} ${
+                      project.mediaFirst ? "lg:order-2" : "lg:order-1"
+                    }`}
+                  >
+                    <div className="flex flex-wrap items-center gap-2">
+                      <p className="font-mono text-[11.5px] tracking-[0.16em] text-clay uppercase">
+                        {String(index + 3).padStart(2, "0")} — {project.category}
+                      </p>
+                      <span className="font-mono text-[11px] text-muted">{project.period}</span>
+                      <span className="rounded-full border border-ink/12 bg-surface px-2.5 py-0.5 font-mono text-[10.5px] font-semibold text-ink-soft">
+                        {project.badge}
+                      </span>
+                    </div>
 
-                  <div className={project.contentSpan}>
-                    <p className="font-mono text-[11.5px] tracking-[0.16em] text-clay uppercase">
-                      {String(index + 3).padStart(2, "0")} — {project.category}
-                      <span className="ml-2 normal-case text-muted">{project.period}</span>
-                    </p>
                     <h3
                       id={`${project.slug}-heading`}
                       className="mt-2.5 text-[clamp(1.4rem,3vw,1.9rem)] font-extrabold tracking-tight text-ink"
@@ -681,13 +633,13 @@ export default function ProjectsPage() {
                     </ul>
 
                     {project.externalLinks.length > 0 && (
-                      <div className="mt-4 flex flex-wrap gap-x-6">
+                      <div className="mt-4 hidden flex-wrap gap-x-6 lg:flex">
                         {project.externalLinks.map((link) => (
                           <a
                             key={link.url}
                             href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            target={link.url.startsWith("/") ? undefined : "_blank"}
+                            rel={link.url.startsWith("/") ? undefined : "noopener noreferrer"}
                             className="link-sweep inline-flex min-h-[44px] items-center gap-1 text-[14px] font-bold text-clay"
                           >
                             {link.label} <span aria-hidden="true">↗</span>
@@ -695,43 +647,234 @@ export default function ProjectsPage() {
                         ))}
                       </div>
                     )}
+                  </div>
 
-                    {project.supportingEvidence && (
-                      <div className="mt-5 rounded-xl border border-ink/10 bg-paper-deep/60 p-3.5">
-                        <div className="flex items-center justify-between">
-                          <span className="font-mono text-[10.5px] font-bold text-clay uppercase">
-                            작업 요약
-                          </span>
-                          <span className="font-mono text-[10.5px] text-muted">
-                            대표 이미지 {project.supportingEvidence.items.length}개
-                          </span>
+                  {/* Media Column: placed after content in DOM, lg:order controls desktop position */}
+                  <div
+                    className={`w-full ${project.mediaSpan} ${
+                      project.mediaFirst ? "lg:order-1" : "lg:order-2"
+                    }`}
+                  >
+                    {project.mediaLayout === "gallery" && project.secondarySlotPath ? (
+                      <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                        <ProjectMedia
+                          title={project.name}
+                          monogram={project.monogram}
+                          slotPath={project.slotPath}
+                          alt={project.mediaAlt ?? `${project.name} 대표 이미지`}
+                          badgeText={project.badge}
+                          aspect={project.aspect}
+                          fit={project.fit}
+                          caption={project.primaryCaption}
+                          lightbox={Boolean(project.slotPath)}
+                        />
+                        <ProjectMedia
+                          title={`${project.name} 상세`}
+                          monogram={project.monogram}
+                          slotPath={project.secondarySlotPath}
+                          alt={project.secondaryAlt ?? `${project.name} 상세 이미지`}
+                          aspect={project.secondaryAspect ?? project.aspect}
+                          fit="contain"
+                          caption={project.secondaryCaption}
+                          lightbox={true}
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex flex-col gap-4">
+                        <div className={`w-full ${project.mediaMaxWidth ?? ""}`}>
+                          <ProjectMedia
+                            title={project.name}
+                            monogram={project.monogram}
+                            slotPath={project.slotPath}
+                            alt={project.mediaAlt ?? `${project.name} 대표 이미지`}
+                            badgeText={project.badge}
+                            aspect={project.aspect}
+                            fit={project.fit}
+                            caption={project.primaryCaption}
+                            lightbox={Boolean(project.slotPath)}
+                          />
                         </div>
-                        <p className="mt-1 font-mono text-[11.5px] text-ink-soft">
-                          {project.supportingEvidence.countSummary}
-                        </p>
-                        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                          {project.supportingEvidence.items.map((it) => (
-                            <div key={it.src} className="flex flex-col">
-                              <LightboxImage
-                                src={it.src}
-                                alt={it.alt}
-                                label={it.label}
-                                footer={it.caption}
-                                buttonClassName="w-full overflow-hidden rounded-lg border border-ink/10 bg-surface text-left transition-transform duration-200 hover:scale-105"
-                                thumbnailClassName="aspect-[4/3] w-full object-contain bg-surface"
-                              />
-                              <p className="mt-1 text-center text-[10.5px] leading-snug text-muted">
-                                {it.label}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
+                        {project.secondarySlotPath && (
+                          <div className={`w-full ${project.secondaryMaxWidth ?? "max-w-[340px]"}`}>
+                            <ProjectMedia
+                              title={`${project.name} 상세`}
+                              monogram={project.monogram}
+                              slotPath={project.secondarySlotPath}
+                              alt={project.secondaryAlt ?? `${project.name} 상세 이미지`}
+                              aspect={project.secondaryAspect ?? "16 / 9"}
+                              fit="contain"
+                              caption={project.secondaryCaption}
+                              lightbox={true}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Mobile Supporting CTA link: visible on mobile after media */}
+                    {project.externalLinks.length > 0 && (
+                      <div className="mt-4 flex flex-wrap gap-x-6 lg:hidden">
+                        {project.externalLinks.map((link) => (
+                          <a
+                            key={link.url}
+                            href={link.url}
+                            target={link.url.startsWith("/") ? undefined : "_blank"}
+                            rel={link.url.startsWith("/") ? undefined : "noopener noreferrer"}
+                            className="link-sweep inline-flex min-h-[44px] items-center gap-1 text-[14px] font-bold text-clay"
+                          >
+                            {link.label} <span aria-hidden="true">↗</span>
+                          </a>
+                        ))}
                       </div>
                     )}
                   </div>
                 </article>
               </Reveal>
             ))}
+
+            {/* ============ 06 — UNIVERSITY BESPOKE SECTION ============ */}
+            <Reveal key={UNIVERSITY_FEATURE.slug}>
+              <article
+                id={UNIVERSITY_FEATURE.slug}
+                aria-labelledby={`${UNIVERSITY_FEATURE.slug}-heading`}
+                className="scroll-mt-24 rounded-3xl border border-ink/10 bg-paper-deep/40 p-6 sm:p-8 lg:p-10"
+              >
+                {/* Top Section: Content (5 cols) + Primary Featured Works (7 cols) */}
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-6">
+                  {/* 1. Header: Eyebrow, Title, Subtitle, Short Context (Mobile #1, Desktop Left Top) */}
+                  <div className="flex flex-col lg:col-span-5 lg:col-start-1 lg:row-start-1">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <p className="font-mono text-[11.5px] tracking-[0.16em] text-clay uppercase">
+                        06 — {UNIVERSITY_FEATURE.category}
+                      </p>
+                      <span className="font-mono text-[11px] text-muted">
+                        {UNIVERSITY_FEATURE.period}
+                      </span>
+                      <span className="rounded-full border border-clay/30 bg-clay/10 px-2.5 py-0.5 font-mono text-[10.5px] font-semibold text-clay">
+                        {UNIVERSITY_FEATURE.badge}
+                      </span>
+                    </div>
+
+                    <h3
+                      id={`${UNIVERSITY_FEATURE.slug}-heading`}
+                      className="mt-3 text-[clamp(1.5rem,3.2vw,2.1rem)] font-extrabold tracking-tight text-ink"
+                    >
+                      {UNIVERSITY_FEATURE.name}
+                    </h3>
+                    <p className="mt-1 font-mono text-[11.5px] tracking-[0.14em] text-muted uppercase">
+                      {UNIVERSITY_FEATURE.nameEn}
+                    </p>
+
+                    <p className="mt-4 text-[14.5px] leading-relaxed text-ink-soft sm:text-[15px]">
+                      학과 홍보영상과 교내 경진대회 콘텐츠를 직접 기획·제작하고 웹툰 10화를 연재했습니다. 수업에서는 Python으로 필요한 웹 데이터를 수집하고 정리했습니다.
+                    </p>
+                  </div>
+
+                  {/* 2. Primary Media: TOP / PRIMARY (Mobile #2, Desktop Right Col 6-12 Row 1-2) */}
+                  <div className="flex flex-col justify-center gap-4 lg:col-span-7 lg:col-start-6 lg:row-start-1 lg:row-span-2">
+                    <div className="flex items-center justify-between">
+                      <p className="font-mono text-[11px] font-bold tracking-wider text-clay uppercase">
+                        Primary Works · 대표 제작물
+                      </p>
+                      <span className="font-mono text-[11px] text-muted">
+                        클릭 시 확대 보기
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      {UNIVERSITY_FEATURE.primaryWorks.map((work) => (
+                        <div key={work.slotPath} className="flex flex-col">
+                          <ProjectMedia
+                            title={work.title}
+                            monogram="UNI"
+                            slotPath={work.slotPath}
+                            alt={work.alt}
+                            badgeText={work.badgeText}
+                            aspect="16 / 10"
+                            fit="contain"
+                            caption={work.caption}
+                            lightbox={true}
+                          />
+                          <p className="mt-2 text-center font-mono text-[11px] text-muted">
+                            {work.sublabel}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 3. Details: Body / Method dl & Stack (Mobile #3, Desktop Left Bottom Row 2) */}
+                  <div className="flex flex-col justify-between lg:col-span-5 lg:col-start-1 lg:row-start-2">
+                    <dl className="flex flex-col text-[14px] leading-relaxed">
+                      {[
+                        { t: "배경", d: UNIVERSITY_FEATURE.why },
+                        { t: "만든 것", d: UNIVERSITY_FEATURE.what },
+                        { t: "방식", d: UNIVERSITY_FEATURE.how },
+                      ].map((row) => (
+                        <div key={row.t} className="border-t border-ink/10 py-3 last:border-b">
+                          <dt className="font-mono text-[10.5px] font-semibold tracking-[0.14em] text-clay uppercase">
+                            {row.t}
+                          </dt>
+                          <dd className="mt-1 text-ink-soft">{row.d}</dd>
+                        </div>
+                      ))}
+                    </dl>
+
+                    <ul className="mt-5 flex flex-wrap gap-1.5">
+                      {UNIVERSITY_FEATURE.stack.map((tech) => (
+                        <li
+                          key={tech}
+                          className="rounded-full border border-ink/10 bg-surface px-2.5 py-1 font-mono text-[11px] text-ink-soft"
+                        >
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Dedicated Supporting Evidence Block — wider, generous thumbnail cards */}
+                <div className="mt-8 border-t border-ink/10 pt-7">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <div>
+                      <p className="font-mono text-[11px] font-bold tracking-wider text-clay uppercase">
+                        Supporting Evidence · 주요 성과 및 연계 작업
+                      </p>
+                      <p className="mt-0.5 font-mono text-[11.5px] text-ink-soft">
+                        {UNIVERSITY_FEATURE.summary}
+                      </p>
+                    </div>
+                    <span className="font-mono text-[11px] text-muted">
+                      클릭 시 원문·증빙 확대
+                    </span>
+                  </div>
+
+                  <div className="mt-5 grid grid-cols-2 gap-3.5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+                    {UNIVERSITY_FEATURE.supportingItems.map((it) => (
+                      <div key={it.src} className="flex flex-col">
+                        <div className="overflow-hidden rounded-xl border border-ink/10 bg-surface shadow-sm transition-all duration-200 hover:border-clay/40 hover:shadow-md">
+                          <LightboxImage
+                            src={it.src}
+                            alt={it.alt}
+                            label={it.label}
+                            footer={it.caption}
+                            buttonClassName="w-full text-left"
+                            thumbnailClassName="aspect-[16/11] w-full object-contain bg-surface transition-transform duration-300 hover:scale-[1.02]"
+                          />
+                        </div>
+                        <div className="mt-2">
+                          <p className="text-[12.5px] font-bold text-ink truncate">
+                            {it.label}
+                          </p>
+                          <p className="mt-0.5 text-[11px] text-muted truncate">
+                            {it.sublabel}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            </Reveal>
           </div>
         </Container>
       </section>

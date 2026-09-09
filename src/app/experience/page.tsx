@@ -480,7 +480,7 @@ export default function ExperiencePage() {
                                   thumbnailClassName="aspect-[3/4] w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
                                 />
                               </div>
-                              <p className="mt-1.5 text-center font-mono text-[11px] text-muted truncate">
+                              <p className="mt-1.5 text-center font-mono text-[11px] leading-snug text-muted line-clamp-2">
                                 {vis.caption}
                               </p>
                             </div>
@@ -528,10 +528,11 @@ export default function ExperiencePage() {
                         radioEpisodes="사내 라디오 20회"
                       />
 
+                      {/* 2. Cohesive Evidence Group (Field animation restrained on mobile, natural aspect ratios) */}
                       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        {/* A. Field Service Animation (3.5s loop, muted, no other faces) */}
+                        {/* A. Field Service Animation (restrained mobile sizing, stable 3/4 ratio) */}
                         <div className="flex flex-col">
-                          <div className="overflow-hidden rounded-xl border border-ink/10 bg-surface">
+                          <div className="mx-auto w-full max-w-[260px] overflow-hidden rounded-xl border border-ink/10 bg-surface sm:max-w-none">
                             <LightboxImage
                               src="/images/experience/lotteworld/lotte-field-service.webp"
                               reducedMotionSrc="/images/experience/lotteworld/lotte-field-service-static.webp"
@@ -539,17 +540,20 @@ export default function ExperiencePage() {
                               label="현장 안전 및 탑승 안내"
                               footer="어트랙션 현장 안전 및 탑승 안내 기록 (3.5초 무음 루프)"
                               buttonClassName="w-full text-left"
-                              thumbnailClassName="aspect-[4/3] w-full object-cover object-top transition-transform duration-300 hover:scale-[1.02] sm:aspect-[2/3]"
+                              thumbnailClassName="aspect-[3/4] w-full object-cover object-top transition-transform duration-300 hover:scale-[1.02]"
                             />
                           </div>
-                          <p className="mt-2 text-[12.5px] font-bold text-ink">
-                            현장 대기열 동선 통제
-                          </p>
-                          <p className="mt-0.5 text-[11.5px] leading-relaxed text-muted">
-                            성수기 대규모 인파 밀집 시 안전 수칙 직접 안내 (3.5초 무음 루프)
-                          </p>
+                          <div className="mt-2 text-center sm:text-left">
+                            <p className="text-[12.5px] font-bold text-ink">
+                              현장 대기열 동선 통제
+                            </p>
+                            <p className="mt-0.5 text-[11.5px] leading-relaxed text-muted">
+                              성수기 대규모 인파 밀집 시 안전 수칙 직접 안내 (3.5초 무음 루프)
+                            </p>
+                          </div>
                         </div>
 
+                        {/* B. OJT Document */}
                         <div className="flex flex-col">
                           <div className="overflow-hidden rounded-xl border border-ink/10 bg-surface">
                             <LightboxImage
@@ -558,16 +562,18 @@ export default function ExperiencePage() {
                               label="신규 캐스트 OJT 자료"
                               footer="신규 캐스트 교육을 위해 직접 정리한 OJT 자료"
                               buttonClassName="w-full text-left"
-                              thumbnailClassName="aspect-[16/7] w-full object-cover object-top transition-transform duration-300 hover:scale-[1.02]"
+                              thumbnailClassName="aspect-[16/8] w-full object-cover object-top transition-transform duration-300 hover:scale-[1.02]"
                             />
                           </div>
-                          <p className="mt-2 text-[12.5px] font-bold text-ink">신규 캐스트 OJT 자료</p>
-                          <p className="mt-0.5 text-[11.5px] leading-relaxed text-muted">
-                            교육 담당자와 신규 캐스트가 함께 참고할 내용을 직접 문서로 정리
-                          </p>
+                          <div className="mt-2">
+                            <p className="text-[12.5px] font-bold text-ink">신규 캐스트 OJT 자료</p>
+                            <p className="mt-0.5 text-[11.5px] leading-relaxed text-muted">
+                              교육 담당자와 신규 캐스트가 함께 참고할 내용을 직접 문서로 정리
+                            </p>
+                          </div>
                         </div>
 
-                        {/* B. Wait Time Information Map */}
+                        {/* C. Wait Time Information Map */}
                         <div className="flex flex-col">
                           <div className="overflow-hidden rounded-xl border border-ink/10 bg-surface">
                             <LightboxImage
@@ -576,18 +582,20 @@ export default function ExperiencePage() {
                               label="대기시간 동선 안내 맵"
                               footer="구간별 예상 대기시간 시각화 맵"
                               buttonClassName="w-full text-left"
-                              thumbnailClassName="aspect-[2/3] w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+                              thumbnailClassName="aspect-[16/11] w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
                             />
                           </div>
-                          <p className="mt-2 text-[12.5px] font-bold text-ink">
-                            대기시간 정보 시각화
-                          </p>
-                          <p className="mt-0.5 text-[11.5px] leading-relaxed text-muted">
-                            구간별 예상 소요 시간을 맵 형태로 구조화하여 고객 문의 분산
-                          </p>
+                          <div className="mt-2">
+                            <p className="text-[12.5px] font-bold text-ink">
+                              대기시간 정보 시각화
+                            </p>
+                            <p className="mt-0.5 text-[11.5px] leading-relaxed text-muted">
+                              구간별 예상 소요 시간을 맵 형태로 구조화하여 고객 문의 분산
+                            </p>
+                          </div>
                         </div>
 
-                        {/* C. Internal Radio Episodes */}
+                        {/* D. Internal Radio Episodes */}
                         <div className="flex flex-col">
                           <div className="overflow-hidden rounded-xl border border-ink/10 bg-surface">
                             <LightboxImage
@@ -596,15 +604,17 @@ export default function ExperiencePage() {
                               label="사내 라디오 20회 운영"
                               footer="팀 내부 소통을 위한 사내 라디오 20회 기획·진행 (음원 비공개)"
                               buttonClassName="w-full text-left"
-                              thumbnailClassName="aspect-[2/3] w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+                              thumbnailClassName="aspect-[16/11] w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
                             />
                           </div>
-                          <p className="mt-2 text-[12.5px] font-bold text-ink">
-                            사내 라디오 20회 진행
-                          </p>
-                          <p className="mt-0.5 text-[11.5px] leading-relaxed text-muted">
-                            팀 내 분위기 개선과 업무 노하우 공유를 위해 자발적으로 기획·운영
-                          </p>
+                          <div className="mt-2">
+                            <p className="text-[12.5px] font-bold text-ink">
+                              사내 라디오 20회 진행
+                            </p>
+                            <p className="mt-0.5 text-[11.5px] leading-relaxed text-muted">
+                              팀 내 분위기 개선과 업무 노하우 공유를 위해 자발적으로 기획·운영
+                            </p>
+                          </div>
                         </div>
                       </div>
 
