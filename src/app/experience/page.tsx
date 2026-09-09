@@ -20,12 +20,10 @@ export const metadata: Metadata = createSiteMetadata("/experience") as Metadata;
    Static Evidence Data Definitions
    ========================================================================== */
 
-/** GOM Verified File / Content Count */
+/** GOM career-scale work volume (user-confirmed portfolio-safe approximations) */
 const GOM_CHART_DATA = [
-  { label: "Short-form", value: 5, sublabel: "Short-form (인스타·유튜브)" },
-  { label: "Public Articles", value: 3, sublabel: "Public Articles (네이버·자사 블로그)" },
-  { label: "Web Workflow", value: 2, sublabel: "Web Layout Before/After" },
-  { label: "Automation", value: 1, sublabel: "Python Automation Script" },
+  { label: "영상 콘텐츠", value: 20, valueLabel: "20+", sublabel: "기획 · 촬영 · 편집" },
+  { label: "아티클·포스트", value: 200, valueLabel: "200+", sublabel: "GOMLab · Naver Blog" },
 ] as const;
 
 /** GOM Representative Public Work Cards (8 Verified URLs) */
@@ -66,10 +64,10 @@ const GOM_PUBLIC_WORKS = [
 
 /** Songpa Verified Category Count */
 const SONGPA_CHART_DATA = [
-  { label: "CS Communication", value: 4, sublabel: "CS Day 내부 커뮤니케이션 4종" },
-  { label: "Customer Guide", value: 1, sublabel: "간편사전접수 가이드 포스터 1종" },
-  { label: "Culture Promotion", value: 1, sublabel: "우체국 문화전 포스터 편집 1종" },
-  { label: "Financial Event", value: 1, sublabel: "예금 이벤트 홍보 안내물 1종" },
+  { label: "CS 콘텐츠", value: 4, sublabel: "CS Day 내부 소통 자료" },
+  { label: "고객 안내물", value: 1, sublabel: "간편사전접수 안내" },
+  { label: "문화전 포스터", value: 1, sublabel: "지점 홍보용 편집" },
+  { label: "예금 이벤트", value: 1, sublabel: "고객 홍보 안내물" },
 ] as const;
 
 /** Songpa Case Study Items (Problem → Action → Evidence → Outcome) */
@@ -79,7 +77,7 @@ const SONGPA_CASES: readonly SongpaCaseItem[] = [
     title: "간편사전접수 고객 안내",
     problem: "간편사전접수 절차가 낯설어 창구 문의가 반복됨",
     action: "단계별 이용 방법을 시각 자료로 제작",
-    evidence: "간편사전접수 안내물 + 현장 직접 안내",
+    evidence: "간편사전접수 안내물 · 창구 고객 직접 안내",
     outcome: "고객이 절차를 한 화면에서 이해하도록 지원",
   },
   {
@@ -87,7 +85,7 @@ const SONGPA_CASES: readonly SongpaCaseItem[] = [
     title: "CS Day 사내 소통",
     problem: "CS 메시지를 반복적으로 공유할 필요",
     action: "CS Day 내부 커뮤니케이션 콘텐츠 기획·촬영·편집",
-    evidence: "CS 관련 visual evidence",
+    evidence: "CS Day 콘텐츠 4종",
     outcome: "서비스 메시지를 구성원에게 반복 전달",
   },
   {
@@ -223,52 +221,59 @@ export default function ExperiencePage() {
                       <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-ink/10 pb-3">
                         <div>
                           <p className="font-mono text-[11px] tracking-wider text-clay uppercase">
-                            Employment Evidence
+                            Work Highlights
                           </p>
                           <h3
                             id="gom-evidence-heading"
                             className="text-[16px] font-bold text-ink"
                           >
-                            운영 채널 및 정량 성과 증빙
+                            콘텐츠 운영 규모와 성과
                           </h3>
                         </div>
                         <p className="font-mono text-[11px] text-muted">
-                          8개 공개 URL 증빙 검증
+                          대표 공개 콘텐츠 4건 연결
                         </p>
                       </div>
 
-                      {/* 1. Impact KPI Cards (Verified channels + Approx growth) */}
-                      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                         <MetricCard
-                          label="공식 운영 채널"
-                          value="5 Channels"
-                          note="Instagram · YouTube · Naver Blog · TikTok · Threads"
-                          level="verified"
-                          badgeSubtext="공식 채널"
+                          label="영상 콘텐츠 제작"
+                          value="20+"
+                          note="숏폼과 제품·캠페인 영상 기획·촬영·편집"
                         />
                         <MetricCard
-                          label="Instagram Followers"
-                          value="약 +4K"
-                          note="Approx. · 운영 기간 중 기억 기반 성장 규모"
-                          level="approx"
-                          badgeSubtext="기억 기반"
+                          label="콘텐츠 발행"
+                          value="200+"
+                          note="자사 홈페이지·Naver Blog 아티클과 포스트"
                         />
-                        <MetricCard
-                          label="Naver Blog Daily Visitors"
-                          value="약 +1K"
-                          note="Approx. · 운영 기간 중 기억 기반 성장 규모"
-                          level="approx"
-                          badgeSubtext="기억 기반"
-                        />
+                      </div>
+
+                      <div className="grid grid-cols-1 overflow-hidden rounded-xl border border-ink/10 bg-surface sm:grid-cols-3">
+                        <div className="p-4 sm:border-r sm:border-ink/10">
+                          <p className="font-mono text-[11px] font-semibold text-muted">6개 채널</p>
+                          <p className="mt-1 text-[12px] leading-relaxed text-ink-soft">
+                            SNS · Instagram · YouTube · TikTok · Threads<br />
+                            Owned Media · GOMLab · Naver Blog
+                          </p>
+                        </div>
+                        <div className="border-t border-ink/10 p-4 sm:border-t-0 sm:border-r">
+                          <p className="text-[1.35rem] font-extrabold text-ink">약 +4K</p>
+                          <p className="text-[12px] text-muted">Instagram Followers</p>
+                        </div>
+                        <div className="border-t border-ink/10 p-4 sm:border-t-0">
+                          <p className="text-[1.35rem] font-extrabold text-ink">약 +1K</p>
+                          <p className="text-[12px] text-muted">Naver Blog 일 방문자</p>
+                        </div>
                       </div>
 
                       {/* 2. Verified Evidence Counts Bar Chart */}
                       <EvidenceBarChart
-                        title="검증 산출물 분류별 건수"
-                        subtitle="실제 공개 콘텐츠 및 보유 화면 증빙 기준"
+                        title="콘텐츠 운영 규모"
+                        subtitle="재직 기간 전체 작업을 기준으로 한 약식 표기"
                         items={GOM_CHART_DATA}
                         unit="건"
-                        ariaLabel="곰앤컴퍼니 검증 산출물: 숏폼 콘텐츠 5건, 공개 아티클 3건, 웹 워크플로우 2건, 업무 자동화 1건"
+                        showTotalBadge={false}
+                        ariaLabel="곰앤컴퍼니 운영 규모: 영상 콘텐츠 20건 이상, 자사 홈페이지와 네이버 블로그 콘텐츠 200건 이상"
                       />
 
                       {/* 3. Representative Public Work Cards */}
@@ -329,11 +334,11 @@ export default function ExperiencePage() {
                       <HtmlCssComparison
                         beforeSrc="/images/experience/gom/gom-blog-layout-before.webp"
                         afterSrc="/images/experience/gom/gom-blog-layout-after.webp"
-                        beforeAlt="곰앤컴퍼니 자사 블로그 초기 아티클 레이아웃 (목차 및 CTA 부재)"
-                        afterAlt="곰앤컴퍼니 자사 블로그 리팩토링 후 레이아웃 (목차 카드, 스텝 뱃지, CTA 버튼 개선)"
-                        beforeCaption="초기 레이아웃: 긴 텍스트 나열 위주 구성 및 링크 분산"
-                        afterCaption="리팩토링 반영: 상단 목차 박스화, 스텝별 넘버링 뱃지, 하단 라운드 CTA 버튼 적용"
-                        note="마케팅 블로그 아티클 HTML/CSS 직접 수정 및 레이아웃 개선"
+                        beforeAlt="곰앤컴퍼니 자사 블로그 수정 전 아티클 화면"
+                        afterAlt="곰앤컴퍼니 자사 블로그 구조와 화면을 직접 수정한 결과"
+                        beforeCaption="기존 화면: 긴 본문과 분산된 이동 링크"
+                        afterCaption="개선 화면: 목차·콘텐츠 단계·CTA 영역을 다시 구성"
+                        note="HTML·CSS·JavaScript 구조를 정리하고 레이아웃·탐색 흐름·CTA 영역을 전반적으로 수정했습니다."
                         liveUrl="https://www.gomlab.com/blog/561"
                       />
 
@@ -342,14 +347,14 @@ export default function ExperiencePage() {
                         <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-ink/10 pb-3">
                           <div>
                             <h4 className="text-[14px] font-bold text-ink">
-                              Python 데이터 취합 자동화 스크립트
+                              Python으로 반복 Excel 작업 자동화
                             </h4>
                             <p className="mt-0.5 text-[12px] text-muted">
-                              pandas · openpyxl 기반 반복 엑셀 정제 파이프라인
+                              pandas · openpyxl로 정리·분류·파일 생성을 한 번에 처리
                             </p>
                           </div>
                           <span className="font-mono text-[11px] text-muted">
-                            내부 데이터 비공개 처리
+                            실제 작업 화면 일부
                           </span>
                         </div>
 
@@ -367,16 +372,15 @@ export default function ExperiencePage() {
 
                           <div className="flex flex-col justify-center text-[13px] leading-relaxed text-ink-soft">
                             <p className="font-bold text-ink">
-                              반복 엑셀 데이터 정제 자동화
+                              반복되는 데이터 정리 자동화
                             </p>
                             <p className="mt-1.5 text-muted">
-                              여러 캠페인에서 유입된 엑셀 데이터를 중복 이메일
-                              제거, 구매 여부 조건 필터링, 결과 파일 생성까지
-                              CLI 스크립트로 처리했습니다.
+                              반복되는 Excel 데이터 정리와 조건별 분류 작업을
+                              Python으로 자동화했습니다. 중복 데이터를 정리하고,
+                              필요한 조건으로 나눈 결과 파일까지 자동으로 만들었습니다.
                             </p>
                             <p className="mt-2 font-mono text-[11.5px] text-clay">
-                              ※ 사내 회원 정보 및 내부 원시 데이터는 제외하고
-                              익명화된 프로세스 구조만 공개했습니다.
+                              반복 수작업을 줄인 실제 자동화 코드의 일부입니다.
                             </p>
                           </div>
                         </div>
@@ -395,55 +399,51 @@ export default function ExperiencePage() {
                       <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-ink/10 pb-3">
                         <div>
                           <p className="font-mono text-[11px] tracking-wider text-clay uppercase">
-                            Operational Case Study
+                            Field Work
                           </p>
                           <h3
                             id="songpa-evidence-heading"
                             className="text-[16px] font-bold text-ink"
                           >
-                            현장 서비스 개선 & 시각물 제작 사례
+                            현장 안내와 콘텐츠 제작
                           </h3>
                         </div>
                         <p className="font-mono text-[11px] text-muted">
-                          문제 정의부터 실행 결과까지
+                          실제 현장에서 사용한 작업
                         </p>
                       </div>
 
                       {/* 1. Metric Cards (2 verified cards only) */}
                       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                         <MetricCard
-                          label="추진 프로젝트"
-                          value="4 Initiatives"
-                          note="고객 안내 · CS 커뮤니케이션 · 문화전 · 예금 이벤트"
-                          level="verified"
-                          badgeSubtext="보유 산출물"
+                          label="주요 작업"
+                          value="5개 프로젝트"
+                          note="안내물 제작 · 고객 직접 안내 · CS 콘텐츠 · 문화전 · 예금 이벤트"
                         />
                         <MetricCard
-                          label="고유 제작 시각물"
-                          value="7 Visual Assets"
+                          label="콘텐츠 제작"
+                          value="7개 제작물"
                           note="창구 부착 안내물, 사내 카드뉴스, 홍보 포스터 등"
-                          level="verified"
-                          badgeSubtext="고유 제작물"
                         />
                       </div>
 
                       {/* 2. Accessible Bar Chart */}
                       <EvidenceBarChart
-                        title="추진 분야별 시각 자료 현황"
-                        subtitle="현장 제작 및 편집 산출물 기준"
+                        title="제작물 구성"
+                        subtitle="5개 주요 작업 중 직접 만든 콘텐츠 7개"
                         items={SONGPA_CHART_DATA}
                         unit="종"
-                        ariaLabel="송파우체국 시각 자료: CS 커뮤니케이션 4종, 고객 접점 안내 1종, 문화 행사 홍보 1종, 금융 이벤트 1종"
+                        ariaLabel="송파우체국 제작물: CS 콘텐츠 4개, 고객 안내물 1개, 문화전 포스터 1개, 예금 이벤트 안내물 1개"
                       />
 
                       {/* 3. Problem → Action → Evidence → Outcome Table */}
                       <div>
                         <div className="mb-3">
                           <h4 className="text-[13.5px] font-bold text-ink">
-                            추진 과제별 프로세스 요약
+                            주요 작업
                           </h4>
                           <p className="mt-0.5 text-[12px] text-muted">
-                            추정 비율 대신 실제 수행한 조치와 현장 결과 중심 기록
+                            불편했던 점을 보고 직접 만들고 현장에서 사용했습니다.
                           </p>
                         </div>
                         <SongpaCaseStudyTable cases={SONGPA_CASES} />
@@ -453,7 +453,7 @@ export default function ExperiencePage() {
                       <div>
                         <div className="mb-3 flex items-center justify-between">
                           <h4 className="text-[13.5px] font-bold text-ink">
-                            대표 현장 시각 자료
+                            실제 제작물
                           </h4>
                           <span className="font-mono text-[11px] text-muted">
                             클릭 시 확대 보기
@@ -498,13 +498,13 @@ export default function ExperiencePage() {
                       <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-ink/10 pb-3">
                         <div>
                           <p className="font-mono text-[11px] tracking-wider text-clay uppercase">
-                            Operational Foundation
+                            Field Leadership
                           </p>
                           <h3
                             id="lotte-evidence-heading"
                             className="text-[16px] font-bold text-ink"
                           >
-                            현장 운영 관리 및 팀 리딩 증빙
+                            현장 운영과 팀 리딩
                           </h3>
                         </div>
                         <p className="font-mono text-[11px] text-muted">
@@ -516,12 +516,11 @@ export default function ExperiencePage() {
                       <LotteMetricStrip
                         duration="약 2년 1개월"
                         role="Team Lead"
-                        award="1 Best Lotty Award"
-                        radioEpisodes="20 Radio Episodes"
+                        award="Best Lotty 1회"
+                        radioEpisodes="사내 라디오 20회"
                       />
 
-                      {/* 2. Abstract Process & Field Evidence (No confidential safety manual leaks) */}
-                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         {/* A. Field Service Animation (3.5s loop, muted, no other faces) */}
                         <div className="flex flex-col">
                           <div className="overflow-hidden rounded-xl border border-ink/10 bg-surface">
@@ -532,7 +531,7 @@ export default function ExperiencePage() {
                               label="현장 안전 및 탑승 안내"
                               footer="어트랙션 현장 안전 및 탑승 안내 기록 (3.5초 무음 루프)"
                               buttonClassName="w-full text-left"
-                              thumbnailClassName="aspect-[2/3] w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+                              thumbnailClassName="aspect-[4/3] w-full object-cover object-top transition-transform duration-300 hover:scale-[1.02] sm:aspect-[2/3]"
                             />
                           </div>
                           <p className="mt-2 text-[12.5px] font-bold text-ink">
@@ -540,6 +539,23 @@ export default function ExperiencePage() {
                           </p>
                           <p className="mt-0.5 text-[11.5px] leading-relaxed text-muted">
                             성수기 대규모 인파 밀집 시 안전 수칙 직접 안내 (3.5초 무음 루프)
+                          </p>
+                        </div>
+
+                        <div className="flex flex-col">
+                          <div className="overflow-hidden rounded-xl border border-ink/10 bg-surface">
+                            <LightboxImage
+                              src="/images/experience/lotteworld/lotte-ojt-document.webp"
+                              alt="개인정보와 운영 세부 내용을 제외한 캐스트 OJT 일지 상단"
+                              label="신규 캐스트 OJT 자료"
+                              footer="신규 캐스트 교육을 위해 직접 정리한 OJT 자료"
+                              buttonClassName="w-full text-left"
+                              thumbnailClassName="aspect-[16/7] w-full object-cover object-top transition-transform duration-300 hover:scale-[1.02]"
+                            />
+                          </div>
+                          <p className="mt-2 text-[12.5px] font-bold text-ink">신규 캐스트 OJT 자료</p>
+                          <p className="mt-0.5 text-[11.5px] leading-relaxed text-muted">
+                            교육 담당자와 신규 캐스트가 함께 참고할 내용을 직접 문서로 정리
                           </p>
                         </div>
 
@@ -585,8 +601,7 @@ export default function ExperiencePage() {
                       </div>
 
                       <p className="border-t border-ink/8 pt-3 text-[12px] leading-relaxed text-muted">
-                        ※ 안전 관련 규정 및 사내 OJT 매뉴얼 원문은 보호 규정에
-                        따라 공개하지 않고 프로세스 요약으로만 안내합니다.
+                        OJT 자료는 개인정보와 세부 운영 내용을 제외한 문서 상단만 공개합니다.
                       </p>
                     </section>
                   )}

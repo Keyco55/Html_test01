@@ -37,9 +37,7 @@ export const awardsData: AwardItem[] = [
     organization: '롯데월드',
     description:
       '어트랙션 현장에서 고객 응대와 안전 수칙 준수, 동료 협업을 인정받아 우수 캐스트 표창을 받았습니다.',
-    imagePath: '/images/awards/award-2017-lotteworld-best-lotty-certificate.webp',
-    imageAlt: '2017 롯데월드 베스트로티상 표창장 - BEST LOTTY 봉투와 배지',
-    secondaryImagePath: '/images/awards/award-2017-lotteworld-best-lotty-record.webp',
-    secondaryImageAlt: '2017년 4월 베스트로티 수상 기록 게시물 - 롯데월드 사내 게시'
+    imagePath: '/images/awards/award-2017-lotteworld-best-lotty-certificate-v2.webp',
+    imageAlt: '2017 롯데월드 베스트로티상 표창장과 BEST LOTTY 배지'
   }
 ];

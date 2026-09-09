@@ -141,8 +141,8 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     slotPath: "/images/projects/gom/gom-blog-layout-after.webp",
     aspect: "16 / 10",
     fit: "contain",
-    mediaAlt: "GOM 블로그 웹 구조 리팩토링 및 CTA 개선 화면",
-    primaryCaption: "블로그 웹 구조 리팩토링 및 CTA 개선 (클릭 확대)",
+    mediaAlt: "GOM 블로그 HTML·CSS·JavaScript 구조와 화면을 수정한 결과",
+    primaryCaption: "블로그 구조·레이아웃·탐색 흐름·CTA 개선 (클릭 확대)",
     secondarySlotPath: "/images/projects/gom/gom-python-pandas-automation.webp",
     secondaryAspect: "16 / 9",
     secondaryAlt: "Python 마케팅 데이터 필터링 및 엑셀 취합 자동화 스크립트",
@@ -151,10 +151,10 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     mediaSpan: "md:col-span-6",
     contentSpan: "md:col-span-6",
     mediaFirst: false,
-    why: "매주 여러 캠페인의 엑셀 데이터를 취합하면서 반복 작업과 수작업 오류가 생겼고, 프로모션 페이지 수정 요청도 신속한 반영이 필요했습니다.",
-    what: "공식 마케팅 채널을 운영하며 프로모션 페이지의 HTML/CSS와 CTA를 직접 수정하고, 반복적인 데이터 취합·정리는 Python으로 자동화했습니다.",
-    how: "pandas와 openpyxl로 리포트 집계·중복 검증 스크립트를 만들어 처리 시간을 줄였습니다. 웹 업무는 별도로 프로모션 페이지의 마크업과 링크 구조를 직접 수정했습니다. 회사 내부 정보는 비공개 원칙을 준수했습니다.",
-    stack: ["Python", "pandas", "openpyxl", "HTML5 / CSS3", "Excel Automation"],
+    why: "반복되는 Excel 데이터 정리와 조건별 분류에 시간이 들었고, 마케팅 페이지도 콘텐츠에 맞춰 직접 수정할 필요가 있었습니다.",
+    what: "6개 채널의 콘텐츠를 운영하고, 관련 페이지의 HTML·CSS·JavaScript 구조와 화면을 직접 수정했습니다. 반복되는 Excel 작업은 Python으로 자동화했습니다.",
+    how: "pandas와 openpyxl로 중복 데이터를 정리하고 조건별로 분류해 결과 파일을 자동 생성했습니다. 웹에서는 레이아웃·콘텐츠 구조·탐색 흐름·CTA 영역을 전반적으로 손봤습니다.",
+    stack: ["Python", "pandas", "openpyxl", "HTML5 / CSS3", "JavaScript", "Excel Automation"],
     externalLinks: [{ label: "경력 상세에서 전체 증빙 보기", url: "/experience#gom-and-company" }],
   },
   {
@@ -193,50 +193,50 @@ const OTHER_PROJECTS: readonly OtherProjectEntry[] = [
     category: "Academic & Creative",
     period: "2021 ~ 2023",
     badge: "경진대회 대상 · 최우수상",
-    slotPath: "/images/projects/university-content/univ-competition-2023.webp",
+    slotPath: "/images/projects/university-content/univ-department-promo-v2.webp",
     aspect: "16 / 9",
     fit: "contain",
-    mediaAlt: "2023 콘텐츠 기획·제작 경진대회 대상 수상작 영상 화면",
-    primaryCaption: "2023 경진대회 대상 수상작 (클릭 확대)",
-    secondarySlotPath: "/images/projects/university-content/univ-webtoon-cover.webp",
-    secondaryAspect: "3 / 4",
-    secondaryAlt: "웹툰 '베트남에서 생긴 일' 표지 (Selected: EP.1 · EP.9)",
-    secondaryCaption: "웹툰 에피소드 표지 (Selected: EP.1 · EP.9, 클릭 확대)",
-    secondaryMaxWidth: "max-w-[240px]",
+    mediaAlt: "직접 기획하고 촬영·편집한 학과 홍보영상 화면",
+    primaryCaption: "학과 홍보영상 기획·촬영·편집 (클릭 확대)",
+    mediaLayout: "gallery",
+    secondarySlotPath: "/images/projects/university-content/univ-competition-2021.webp",
+    secondaryAspect: "16 / 9",
+    secondaryAlt: "2021 창의적 콘텐츠 제작 경진대회 최우수상 수상작 화면",
+    secondaryCaption: "2021 경진대회 최우수상 수상작 (클릭 확대)",
     mediaSpan: "md:col-span-6",
     contentSpan: "md:col-span-6",
     mediaFirst: true,
-    why: "학과 홍보와 교내 경진대회, 데이터 수집 실습 과정에서 시각 콘텐츠 기획과 웹 크롤링이 필요했습니다.",
-    what: "홍보영상 기획·촬영부터 웹툰 스토리텔링, Python 웹 크롤링을 활용한 데이터 수집까지 하나의 파이프라인으로 수행했습니다.",
-    how: "전공 홍보영상과 경진대회 콘텐츠를 제작해 대상(2023)과 최우수상(2021)을 수상했고, 웹툰 10화를 제작·발행했습니다. 실습에서는 Python(BeautifulSoup/Selenium)으로 웹 데이터를 수집했습니다.",
+    why: "학과와 전공 경험을 학생의 시선으로 소개하고, 교내 경진대회와 수업에서 영상·웹툰·데이터 수집 작업을 직접 해보고 싶었습니다.",
+    what: "학과 홍보영상과 교내 경진대회 콘텐츠를 직접 만들고 웹툰 10화를 연재했습니다. 수업에서는 Python으로 필요한 웹 데이터를 수집하고 정리했습니다.",
+    how: "홍보영상 2편과 경진대회 작업 2건의 기획·촬영·편집을 맡았습니다. 2021년 최우수상과 2023년 대상을 받았고, 웹툰은 EP.1부터 EP.10까지 제작·발행했습니다.",
     stack: ["콘텐츠 기획", "영상 편집", "웹툰", "Python", "BeautifulSoup", "Selenium"],
     externalLinks: [],
     supportingEvidence: {
-      countSummary: "2 Awards (대상·최우수상) · 2 Promo Videos · 2 Competition Works · 10 Webtoon Episodes · 1 Python Automation",
+      countSummary: "수상 2회 · 학과 홍보영상 2편 · 경진대회 작업 2건 · 웹툰 10화 · Python 데이터 수집",
       items: [
         {
-          src: "/images/projects/university-content/univ-department-promo.webp",
-          alt: "학과 홍보영상 프레임",
-          label: "학과 홍보영상 2편",
-          caption: "학과 홍보영상 프레임 (영상 기획·촬영)",
-        },
-        {
-          src: "/images/projects/university-content/univ-competition-2023.webp",
+          src: "/images/projects/university-content/univ-competition-2023-v2.webp",
           alt: "2023 경진대회 대상 수상작",
-          label: "경진대회 2건 (대상·최우수상)",
+          label: "2023 대상",
           caption: "2023 경진대회 대상 수상작 (기획·편집)",
         },
         {
-          src: "/images/projects/university-content/univ-webtoon-cover.webp",
-          alt: "웹툰 10화 표지",
-          label: "웹툰 10화 제작",
-          caption: "웹툰 표지 (Selected: EP.1 · EP.9)",
+          src: "/images/projects/university-content/univ-webtoon-ep1.webp",
+          alt: "웹툰 베트남에서 생긴 일 EP.1 대표 이미지",
+          label: "웹툰 EP.1",
+          caption: "웹툰 10화 중 EP.1 대표 이미지",
         },
         {
-          src: "/images/projects/university-content/univ-python-scraping.webp",
-          alt: "Python 웹 크롤링 스크립트",
-          label: "Python 자동화 1건",
-          caption: "Python 웹 크롤링 자동화 (데이터 수집)",
+          src: "/images/projects/university-content/univ-webtoon-ep9.webp",
+          alt: "웹툰 베트남에서 생긴 일 EP.9 대표 이미지",
+          label: "웹툰 EP.9",
+          caption: "웹툰 10화 중 EP.9 대표 이미지",
+        },
+        {
+          src: "/images/projects/university-content/univ-python-data-collection.webp",
+          alt: "Python과 Selenium을 활용한 웹 데이터 수집 코드",
+          label: "Python 데이터 수집",
+          caption: "Python으로 웹 데이터를 수집·정리한 수업 작업",
         },
       ],
     },
@@ -700,16 +700,16 @@ export default function ProjectsPage() {
                       <div className="mt-5 rounded-xl border border-ink/10 bg-paper-deep/60 p-3.5">
                         <div className="flex items-center justify-between">
                           <span className="font-mono text-[10.5px] font-bold text-clay uppercase">
-                            Verified Summary
+                            작업 요약
                           </span>
                           <span className="font-mono text-[10.5px] text-muted">
-                            4개 대표 증빙
+                            대표 이미지 {project.supportingEvidence.items.length}개
                           </span>
                         </div>
                         <p className="mt-1 font-mono text-[11.5px] text-ink-soft">
                           {project.supportingEvidence.countSummary}
                         </p>
-                        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
                           {project.supportingEvidence.items.map((it) => (
                             <div key={it.src} className="flex flex-col">
                               <LightboxImage
@@ -718,9 +718,9 @@ export default function ProjectsPage() {
                                 label={it.label}
                                 footer={it.caption}
                                 buttonClassName="w-full overflow-hidden rounded-lg border border-ink/10 bg-surface text-left transition-transform duration-200 hover:scale-105"
-                                thumbnailClassName="aspect-[4/3] w-full object-cover"
+                                thumbnailClassName="aspect-[4/3] w-full object-contain bg-surface"
                               />
-                              <p className="mt-1 text-center font-mono text-[9.5px] text-muted truncate">
+                              <p className="mt-1 text-center text-[10.5px] leading-snug text-muted">
                                 {it.label}
                               </p>
                             </div>

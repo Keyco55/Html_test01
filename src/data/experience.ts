@@ -9,11 +9,11 @@ export const experienceData: ExperienceItem[] = [
     dateTime: '2024-04/2025-01',
     department: '마케팅 / 콘텐츠 운영',
     description:
-      '국내외 소프트웨어 마케팅과 공식 SNS 채널(Instagram·YouTube·네이버 블로그·TikTok·Threads)을 운영했습니다. 공식 웹사이트와 프로모션 랜딩 페이지는 HTML/CSS로 수정했고, 반복적인 엑셀 데이터 취합 업무는 Python으로 자동화했습니다.',
+      '국내외 소프트웨어 마케팅을 맡아 Instagram·YouTube·TikTok·Threads와 GOMLab·Naver Blog를 운영했습니다. 관련 마케팅 페이지의 HTML·CSS·JavaScript를 직접 수정하고, 반복되는 Excel 정리 작업은 Python으로 자동화했습니다.',
     verifiedHighlights: [
       '국내 및 글로벌 마케팅 캠페인 지원 및 SNS·블로그 채널용 콘텐츠 기획·제작',
-      'Instagram, YouTube, 네이버 블로그, TikTok, Threads 공식 채널 게시물 관리와 커뮤니티 응대',
-      '공식 프로모션·이벤트 랜딩 페이지의 HTML/CSS 레이아웃과 요소 수정',
+      'Instagram, YouTube, TikTok, Threads와 GOMLab·Naver Blog 콘텐츠 제작·발행',
+      '공식 프로모션·이벤트 페이지의 HTML·CSS·JavaScript 구조와 화면 수정',
       '신규 기능 안내 배너, 홍보 이미지, 영상 삽입, CTA 버튼과 추적 링크 반영',
       'Python, pandas, openpyxl로 엑셀 마케팅 데이터를 정리·가공하는 자동화 스크립트 작성',
       '해외 사용자를 위한 다국어 콘텐츠 현지화'
@@ -43,23 +43,6 @@ export const experienceData: ExperienceItem[] = [
       '공공기관 내부 규정에 따라 내부 전산망, 공무 비공개 데이터 및 고객 개인정보는 일체 포함되지 않았습니다.'
   },
   {
-    id: 'our-town-commerce',
-    company: '우리동네커머스',
-    role: '온라인 CS & 스토어 운영 지원 (E-Commerce Customer Support & Operations)',
-    period: '2020.11 – 2020.12',
-    dateTime: '2020-11/2020-12',
-    department: '이커머스 운영팀',
-    description:
-      '네이버 스마트스토어 고객 문의를 응대하고 주문·배송·교환·반품 업무를 지원했습니다.',
-    verifiedHighlights: [
-      '네이버 톡톡, Q&A, 유선으로 접수된 고객 문의 응대',
-      '정책에 따라 주문 취소·교환·반품·환불을 처리하고 배송 문제 확인',
-      '스마트스토어 주문 건 데이터 취합, 송장 등록 및 재고 확인 등 백오피스 운영 지원',
-      '반복 접수되는 고객의 소리(VOC) 유형을 분석하여 상품 상세페이지의 상품 안내 문구 및 FAQ 보완 제안'
-    ],
-    skills: ['스마트스토어 지원', '온라인 CS', '교환/반품 처리', 'VOC 분석', '고객 경험 개선']
-  },
-  {
     id: 'lotte-world',
     company: '롯데월드 (Lotte World)',
     role: '어트랙션서비스팀 팀장 (Attraction Service Team Lead)',
@@ -77,5 +60,22 @@ export const experienceData: ExperienceItem[] = [
       '모범적인 고객 응대 및 안전 운영 성과를 인정받아 ‘베스트로티상’ 수상'
     ],
     skills: ['어트랙션 서비스', '팀 리딩', '고객 응대', '현장 안전 운영', 'OJT 매뉴얼', '베스트로티상']
+  },
+  {
+    id: 'our-town-commerce',
+    company: '우리동네커머스',
+    role: '온라인 CS & 스토어 운영 지원 (E-Commerce Customer Support & Operations)',
+    period: '2020.11 – 2020.12',
+    dateTime: '2020-11/2020-12',
+    department: '이커머스 운영팀',
+    description:
+      '네이버 스마트스토어 고객 문의를 응대하고 주문·배송·교환·반품 업무를 지원했습니다.',
+    verifiedHighlights: [
+      '네이버 톡톡, Q&A, 유선으로 접수된 고객 문의 응대',
+      '정책에 따라 주문 취소·교환·반품·환불을 처리하고 배송 문제 확인',
+      '스마트스토어 주문 건 데이터 취합, 송장 등록 및 재고 확인 등 백오피스 운영 지원',
+      '반복 접수되는 고객의 소리(VOC) 유형을 분석하여 상품 상세페이지의 상품 안내 문구 및 FAQ 보완 제안'
+    ],
+    skills: ['스마트스토어 지원', '온라인 CS', '교환/반품 처리', 'VOC 분석', '고객 경험 개선']
   }
 ];

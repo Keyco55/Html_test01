@@ -237,23 +237,23 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     category: 'Growth & Automation',
     status: 'Internal Production Verified',
     summary:
-      '국내외 콘텐츠 마케팅과 공식 SNS 채널을 운영하고, 랜딩 페이지의 HTML/CSS를 수정했습니다. Python과 Excel로 반복적인 데이터 취합·정리 업무를 자동화했으며, 공개 자료에는 회사 내부 정보가 드러나지 않도록 처리했습니다.',
+      '6개 채널의 콘텐츠를 운영하고, 관련 마케팅 페이지의 HTML·CSS·JavaScript 구조와 화면을 직접 수정했습니다. 반복되는 Excel 데이터 정리와 조건별 분류는 Python으로 자동화했습니다.',
     metadata: {
       role: 'Growth Marketer & Automation Builder',
       timeline: '2024 ~ 2025',
-      platform: 'Web · SNS/Blog · Python CLI Pipeline',
+      platform: 'Web · SNS/Blog · Python',
       scope: '글로벌/국내 마케팅 · 콘텐츠 기획 · 웹 수정 · 데이터 자동화',
     },
     narrative: {
       problem:
         '여러 채널의 마케팅 데이터를 매주·매월 엑셀로 취합하는 과정에서 반복 작업과 수작업 오류가 생겼습니다. 랜딩 페이지의 작은 수정도 별도 요청이 필요해 반영이 늦어지곤 했습니다.',
       solution:
-        'pandas와 openpyxl로 데이터 검증과 엑셀 정리를 자동화하는 스크립트를 작성했습니다. 웹 업무는 별도로 HTML/CSS와 CTA 마크업을 직접 수정해 필요한 내용을 반영했습니다.',
+        'pandas와 openpyxl로 중복 데이터를 정리하고 조건별로 분류해 결과 파일을 자동 생성했습니다. 웹에서는 HTML·CSS·JavaScript를 직접 수정해 레이아웃과 콘텐츠 구조, 탐색 흐름, CTA 영역을 손봤습니다.',
       keyContributions: [
         '국내외 콘텐츠 마케팅: 공식 SNS와 블로그 채널에 맞는 콘텐츠 기획·제작 및 운영',
         '웹페이지 수정: 마케팅 랜딩 페이지의 HTML/CSS, CTA 배치, 링크 구조와 미디어 삽입 코드 수정',
-        'Python 데이터 전처리 자동화: 여러 광고 매체 및 유입 경로의 원시 데이터를 정규화하고 중복을 제거하는 CLI 스크립트 제작',
-        '대용량 엑셀 워크플로우 자동화: 주간 정산 및 KPI 리포트 집계 반복 업무를 스크립트 파이프라인으로 자동화',
+        'Python 업무 자동화: 반복되는 Excel 데이터의 중복 정리와 조건별 분류를 자동화',
+        '결과 파일 자동 생성: pandas와 openpyxl로 필요한 형식의 Excel 파일 생성',
         '정보 보호: 고객 정보와 회사 내부 자료가 공개 결과물에 포함되지 않도록 작업 범위 관리',
       ],
       technicalHighlights: [
@@ -279,7 +279,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     featuredStack: ['Python', 'pandas', 'openpyxl', 'HTML5/CSS3', 'Excel Automation'],
     metrics: [
       { label: '집계 자동화', value: 'Pipeline', note: '반복 리포트 집계 스크립트 자동화' },
-      { label: '데이터 검증', value: 'Automated', note: '수작업 오기를 줄이는 검증 로직' },
+      { label: '업무 자동화', value: 'Python', note: '반복되는 Excel 정리와 조건별 분류' },
       { label: '웹 운영', value: '직접 수정', note: 'HTML/CSS·미디어·CTA·링크 반영' },
       { label: '정보 보호', value: 'Anonymized', note: '회사 내부 raw asset 비공개 원칙' },
     ],
@@ -292,7 +292,7 @@ export const FEATURED_PROJECTS: readonly Project[] = [
       },
     ],
     screenshotPlaceholder: {
-      caption: '데이터 수집·정제부터 포맷팅된 엑셀 산출물 자동 생성까지의 파이썬 파이프라인 흐름',
+      caption: '반복되는 Excel 데이터 정리와 결과 파일 생성을 자동화한 Python 작업',
       mockupType: 'workflow',
       badgeText: 'Anonymized Workflow',
     },
@@ -396,11 +396,11 @@ export const FEATURED_PROJECTS: readonly Project[] = [
       problem:
         '학과 홍보와 경진대회 참가, 데이터 분석 실습 과정에서 시각 콘텐츠 기획과 웹 크롤링이 필요했습니다.',
       solution:
-        '영상 기획과 컷편집, 웹툰 스토리텔링으로 정보를 시각화하고, Python으로 웹 데이터를 수집했습니다.',
+        '학과 홍보영상과 교내 경진대회 콘텐츠를 직접 만들고 웹툰 10화를 연재했습니다. 수업에서는 Python으로 필요한 웹 데이터를 수집하고 정리했습니다.',
       keyContributions: [
         '학과 홍보영상 2편 기획·촬영·편집: 학생 관점의 전공 소개 영상 제작',
         '교내 경진대회 수상: 2023 콘텐츠 기획·제작 경진대회 대상, 2021 최우수상 수상',
-        '웹툰 10화 기획·제작 및 발행: 일상과 연수 경험을 스토리텔링형 웹툰으로 연재 (보유 증빙: EP.1 · EP.9)',
+        '웹툰 10화 기획·제작 및 발행: EP.1부터 EP.10까지 연재',
         'Python 크롤링 실습: BeautifulSoup과 Selenium을 활용한 데이터 수집',
       ],
       technicalHighlights: [
@@ -415,14 +415,14 @@ export const FEATURED_PROJECTS: readonly Project[] = [
     techStack: ['콘텐츠 기획', '영상 편집', '웹툰', 'Python', 'BeautifulSoup', 'Selenium'],
     featuredStack: ['콘텐츠 기획', '영상 편집', '웹툰', 'Python'],
     metrics: [
-      { label: '수상 실적', value: '2 Awards', note: '2023 대상 · 2021 최우수상' },
-      { label: '홍보 영상', value: '2 Promo Videos', note: '학과 소개 및 활동 안내 영상' },
-      { label: '경진대회', value: '2 Competition Works', note: '경진대회 출품 및 수상 산출물' },
-      { label: '웹툰 제작', value: '10 Webtoon Episodes', note: '웹툰 10화 제작 (보유 증빙: EP.1 · EP.9)' },
+      { label: '수상 실적', value: '2회', note: '2023 대상 · 2021 최우수상' },
+      { label: '홍보 영상', value: '2편', note: '학과 소개 및 활동 안내 영상' },
+      { label: '경진대회', value: '2건', note: '경진대회 출품 및 수상 작업' },
+      { label: '웹툰 제작', value: '10화', note: 'EP.1부터 EP.10까지 제작·발행' },
     ],
     links: [],
     screenshotPlaceholder: {
-      caption: '2023 콘텐츠 기획·제작 경진대회 대상 수상 영상 및 웹툰 표지 (Selected: EP.1 · EP.9)',
+      caption: '학과 홍보영상, 2021·2023 경진대회 수상작, 웹툰 EP.1·EP.9와 Python 데이터 수집 작업',
       mockupType: 'browser',
       badgeText: 'Award Winning',
     },

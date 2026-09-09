@@ -61,6 +61,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
 export interface BarChartItem {
   readonly label: string;
   readonly value: number;
+  readonly valueLabel?: string;
   readonly sublabel?: string;
 }
 
@@ -71,6 +72,7 @@ export interface EvidenceBarChartProps {
   readonly unit?: string;
   readonly ariaLabel?: string;
   readonly className?: string;
+  readonly showTotalBadge?: boolean;
 }
 
 export const EvidenceBarChart: React.FC<EvidenceBarChartProps> = ({
@@ -80,6 +82,7 @@ export const EvidenceBarChart: React.FC<EvidenceBarChartProps> = ({
   unit = "건",
   ariaLabel,
   className = "",
+  showTotalBadge = true,
 }) => {
   const maxValue = Math.max(...items.map((it) => it.value), 1);
   const totalCount = items.reduce((acc, it) => acc + it.value, 0);
@@ -98,7 +101,9 @@ export const EvidenceBarChart: React.FC<EvidenceBarChartProps> = ({
             <p className="mt-0.5 text-[12px] text-muted">{subtitle}</p>
           )}
         </div>
-        <MetricBadge level="verified" text="VERIFIED" subtext={`총 ${totalCount}${unit}`} />
+        {showTotalBadge && (
+          <MetricBadge level="verified" text="확인된 제작물" subtext={`총 ${totalCount}${unit}`} />
+        )}
       </div>
 
       {/* Accessible visual bar rows */}
@@ -131,10 +136,12 @@ export const EvidenceBarChart: React.FC<EvidenceBarChartProps> = ({
               </div>
 
               <div className="text-right font-mono text-[13px] font-bold text-ink">
-                {item.value}
-                <span className="ml-0.5 text-[11px] font-normal text-muted">
-                  {unit}
-                </span>
+                {item.valueLabel ?? item.value}
+                {!item.valueLabel && (
+                  <span className="ml-0.5 text-[11px] font-normal text-muted">
+                    {unit}
+                  </span>
+                )}
               </div>
             </div>
           );
@@ -155,8 +162,7 @@ export const EvidenceBarChart: React.FC<EvidenceBarChartProps> = ({
             <tr key={it.label}>
               <th scope="row">{it.label}</th>
               <td>
-                {it.value}
-                {unit}
+                {it.valueLabel ?? `${it.value}${unit}`}
               </td>
             </tr>
           ))}
@@ -193,13 +199,13 @@ export const SongpaCaseStudyTable: React.FC<{
                 과제
               </th>
               <th scope="col" className="w-[26%] py-3.5 px-4 font-semibold">
-                Problem (현장 문제)
+                문제
               </th>
               <th scope="col" className="w-[26%] py-3.5 px-4 font-semibold">
-                Action (조치 및 제작)
+                한 일
               </th>
               <th scope="col" className="w-[28%] py-3.5 px-4 font-semibold">
-                Outcome & Evidence (결과·증빙)
+                현장 적용
               </th>
             </tr>
           </thead>
@@ -218,7 +224,7 @@ export const SongpaCaseStudyTable: React.FC<{
                 <td className="py-4 px-4 align-top leading-relaxed">
                   <p className="text-ink">{c.outcome}</p>
                   <p className="mt-1 font-mono text-[11.5px] text-clay">
-                    증빙: {c.evidence}
+                    실제 작업: {c.evidence}
                   </p>
                 </td>
               </tr>
@@ -238,13 +244,13 @@ export const SongpaCaseStudyTable: React.FC<{
               <h3 className="font-bold text-ink">
                 {idx + 1}. {c.title}
               </h3>
-              <span className="font-mono text-[10.5px] text-muted">CASE</span>
+              <span className="font-mono text-[10.5px] text-muted">작업</span>
             </div>
 
             <dl className="mt-3 flex flex-col gap-2.5">
               <div>
                 <dt className="font-mono text-[11px] font-bold text-clay uppercase">
-                  Problem
+                  문제
                 </dt>
                 <dd className="mt-0.5 leading-relaxed text-ink-soft">
                   {c.problem}
@@ -252,7 +258,7 @@ export const SongpaCaseStudyTable: React.FC<{
               </div>
               <div>
                 <dt className="font-mono text-[11px] font-bold text-clay uppercase">
-                  Action
+                  한 일
                 </dt>
                 <dd className="mt-0.5 leading-relaxed text-ink-soft">
                   {c.action}
@@ -260,13 +266,13 @@ export const SongpaCaseStudyTable: React.FC<{
               </div>
               <div>
                 <dt className="font-mono text-[11px] font-bold text-clay uppercase">
-                  Outcome
+                  현장 적용
                 </dt>
                 <dd className="mt-0.5 leading-relaxed font-medium text-ink">
                   {c.outcome}
                 </dd>
                 <dd className="mt-1 font-mono text-[11px] text-clay">
-                  증빙: {c.evidence}
+                  실제 작업: {c.evidence}
                 </dd>
               </div>
             </dl>
@@ -307,7 +313,7 @@ export const HtmlCssComparison: React.FC<HtmlCssComparisonProps> = ({
       <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-ink/10 pb-3">
         <div>
           <h3 className="text-[14px] font-bold text-ink">
-            HTML/CSS 구조 리팩토링 Before → After
+            웹 화면 개선 Before → After
           </h3>
           <p className="mt-0.5 text-[12px] text-muted">{note}</p>
         </div>
